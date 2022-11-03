@@ -50,4 +50,64 @@ public class Ave {
         atualizadoEm = Instant.now();
     }
 
+    public String getNomePopular() {
+        return nomePopular;
+    }
+
+    public void setNomePopular(String nomePopular) {
+        this.nomePopular = nomePopular;
+    }
+
+    public String getNomeCientifico() {
+        return nomeCientifico;
+    }
+
+    public void setNomeCientifico(String nomeCientifico) {
+        this.nomeCientifico = nomeCientifico;
+    }
+
+    public String getCorPredominante() {
+        return corPredominante;
+    }
+
+    public void setCorPredominante(String corPredominante) {
+        this.corPredominante = corPredominante;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Instant getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(Instant criadoEm) {
+        this.criadoEm = criadoEm;
+    }
+
+    public Instant getAtualizadoEm() {
+        return atualizadoEm;
+    }
+
+    public void setAtualizadoEm(Instant atualizadoEm) {
+        this.atualizadoEm = atualizadoEm;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
 }
