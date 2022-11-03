@@ -1,5 +1,8 @@
 package com.ornitologo.backend.model;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Localizacao {
     private String lat;
     private String longt;

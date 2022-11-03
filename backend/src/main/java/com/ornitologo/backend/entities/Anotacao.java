@@ -4,6 +4,7 @@ import java.security.Timestamp;
 import java.time.Instant;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,8 @@ public class Anotacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Timestamp dataHorarioDoAvistamento;
+
+    @Embedded
     private Localizacao localizacao;
     private String comentario;
 
@@ -46,4 +49,65 @@ public class Anotacao {
     public void preUpdate() {
         atualizadoEm = Instant.now();
     }
+
+    public Timestamp getDataHorarioDoAvistamento() {
+        return dataHorarioDoAvistamento;
+    }
+
+    public void setDataHorarioDoAvistamento(Timestamp dataHorarioDoAvistamento) {
+        this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
+    }
+
+    public Localizacao getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(Localizacao localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public Instant getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(Instant criadoEm) {
+        this.criadoEm = criadoEm;
+    }
+
+    public Instant getAtualizadoEm() {
+        return atualizadoEm;
+    }
+
+    public void setAtualizadoEm(Instant atualizadoEm) {
+        this.atualizadoEm = atualizadoEm;
+    }
+
+    public Ave getAve() {
+        return ave;
+    }
+
+    public void setAve(Ave ave) {
+        this.ave = ave;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
 }
