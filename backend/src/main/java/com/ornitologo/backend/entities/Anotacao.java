@@ -26,6 +26,8 @@ public class Anotacao {
     @Embedded
     private Localizacao localizacao;
     private String comentario;
+    private String tamanho;
+    private String corPredominante;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant criadoEm;
@@ -108,6 +110,22 @@ public class Anotacao {
 
     public Long getId() {
         return id;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public String getCorPredominante() {
+        return corPredominante;
+    }
+
+    public void setCorPredominante(String corPredominante) {
+        this.corPredominante = corPredominante;
     }
 
 }
