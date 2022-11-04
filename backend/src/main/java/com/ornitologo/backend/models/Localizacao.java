@@ -1,4 +1,4 @@
-package com.ornitologo.backend.model;
+package com.ornitologo.backend.models;
 
 import javax.persistence.Embeddable;
 
