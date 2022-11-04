@@ -24,18 +24,6 @@ public class Ave {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant atualizadoEm;
 
-    public Ave() {
-    }
-
-    public Ave(String nomePopular, String nomeCientifico,
-            String descricao, Instant criadoEm, Instant atualizadoEm) {
-        this.nomePopular = nomePopular;
-        this.nomeCientifico = nomeCientifico;
-        this.descricao = descricao;
-        this.criadoEm = criadoEm;
-        this.atualizadoEm = atualizadoEm;
-    }
-
     @PrePersist
     public void prePersist() {
         criadoEm = Instant.now();
