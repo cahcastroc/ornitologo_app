@@ -17,8 +17,6 @@ public class Ave {
     private Long id;
     private String nomePopular;
     private String nomeCientifico;
-    private String corPredominante;
-    private String tamanho;
     private String descricao;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
@@ -29,12 +27,10 @@ public class Ave {
     public Ave() {
     }
 
-    public Ave(String nomePopular, String nomeCientifico, String corPredominante, String tamanho,
+    public Ave(String nomePopular, String nomeCientifico,
             String descricao, Instant criadoEm, Instant atualizadoEm) {
         this.nomePopular = nomePopular;
         this.nomeCientifico = nomeCientifico;
-        this.corPredominante = corPredominante;
-        this.tamanho = tamanho;
         this.descricao = descricao;
         this.criadoEm = criadoEm;
         this.atualizadoEm = atualizadoEm;
@@ -64,22 +60,6 @@ public class Ave {
 
     public void setNomeCientifico(String nomeCientifico) {
         this.nomeCientifico = nomeCientifico;
-    }
-
-    public String getCorPredominante() {
-        return corPredominante;
-    }
-
-    public void setCorPredominante(String corPredominante) {
-        this.corPredominante = corPredominante;
-    }
-
-    public String getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
     }
 
     public String getDescricao() {
