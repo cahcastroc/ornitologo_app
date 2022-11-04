@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
-import com.ornitologo.backend.model.Localizacao;
+import com.ornitologo.backend.models.Localizacao;
 
 @Entity
 public class Anotacao {
