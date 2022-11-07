@@ -157,5 +157,4 @@ public class Anotacao {
     public void setCorPredominante(String corPredominante) {
         this.corPredominante = corPredominante;
     }
-
 }
