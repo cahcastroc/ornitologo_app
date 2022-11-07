@@ -1,9 +1,11 @@
 package com.ornitologo.backend.controllers;
 
 import com.ornitologo.backend.dtos.UsuarioDTO;
+import com.ornitologo.backend.services.TokenService;
 import com.ornitologo.backend.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -15,6 +17,9 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService service;
+
+    @Autowired
+    private TokenService tokenService;
 
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioDTO> findById(@PathVariable Long id) {
@@ -29,4 +34,11 @@ public class UsuarioController {
                 .buildAndExpand(novoDto.getId()).toUri();
         return ResponseEntity.created(uri).body(novoDto);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody UsuarioDTO dto) {
+        Authentication authentication = service.login(dto);
+        return ResponseEntity.ok().body(tokenService.gerarToken(authentication));
+    }
+
 }

@@ -1,8 +1,6 @@
 package com.ornitologo.backend.entities;
 
 import lombok.Builder;
-
-import java.security.Timestamp;
 import java.time.Instant;
 import java.util.Collection;
 
@@ -45,6 +43,7 @@ public class Usuario implements UserDetails {
         this.criadoEm = criadoEm;
         this.atualizadoEm = atualizadoEm;
     }
+
     public Usuario(Long id, String email, String senha, String nome, Instant criadoEm, Instant atualizadoEm) {
         this.id = id;
         this.email = email;
@@ -110,7 +109,6 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
         return null;
     }
 
