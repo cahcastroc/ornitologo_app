@@ -1,17 +1,15 @@
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('João-grande', 'Maguari Stork', 'Família Ciconiidae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Cabeça-seca', 'Mycteria americana','Família Ciconiidae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Gavião-de-rabo-branco','Geranoaetus albicaudatus','Família Accipitridae,');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Pernilongo-de-costas-brancas','Himantopus melanurus','Família Recurvirostridae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Pica-pau-branco','Melanerpes candidus','Família Picidae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Noivinha-coroada','Xolmis coronatus','Família Tyrannidae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Cardeal', 'Paroaria coronata','Família Thraupidae' );
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Urubu-de-cabeça-vermelha','Cathartes aura','Família Cathartidae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Veste-amarela','Xanthopsar flavus','Família Icteridae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Garibaldi','Chrysomus ruficapillus','Família Icteridae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Maria-preta-de-penacho','Knipolegus lophotes','Família Tyrannidae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Ema', 'Rhea americana', 'Família Rheidae');
-
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Calopsita', 'Nymphicus hollandicus', 'Família Cacatuidae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Cacatua', 'Cacatuidae', 'Família Cacatuidae');
-INSERT INTO ave (nome_Popular, nome_Cientifico, descricao) VALUES ('Cacique', 'Icterus galbula', 'Família Icteridae');
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('João-grande', 'Maguari Stork', 'Família Ciconiidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Cabeça-seca', 'Mycteria americana','Família Ciconiidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Gavião-de-rabo-branco','Geranoaetus albicaudatus','Família Accipitridae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Pernilongo-de-costas-brancas','Himantopus melanurus','Família Recurvirostridae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Pica-pau-branco','Melanerpes candidus','Família Picidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Noivinha-coroada','Xolmis coronatus','Família Tyrannidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Urubu-de-cabeça-vermelha','Cathartes aura','Família Cathartidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Veste-amarela','Xanthopsar flavus','Família Icteridae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Garibaldi','Chrysomus ruficapillus','Família Icteridae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Maria-preta-de-penacho','Knipolegus lophotes','Família Tyrannidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Ema', 'Rhea americana', 'Família Rheidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Calopsita', 'Nymphicus hollandicus', 'Família Cacatuidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Cacatua', 'Cacatuidae', 'Família Cacatuidae',NOW());
+INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Cacique', 'Icterus galbula', 'Família Icteridae',NOW());
 

@@ -2,6 +2,8 @@ package com.ornitologo.backend.dtos;
 
 import com.ornitologo.backend.entities.Ave;
 
+import java.util.Objects;
+
 public class AveDTO {
 
     private String nomePopular;
@@ -47,5 +49,17 @@ public class AveDTO {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        AveDTO aveDTO = (AveDTO) o;
+        return Objects.equals(getNomePopular(), aveDTO.getNomePopular()) && Objects.equals(getNomeCientifico(), aveDTO.getNomeCientifico()) && Objects.equals(getDescricao(), aveDTO.getDescricao());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNomePopular(), getNomeCientifico(), getDescricao());
     }
 }

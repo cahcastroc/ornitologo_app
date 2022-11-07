@@ -39,9 +39,7 @@ public class AveService {
         ave = aveRepository.save(ave);
 
         return new AveDTO(ave);
-
     }
-
 
     private void copiaDtoParaEntidade(AveDTO aveDTO, Ave ave) {
         ave.setNomeCientifico(aveDTO.getNomeCientifico());
