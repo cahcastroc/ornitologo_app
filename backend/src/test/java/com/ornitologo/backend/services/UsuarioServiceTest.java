@@ -6,9 +6,14 @@ import com.ornitologo.backend.repositories.UsuarioRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.persistence.EntityNotFoundException;
@@ -28,16 +33,15 @@ class UsuarioServiceTest {
     private long existingId;
     private long nonExistingId;
     private long dependentId;
-
-    private Usuario usuario;
+    @Mock
+    private Usuario newUsuario;
 
     @BeforeEach
     void setUp() throws Exception {
         existingId = 1L;
         nonExistingId = 2L;
         dependentId = 3L;
-        usuario =
-
+        newUsuario =
                 Usuario
                     .builder()
                     .id(1L)
@@ -48,9 +52,10 @@ class UsuarioServiceTest {
                     .atualizadoEm(null)
                     .build();
 
-        Mockito.when(repository.findById(existingId)).thenReturn(Optional.of(usuario));
+        Mockito.when(repository.findById(existingId)).thenReturn(Optional.of(newUsuario));
         Mockito.when(repository.findById(nonExistingId)).thenReturn(Optional.empty());
 
+        Mockito.when(repository.save(Mockito.any(Usuario.class))).thenReturn(newUsuario).thenThrow(DataIntegrityViolationException.class);
     }
 
     @Test
@@ -64,5 +69,22 @@ class UsuarioServiceTest {
         assertThrows(EntityNotFoundException.class, () -> {
             service.findById(nonExistingId);
         });
+    }
+
+    @Test
+    public void insertDeveUsuarioRetornarCriado(){
+        UsuarioDTO result = service.inserir(new UsuarioDTO(newUsuario));
+        assertNotNull(result);
+    }
+
+    @Test
+    public void insertDeveRetornarExceptionUsuarioNaoCriado(){
+
+        service.inserir(new UsuarioDTO(newUsuario));
+
+        DataIntegrityViolationException excp = assertThrows(DataIntegrityViolationException.class, () -> {
+            service.inserir(new UsuarioDTO(newUsuario));
+        });
+        assertEquals(DataIntegrityViolationException.class, excp.getClass());
     }
 }

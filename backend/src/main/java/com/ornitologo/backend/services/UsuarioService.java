@@ -24,5 +24,17 @@ public class UsuarioService {
         return new UsuarioDTO(entity);
     }
 
+    @Transactional
+    public UsuarioDTO inserir(UsuarioDTO dto) {
+        Usuario entity = new Usuario();
+        copiaDtoEntidade(dto, entity);
+        entity = repository.save(entity);
+        return new UsuarioDTO(entity);
+    }
 
+    private void copiaDtoEntidade(UsuarioDTO dto, Usuario entity){
+        entity.setEmail(dto.getEmail());
+        entity.setNome(dto.getNome());
+        entity.setSenha(dto.getSenha());
+    }
 }
