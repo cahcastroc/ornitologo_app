@@ -7,6 +7,7 @@ import com.ornitologo.backend.models.Localizacao;
 
 import java.security.Timestamp;
 import java.time.Instant;
+import java.util.Objects;
 
 public class AnotacaoDTO {
     private Long id;
@@ -20,17 +21,30 @@ public class AnotacaoDTO {
     private Localizacao localizacao;
     private Usuario usuario;
 
-    public AnotacaoDTO(Anotacao entity){
-        this.id = entity.getId();
-        this.dataHorarioDoAvistamento = entity.getDataHorarioDoAvistamento();
-        this.comentario = entity.getComentario();
-        this.tamanho = entity.getTamanho();
-        this.corPredominante = entity.getCorPredominante();
-        this.criadoEm = entity.getCriadoEm();
-        this.atualizadoEm = entity.getAtualizadoEm();
-        this.ave = entity.getAve();
-        this.localizacao = entity.getLocalizacao();
-        this.usuario = entity.getUsuario();
+    public AnotacaoDTO(Anotacao entity) {
+        this(
+                entity.getDataHorarioDoAvistamento(),
+                entity.getLocalizacao(),
+                entity.getComentario(),
+                entity.getTamanho(),
+                entity.getCorPredominante(),
+                entity.getCriadoEm(),
+                entity.getAtualizadoEm(),
+                entity.getAve(),
+                entity.getUsuario()
+        );
+    }
+
+    public AnotacaoDTO(Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
+        this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
+        this.localizacao = localizacao;
+        this.comentario = comentario;
+        this.tamanho = tamanho;
+        this.corPredominante = corPredominante;
+        this.criadoEm = criadoEm;
+        this.atualizadoEm = atualizadoEm;
+        this.ave = ave;
+        this.usuario = usuario;
     }
 
     public Long getId() {
@@ -111,5 +125,34 @@ public class AnotacaoDTO {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "AnotacaoDTO{" +
+                "id=" + id +
+                ", dataHorarioDoAvistamento=" + dataHorarioDoAvistamento +
+                ", comentario='" + comentario + '\'' +
+                ", tamanho='" + tamanho + '\'' +
+                ", corPredominante='" + corPredominante + '\'' +
+                ", criadoEm=" + criadoEm +
+                ", atualizadoEm=" + atualizadoEm +
+                ", ave=" + ave +
+                ", localizacao=" + localizacao +
+                ", usuario=" + usuario +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AnotacaoDTO that = (AnotacaoDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(dataHorarioDoAvistamento, that.dataHorarioDoAvistamento) && Objects.equals(comentario, that.comentario) && Objects.equals(tamanho, that.tamanho) && Objects.equals(corPredominante, that.corPredominante) && Objects.equals(criadoEm, that.criadoEm) && Objects.equals(atualizadoEm, that.atualizadoEm) && Objects.equals(ave, that.ave) && Objects.equals(localizacao, that.localizacao) && Objects.equals(usuario, that.usuario);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, dataHorarioDoAvistamento, comentario, tamanho, corPredominante, criadoEm, atualizadoEm, ave, localizacao, usuario);
     }
 }
