@@ -23,14 +23,30 @@ public class AveService {
 
     @Transactional(readOnly = true)
     public List<AveDTO> listarTodos(String nome) {
-        if(nome == null)
+        if (nome == null)
             nome = "";
-        List <Ave> listaAves = aveRepository.buscaPorNome(nome);
+        List<Ave> listaAves = aveRepository.buscaPorNome(nome);
 
         return listaAves.stream().map(aux -> new AveDTO(aux)).collect(Collectors.toList());
     }
 
 
+    @Transactional
+    public AveDTO insereAve(AveDTO aveDTO) {
 
+        Ave ave = new Ave();
+        copiaDtoParaEntidade(aveDTO, ave);
+        ave = aveRepository.save(ave);
+
+        return new AveDTO(ave);
+
+    }
+
+
+    private void copiaDtoParaEntidade(AveDTO aveDTO, Ave ave) {
+        ave.setNomeCientifico(aveDTO.getNomeCientifico());
+        ave.setNomePopular(aveDTO.getNomePopular());
+        ave.setDescricao(aveDTO.getDescricao());
+    }
 
 }
