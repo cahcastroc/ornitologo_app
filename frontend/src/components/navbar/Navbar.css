@@ -4,6 +4,7 @@
     font-size: 1.3rem;
     justify-content: flex-end;
     padding-top: 40px;
+    
 }
 
 .nav ul {
@@ -19,4 +20,25 @@
     list-style-type: none;
     margin: 0 10px;
     padding: 0 10px;
+    text-decoration: none;
 }
+
+.link-nav{
+    text-decoration: none;
+    color: black;
+}
+
+.link-nav:visited{
+    text-decoration: none;
+}
+
+.link-nav:hover{
+    text-decoration: underline;
+}
+
+.link-nav:active {
+    text-decoration: underline;
+}
+
+
+
