@@ -1,6 +1,7 @@
 package com.ornitologo.backend.entities;
 
 import java.time.Instant;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,17 +22,21 @@ public class Ave {
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant criadoEm;
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant atualizadoEm;
+
+    public Ave() {
+    }
+
+    public Ave(Long id, String nomePopular, String nomeCientifico, String descricao, Instant criadoEm) {
+        this.id = id;
+        this.nomePopular = nomePopular;
+        this.nomeCientifico = nomeCientifico;
+        this.descricao = descricao;
+        this.criadoEm = criadoEm;
+    }
 
     @PrePersist
     public void prePersist() {
         criadoEm = Instant.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        atualizadoEm = Instant.now();
     }
 
     public String getNomePopular() {
@@ -66,16 +71,9 @@ public class Ave {
         this.criadoEm = criadoEm;
     }
 
-    public Instant getAtualizadoEm() {
-        return atualizadoEm;
-    }
-
-    public void setAtualizadoEm(Instant atualizadoEm) {
-        this.atualizadoEm = atualizadoEm;
-    }
-
     public Long getId() {
         return id;
     }
+
 
 }

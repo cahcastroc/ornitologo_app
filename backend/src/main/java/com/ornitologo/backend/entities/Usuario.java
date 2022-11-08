@@ -1,5 +1,8 @@
 package com.ornitologo.backend.entities;
 
+import lombok.Builder;
+
+import java.security.Timestamp;
 import java.time.Instant;
 
 import javax.persistence.Column;
@@ -13,12 +16,12 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
+@Builder
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String email;
     private String senha;
     private String nome;
@@ -32,6 +35,14 @@ public class Usuario {
     }
 
     public Usuario(String email, String senha, String nome, Instant criadoEm, Instant atualizadoEm) {
+        this.email = email;
+        this.senha = senha;
+        this.nome = nome;
+        this.criadoEm = criadoEm;
+        this.atualizadoEm = atualizadoEm;
+    }
+    public Usuario(Long id, String email, String senha, String nome, Instant criadoEm, Instant atualizadoEm) {
+        this.id = id;
         this.email = email;
         this.senha = senha;
         this.nome = nome;
