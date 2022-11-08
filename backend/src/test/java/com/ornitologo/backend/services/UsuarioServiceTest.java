@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.persistence.EntityNotFoundException;
@@ -29,6 +30,9 @@ class UsuarioServiceTest {
 
     @Mock
     private UsuarioRepository repository;
+
+    @Mock
+    private BCryptPasswordEncoder passwordEncoder;
 
     private long existingId;
     private long nonExistingId;
