@@ -1,10 +1,9 @@
 package com.ornitologo.backend.repositories;
 
-import com.ornitologo.backend.entities.Usuario;
+import com.ornitologo.backend.entities.Anotacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    Usuario findByEmail(String email);
+public interface AnotacaoRepository extends JpaRepository<Anotacao, Long> {
 }

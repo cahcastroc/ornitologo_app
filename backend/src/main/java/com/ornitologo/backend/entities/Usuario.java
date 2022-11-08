@@ -1,9 +1,8 @@
 package com.ornitologo.backend.entities;
 
 import lombok.Builder;
-
-import java.security.Timestamp;
 import java.time.Instant;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,10 +14,13 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 @Entity
 @Builder
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class Usuario {
+public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,6 +43,7 @@ public class Usuario {
         this.criadoEm = criadoEm;
         this.atualizadoEm = atualizadoEm;
     }
+
     public Usuario(Long id, String email, String senha, String nome, Instant criadoEm, Instant atualizadoEm) {
         this.id = id;
         this.email = email;
@@ -102,6 +105,53 @@ public class Usuario {
 
     public Long getId() {
         return id;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        // return in json format
+        return "{" +
+                " id='" + getId() + "'" +
+                ", email='" + getEmail() + "'" +
+                ", nome='" + getNome() + "'" +
+                ", criadoEm='" + getCriadoEm() + "'" +
+                ", atualizadoEm='" + getAtualizadoEm() + "'" +
+                "}";
     }
 
 }
