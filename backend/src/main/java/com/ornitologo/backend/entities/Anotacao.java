@@ -48,6 +48,7 @@ public class Anotacao {
 
     public Anotacao(AnotacaoDTO dto) {
         this(
+                dto.getId(),
                 dto.getDataHorarioDoAvistamento(),
                 dto.getLocalizacao(),
                 dto.getComentario(),
@@ -58,6 +59,34 @@ public class Anotacao {
                 dto.getAve(),
                 dto.getUsuario()
         );
+    }
+
+    public Anotacao(Anotacao entity) {
+        this(
+                entity.getId(),
+                entity.getDataHorarioDoAvistamento(),
+                entity.getLocalizacao(),
+                entity.getComentario(),
+                entity.getTamanho(),
+                entity.getCorPredominante(),
+                entity.getCriadoEm(),
+                entity.getAtualizadoEm(),
+                entity.getAve(),
+                entity.getUsuario()
+        );
+    }
+
+    public Anotacao(Long id, Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
+        this.id = id;
+        this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
+        this.localizacao = localizacao;
+        this.comentario = comentario;
+        this.tamanho = tamanho;
+        this.corPredominante = corPredominante;
+        this.criadoEm = criadoEm;
+        this.atualizadoEm = atualizadoEm;
+        this.ave = ave;
+        this.usuario = usuario;
     }
 
     public Anotacao(Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {

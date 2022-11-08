@@ -23,6 +23,7 @@ public class AnotacaoDTO {
 
     public AnotacaoDTO(Anotacao entity) {
         this(
+                entity.getId(),
                 entity.getDataHorarioDoAvistamento(),
                 entity.getLocalizacao(),
                 entity.getComentario(),
@@ -35,7 +36,8 @@ public class AnotacaoDTO {
         );
     }
 
-    public AnotacaoDTO(Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
+    public AnotacaoDTO(Long id, Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
+        this.id = id;
         this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
         this.localizacao = localizacao;
         this.comentario = comentario;
