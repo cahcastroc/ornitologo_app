@@ -21,7 +21,7 @@ public class TokenService {
                 .issuer("self")
                 .issuedAt(now)
                 .expiresAt(now.plus(1, java.time.temporal.ChronoUnit.HOURS))
-                .subject(authentication.getName())
+                .subject(authentication.getPrincipal().toString())
                 .claim("authorities", authentication.getAuthorities())
                 .build();
 
