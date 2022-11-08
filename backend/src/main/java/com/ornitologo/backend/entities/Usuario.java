@@ -144,8 +144,14 @@ public class Usuario implements UserDetails {
 
     @Override
     public String toString() {
-        return "Usuario [id=" + id + ", email=" + email + ", nome=" + nome + ", criadoEm=" + criadoEm
-                + ", atualizadoEm=" + atualizadoEm + "]";
+        // return in json format
+        return "{" +
+                " id='" + getId() + "'" +
+                ", email='" + getEmail() + "'" +
+                ", nome='" + getNome() + "'" +
+                ", criadoEm='" + getCriadoEm() + "'" +
+                ", atualizadoEm='" + getAtualizadoEm() + "'" +
+                "}";
     }
 
 }
