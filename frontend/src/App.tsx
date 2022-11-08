@@ -9,6 +9,7 @@ import Login from "./components/login/Login";
 import Usuario from "./components/usuario/Usuario";
 import Anotacao from "./components/anotacao/Anotacao";
 import Ave from "./components/ave/Ave";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/ave" element={<Ave />}></Route>
         </Routes>
       </BrowserRouter>
+      <Footer/>
     </>
   );
 }
