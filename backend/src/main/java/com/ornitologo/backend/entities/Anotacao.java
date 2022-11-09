@@ -22,7 +22,7 @@ public class Anotacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Timestamp dataHorarioDoAvistamento;
+    private Instant dataHorarioDoAvistamento;
 
     @Embedded
     private Localizacao localizacao;
@@ -76,7 +76,7 @@ public class Anotacao {
         );
     }
 
-    public Anotacao(Long id, Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
+    public Anotacao(Long id, Instant dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
         this.id = id;
         this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
         this.localizacao = localizacao;
@@ -89,7 +89,7 @@ public class Anotacao {
         this.usuario = usuario;
     }
 
-    public Anotacao(Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
+    public Anotacao(Instant dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
         this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
         this.localizacao = localizacao;
         this.comentario = comentario;
@@ -111,11 +111,11 @@ public class Anotacao {
         atualizadoEm = Instant.now();
     }
 
-    public Timestamp getDataHorarioDoAvistamento() {
+    public Instant getDataHorarioDoAvistamento() {
         return dataHorarioDoAvistamento;
     }
 
-    public void setDataHorarioDoAvistamento(Timestamp dataHorarioDoAvistamento) {
+    public void setDataHorarioDoAvistamento(Instant dataHorarioDoAvistamento) {
         this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
     }
 

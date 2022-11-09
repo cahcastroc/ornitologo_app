@@ -93,4 +93,10 @@ public class AnotacaoServiceTest {
         Mockito.when(this.repository.findById(1L)).thenReturn(Optional.of(entityBody));
         Assertions.assertDoesNotThrow(() -> this.service.delete(1L));
     }
+
+    @Test
+    public void testSerializeUser(){
+        String sample = "{ id='1', email='sus@gmail.com', nome='paulin', criadoEm='2022-11-09T15:25:56.541054Z', atualizadoEm='null'}";
+        this.service.serializeUser(sample);
+    }
 }

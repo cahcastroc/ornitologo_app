@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class AnotacaoDTO {
     private Long id;
-    private Timestamp dataHorarioDoAvistamento;
+    private Instant dataHorarioDoAvistamento;
     private String comentario;
     private String tamanho;
     private String corPredominante;
@@ -36,7 +36,7 @@ public class AnotacaoDTO {
         );
     }
 
-    public AnotacaoDTO(Long id, Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
+    public AnotacaoDTO(Long id, Instant dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
         this.id = id;
         this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
         this.localizacao = localizacao;
@@ -57,11 +57,11 @@ public class AnotacaoDTO {
         this.id = id;
     }
 
-    public Timestamp getDataHorarioDoAvistamento() {
+    public Instant getDataHorarioDoAvistamento() {
         return dataHorarioDoAvistamento;
     }
 
-    public void setDataHorarioDoAvistamento(Timestamp dataHorarioDoAvistamento) {
+    public void setDataHorarioDoAvistamento(Instant dataHorarioDoAvistamento) {
         this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
     }
 
