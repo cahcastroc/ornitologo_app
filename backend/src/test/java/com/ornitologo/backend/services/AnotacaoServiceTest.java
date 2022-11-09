@@ -6,6 +6,7 @@ import com.ornitologo.backend.entities.Ave;
 import com.ornitologo.backend.entities.Usuario;
 import com.ornitologo.backend.models.Localizacao;
 import com.ornitologo.backend.repositories.AnotacaoRepository;
+import com.ornitologo.backend.utils.UserMapConverter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.Instant;
+import java.util.Map;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
@@ -97,6 +99,7 @@ public class AnotacaoServiceTest {
     @Test
     public void testSerializeUser(){
         String sample = "{ id='1', email='sus@gmail.com', nome='paulin', criadoEm='2022-11-09T15:25:56.541054Z', atualizadoEm='null'}";
-        this.service.serializeUser(sample);
+        Map<String, String> response = UserMapConverter.serializeUser(sample);
+        Assertions.assertNotNull(response);
     }
 }
