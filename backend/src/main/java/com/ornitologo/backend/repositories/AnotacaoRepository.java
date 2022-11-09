@@ -14,6 +14,4 @@ public interface AnotacaoRepository extends JpaRepository<Anotacao, Long> {
             value = "select * from anotacao where usuario_id = ?1",
             nativeQuery = true)
     List<Anotacao> findAllByUser(Long id);
-
-//    List<Anotacao> findByUsuarioId(Long id);
 }

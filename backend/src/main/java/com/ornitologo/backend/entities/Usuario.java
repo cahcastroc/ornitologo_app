@@ -153,5 +153,4 @@ public class Usuario implements UserDetails {
                 ", atualizadoEm='" + getAtualizadoEm() + "'" +
                 "}";
     }
-
 }
