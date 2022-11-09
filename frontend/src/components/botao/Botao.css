@@ -1,0 +1,20 @@
+.botao {
+  padding: 1.5%;
+  margin: 1%;
+  border-width:1px;
+  border-radius:20px;
+  background:#BCD836;
+  text-align: center;
+  font-family: Questrial, sans-serif;
+  text-decoration: none;
+  cursor:pointer;
+  color: black;
+}
+
+.botao:hover {
+  background: #5cbf2a;
+  color: black;
+}
+a:visited {
+    color: black;
+}
