@@ -1,13 +1,18 @@
-import React from 'react'
-import './Botao.css'
+import React from "react";
+import "./Botao.css";
 
-
-const Botao = () => {
-    return (
-        <>
-            <a className='botao' href='/home'>CRIAR CONTA</a>    
-        </>
-  )
+interface BotaoProps {
+    text: string;
+    enviar: (...args: any) => any;
+    parametros: any[];
 }
 
-export default Botao
+
+const Botao = ({ text, enviar, parametros }: BotaoProps): any => {
+  return (
+    <>
+          <button className="botao" onClick={() => enviar(...parametros)}>{text}</button>
+    </>
+  );
+};
+export default Botao;

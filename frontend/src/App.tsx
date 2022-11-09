@@ -12,6 +12,8 @@ import Ave from "./components/ave/Ave";
 import Footer from "./components/footer/Footer";
 
 function App() {
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -26,10 +28,9 @@ function App() {
           <Route path="/ave" element={<Ave />}></Route>
         </Routes>
       </BrowserRouter>
-      <Footer/>
+      <Footer />
     </>
   );
-
 }
 
 export default App;
