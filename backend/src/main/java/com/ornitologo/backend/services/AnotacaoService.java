@@ -11,15 +11,15 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service
 public class AnotacaoService {
     private AnotacaoRepository repository;
+
     @Autowired
     private JwtDecoder decoder;
+
     @Autowired
     public AnotacaoService(AnotacaoRepository repository){
         this.repository = repository;
