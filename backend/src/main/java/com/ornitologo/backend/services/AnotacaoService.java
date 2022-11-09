@@ -25,9 +25,8 @@ public class AnotacaoService {
     }
 
     public List<AnotacaoDTO> getAllByUser(String token) {
-        token = token.replace("Bearer ", "");
-        var res = this.decoder.decode(token).getClaims().get("sub").toString();
-        Map<String, String> user = this.serializeUser(res);
+        String decodedToken = this.decodeUserToken(token);
+        Map<String, String> user = this.serializeUser(decodedToken);
         Long id = Long.valueOf(user.get("id"));
         List<Anotacao> response = this.repository.findAllByUser(id);
         return response.stream().map(item -> new AnotacaoDTO(item)).collect(Collectors.toList());
@@ -75,7 +74,6 @@ public class AnotacaoService {
             for (int i = 1; i <= keysMatched.groupCount(); i++) {
                 keys.add(keysMatched.group(1));
             }
-
         }
         while (valueMatched.find()) {
             for (int i = 1; i <= valueMatched.groupCount(); i++) {
@@ -86,7 +84,11 @@ public class AnotacaoService {
             map.put(keys.get(i), values.get(i));
         }
 
-        var amogus = map.get("id");
         return map;
+    }
+
+    public String decodeUserToken(String token){
+        token = token.replace("Bearer ", "");
+        return this.decoder.decode(token).getClaims().get("sub").toString();
     }
 }
