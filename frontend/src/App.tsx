@@ -12,7 +12,7 @@ import Ave from "./components/ave/Ave";
 import Footer from "./components/footer/Footer";
 
 function App() {
-  }
+  
 
   return (
     <>
