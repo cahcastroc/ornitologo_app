@@ -98,8 +98,8 @@ public class AnotacaoServiceTest {
 
     @Test
     public void testSerializeUser(){
-        String sample = "{ id='1', email='sus@gmail.com', nome='paulin', criadoEm='2022-11-09T15:25:56.541054Z', atualizadoEm='null'}";
-        Map<String, String> response = UserMapConverter.serializeUser(sample);
+        String sample = "{ id='1', email='sus@gmail.com', nome='amogus', criadoEm='2022-11-09T15:25:56.541054Z', atualizadoEm='null'}";
+        Map<String, String> response = UserMapConverter.convertUserToMap(sample);
         Assertions.assertNotNull(response);
     }
 }

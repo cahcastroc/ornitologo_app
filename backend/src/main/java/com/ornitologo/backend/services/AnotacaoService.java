@@ -27,7 +27,7 @@ public class AnotacaoService {
 
     public List<AnotacaoDTO> getAllByUser(String token) {
         String decodedToken = this.decodeUserToken(token);
-        Map<String, String> user = UserMapConverter.serializeUser(decodedToken);
+        Map<String, String> user = UserMapConverter.convertUserToMap(decodedToken);
         Long id = Long.valueOf(user.get("id"));
         List<Anotacao> response = this.repository.findAllByUser(id);
         return response.stream().map(item -> new AnotacaoDTO(item)).collect(Collectors.toList());

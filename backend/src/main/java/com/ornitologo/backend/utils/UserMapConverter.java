@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserMapConverter {
-    public static Map<String, String> serializeUser(String source){
+    public static Map<String, String> convertUserToMap(String source){
         Map<String, String> map = new HashMap<>();
         List<String> keys = new ArrayList<>();
         List<String> values = new ArrayList<>();
