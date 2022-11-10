@@ -3,7 +3,6 @@ package com.ornitologo.backend.dtos;
 import com.ornitologo.backend.entities.Usuario;
 
 public class UsuarioDTO {
-
     private String email;
     private String senha;
     private String nome;
@@ -11,7 +10,7 @@ public class UsuarioDTO {
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO( String email, String senha, String nome) {
+    public UsuarioDTO(String email, String senha, String nome) {
         this.email = email;
         this.senha = senha;
         this.nome = nome;

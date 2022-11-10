@@ -20,8 +20,8 @@ public class AnotacaoController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<AnotacaoDTO>> getAll(){
-        List<AnotacaoDTO> response = this.service.getAll();
+    public ResponseEntity<List<AnotacaoDTO>> getAll(@RequestHeader (name = "Authorization") String token){
+        List<AnotacaoDTO> response = this.service.getAllByUser(token);
         return ResponseEntity.ok().body(response);
     }
 
