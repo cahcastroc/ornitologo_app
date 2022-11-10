@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -12,8 +11,6 @@ import Ave from "./components/ave/Ave";
 import Footer from "./components/footer/Footer";
 
 function App() {
-  
-
   return (
     <>
       <BrowserRouter>
@@ -27,8 +24,8 @@ function App() {
           <Route path="/anotacao" element={<Anotacao />}></Route>
           <Route path="/ave" element={<Ave />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </>
   );
 }
