@@ -11,7 +11,7 @@ interface BotaoProps {
 const Botao = ({ text, enviar, parametros }: BotaoProps): any => {
   return (
     <>
-          <button className="botao" onClick={() => enviar(...parametros)}>{text}</button>
+      <button className="botao" onClick={() => enviar(...parametros)}>{text}</button>
     </>
   );
 };

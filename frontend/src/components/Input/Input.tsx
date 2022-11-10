@@ -1,29 +1,52 @@
-import React, { InputHTMLAttributes }  from 'react'
+import React, { useRef, useState}  from 'react'
 import './Input.css'
+import visu from '../../assets/visualizar.png'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> { 
+interface InputProps { 
   placeholder: string;
   type: string;
 }
 
-const Input: React.FC<InputProps> = (props) => {
+const Input = ({ placeholder, type }: InputProps): any => {
   const [input, setInput] = React.useState("");
+  const inputRef = useRef<HTMLInputElement>();
+  const [olhosFechados, setOlhosFechados] = useState(false);
+  const [tipoTemp, setTipoTemp] = useState(type);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log("===>" + event.target.value);
     setInput(event.target.value);
   }
 
-  return (
+  const MostraBotao = () => {
+    if (type === "password") {
+      return <button onClick={mostrarSenha} className="botao-olho"><img src={visu} alt="Visualizar" className="img" /></button>
+    } else {
+      return <></>
+    }
+  }
+
+
+  const mostrarSenha = () => {
+    setTipoTemp(tipoTemp === "password" ? "text" : "password");
+  }
+
+    return (
       <>
-      <input
-        className='caixa-texto'
-        value={input}
-        onChange={handleChange}
-        {...props}
-      />
+        <div className='input-text'>
+          <input
+            className='caixa-texto'
+            value={input}
+            onChange={handleChange}
+            placeholder={placeholder}
+            type={tipoTemp}
+          />
+          
+          <MostraBotao />
+          
+        </div>
       </>
-  )
-}
+    )
+  }
 
 export default Input
