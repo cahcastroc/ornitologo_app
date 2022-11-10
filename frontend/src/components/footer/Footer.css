@@ -1,4 +1,11 @@
 .footer {
-    background: #8AC826;
-    padding: 30px;
+  background: #8ac826;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer > p {
+  font-weight: 100;
 }
