@@ -144,13 +144,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String toString() {
-        // return in json format
-        return "{" +
-                " id='" + getId() + "'" +
-                ", email='" + getEmail() + "'" +
-                ", nome='" + getNome() + "'" +
-                ", criadoEm='" + getCriadoEm() + "'" +
-                ", atualizadoEm='" + getAtualizadoEm() + "'" +
-                "}";
+        return "{ \"id\":\"" + getId() + "\", \"email\":\"" + getEmail() + "\",\"nome\":\"" + getNome()
+                + "\", \"criadoEm\":\"" + getCriadoEm() + "\", \"atualizadoEm\":\"" + getAtualizadoEm() + "\" }";
     }
 }

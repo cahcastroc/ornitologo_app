@@ -1,17 +1,21 @@
 package com.ornitologo.backend.services;
 
-import com.ornitologo.backend.dtos.AnotacaoDTO;
-import com.ornitologo.backend.entities.Anotacao;
-import com.ornitologo.backend.repositories.AnotacaoRepository;
-import com.ornitologo.backend.utils.UserMapConverter;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-import java.util.*;
-import java.util.stream.Collectors;
+import com.ornitologo.backend.dtos.AnotacaoDTO;
+import com.ornitologo.backend.entities.Anotacao;
+import com.ornitologo.backend.repositories.AnotacaoRepository;
+import com.ornitologo.backend.utils.UserMapConverter;
 
 @Service
 public class AnotacaoService {
@@ -21,7 +25,7 @@ public class AnotacaoService {
     private JwtDecoder decoder;
 
     @Autowired
-    public AnotacaoService(AnotacaoRepository repository){
+    public AnotacaoService(AnotacaoRepository repository) {
         this.repository = repository;
     }
 
@@ -46,18 +50,20 @@ public class AnotacaoService {
     }
 
     public AnotacaoDTO update(Long id, AnotacaoDTO dto) {
-        Anotacao entity = this.repository.findById(id).orElseThrow((() -> new EntityNotFoundException("Entity not found")));
+        Anotacao entity = this.repository.findById(id)
+                .orElseThrow((() -> new EntityNotFoundException("Entity not found")));
         BeanUtils.copyProperties(dto, entity);
         Anotacao response = this.repository.save(entity);
         return new AnotacaoDTO(response);
     }
 
     public void delete(Long id) {
-        Anotacao entity = this.repository.findById(id).orElseThrow((() -> new EntityNotFoundException("Entity not found")));
+        Anotacao entity = this.repository.findById(id)
+                .orElseThrow((() -> new EntityNotFoundException("Entity not found")));
         this.repository.deleteById(id);
     }
 
-    public String decodeUserToken(String token){
+    public String decodeUserToken(String token) {
         token = token.replace("Bearer ", "");
         return this.decoder.decode(token).getClaims().get("sub").toString();
     }
