@@ -30,6 +30,9 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
+      <Input placeholder="Digite seu nome" type="password" />
+      <Input placeholder="Digite seu nome" type="text" />
+
     </>
   );
 }

@@ -7,20 +7,19 @@ import Input from "../Input/Input";
 import Botao from "../botao/Botao";
 
 const teste = () => {
+  console.log("teste");
 }
 
 const Home = () => {
   return (
     <div className="home">
-      <Input type="search" placeholder="checkbox" />
-      <Botao text="Cadastrar" enviar={teste} parametros={[]} />
       <header className="header-home">
         <div>
           <h1>
             Somos o <span>Ornitólogo App</span>
           </h1>
           <h2>Registre seus olhares de Ornitólogo</h2>
-          <button><Link to="/cadastro">Botão de teste</Link></button>
+          <Botao text="Cadastrar" enviar={teste} parametros={[]}/>
         </div>
         <img src={imgHome} alt="imagem home"></img>
       </header>
