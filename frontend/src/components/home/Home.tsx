@@ -4,6 +4,7 @@ import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
 import Botao from "../botao/Botao";
+import Card from "../card/Card";
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="home">
+    <div className="home">   
       <header className="header-home">
         <div>
           <h1>
