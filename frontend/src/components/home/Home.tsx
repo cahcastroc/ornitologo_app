@@ -19,7 +19,6 @@ const Home = () => {
             Somos o <span>Ornitólogo App</span>
           </h1>
           <h2>Registre seus olhares de Ornitólogo</h2>
-          <Botao text="Cadastrar" enviar={teste} parametros={[]}/>
         </div>
         <img src={imgHome} alt="imagem home"></img>
       </header>
