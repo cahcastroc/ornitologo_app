@@ -10,7 +10,6 @@ import Usuario from "./components/usuario/Usuario";
 import Anotacao from "./components/anotacao/Anotacao";
 import CadastroAve from "./pages/cadastroAve/CadastroAve";
 import Footer from "./components/footer/Footer";
-import Input from "./components/Input/Input";
 
 function App() {
   

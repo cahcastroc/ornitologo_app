@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.home-cadastro-ave { 
+    font-family: "Poppins", sans-serif;
+}
+
+.header-home-cadastro-ave {
+    align-self: center;
+    justify-self: center;  
+}
+
+.teste {
+    display: flex;
+}
+
+.tucano {
+    margin: 0;
+    padding: 0;
+}
