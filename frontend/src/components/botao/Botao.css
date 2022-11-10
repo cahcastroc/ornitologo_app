@@ -1,5 +1,5 @@
 .botao {
-  padding: 1.5%;
+  padding: 3%;
   margin: 1%;
   border-width:0;
   border-radius:20px;
@@ -9,6 +9,7 @@
   text-decoration: none;
   cursor:pointer;
   color: black;
+  font-size: 1.2em;
 }
 
 .botao:hover {

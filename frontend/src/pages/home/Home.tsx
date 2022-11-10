@@ -1,19 +1,25 @@
 import "./Home.css";
-import { Link } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
+import Botao from "../../components/botao/Botao";
+
+
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
   return (
-    <div className="home">
+    <div className="home">   
       <header className="header-home">
         <div>
           <h1>
             Somos o <span>Ornitólogo App</span>
           </h1>
-          <h2>Registre seus olhares de Ornitólogo</h2>
-          <button><Link to="/cadastro">Botão de teste</Link></button>
+          <h2>Registre seus olhares de Ornitólogo</h2>   
+          <Botao  text="Criar conta" enviar={() => {navigate("/cadastro"); }} parametros={[]}/>       
         </div>
         <img src={imgHome} alt="imagem home"></img>
       </header>
@@ -68,17 +74,7 @@ const Home = () => {
             Brasil: mapeando a riqueza e estimando parâmetros demográficos".
           </p>
         </div>
-      </main>
-
-      {/* 
-      <p>Links abaixo somente para teste de rota</p> */}
-      {/* Somente teste de rotas */}
-      {/* <Link to="/cadastro">Cadastro</Link>
-      <hr />
-      <Link to="/anotacao">Anotação</Link>
-      <hr />
-      <Link to="/ave">Ave</Link>
-      <hr /> */}
+      </main>     
     </div>
   );
 };
