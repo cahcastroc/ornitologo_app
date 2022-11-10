@@ -30,7 +30,6 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
-      <Input placeholder="Digite aqui" type="text" />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes }  from 'react'
 import './Input.css'
-import vizualizador from '../../assets/vizualizador.png';
+import visu from '../../assets/visualizar.png'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> { 
   placeholder: string;
@@ -16,14 +16,14 @@ const Input: React.FC<InputProps> = (props) => {
   }
 
   return (
-      <>
+    <>
       <input
         className='caixa-texto'
         value={input}
         onChange={handleChange}
         {...props}
       />
-        <img src={vizualizador} alt="Vizualizador" />
+        <img src={visu} alt="Visualizar" className="img" />
       </>
   )
 }

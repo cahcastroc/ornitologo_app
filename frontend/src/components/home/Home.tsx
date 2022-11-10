@@ -3,10 +3,17 @@ import { Link } from "react-router-dom";
 import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
+import Input from "../Input/Input";
+import Botao from "../botao/Botao";
+
+const teste = () => {
+}
 
 const Home = () => {
   return (
     <div className="home">
+      <Input type="search" placeholder="checkbox" />
+      <Botao text="Cadastrar" enviar={teste} parametros={[]} />
       <header className="header-home">
         <div>
           <h1>
