@@ -9,7 +9,6 @@ import Usuario from "./pages/usuario/Usuario";
 import Anotacao from "./pages/anotacao/Anotacao";
 import CadastroAve from "./pages/cadastroAve/CadastroAve";
 import Footer from "./components/footer/Footer";
-import Input from "./components/Input/Input";
 
 function App() {
   return (
