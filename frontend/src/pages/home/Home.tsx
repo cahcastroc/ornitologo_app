@@ -3,7 +3,7 @@ import {useNavigate } from "react-router-dom";
 import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
-import Botao from "../botao/Botao";
+import Botao from "../../components/botao/Botao";
 
 
 
