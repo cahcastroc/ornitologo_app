@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
-import Input from "../Input/Input";
-import Botao from "../botao/Botao";
 
 const teste = () => {
   console.log("teste");
