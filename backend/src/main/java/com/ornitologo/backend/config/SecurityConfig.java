@@ -28,7 +28,7 @@ import com.ornitologo.backend.services.UsuarioService;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private RSAKey rsaKey;
+    private RSAKey rsaKey = Jwks.generateRsa();
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -59,7 +59,6 @@ public class SecurityConfig {
 
     @Bean
     public JWKSource<SecurityContext> jwkSource() {
-        rsaKey = Jwks.generateRsa();
         JWKSet jwkSet = new JWKSet(rsaKey);
         return (jwkSelector, securityContext) -> jwkSelector.select(jwkSet);
     }
