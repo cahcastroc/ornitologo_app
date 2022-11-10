@@ -16,6 +16,7 @@ import javax.persistence.PreUpdate;
 
 import com.ornitologo.backend.dtos.AnotacaoDTO;
 import com.ornitologo.backend.models.Localizacao;
+import lombok.Builder;
 
 @Entity
 public class Anotacao {
@@ -100,6 +101,7 @@ public class Anotacao {
         this.ave = ave;
         this.usuario = usuario;
     }
+
 
     @PrePersist
     public void prePersist() {

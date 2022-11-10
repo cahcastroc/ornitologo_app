@@ -1,6 +1,7 @@
 package com.ornitologo.backend.controllers;
 
 import com.ornitologo.backend.dtos.AnotacaoDTO;
+import com.ornitologo.backend.services.AnotacaoProducerService;
 import com.ornitologo.backend.services.AnotacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,10 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/anotacoes")
 public class AnotacaoController {
     private AnotacaoService service;
+    private AnotacaoProducerService anotacaoProducerService;
 
     @Autowired
     public AnotacaoController(AnotacaoService service){
@@ -32,9 +35,9 @@ public class AnotacaoController {
     }
 
     @PostMapping()
-    public ResponseEntity<AnotacaoDTO> create(@RequestBody AnotacaoDTO dto){
-        AnotacaoDTO response = this.service.create(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public ResponseEntity<String> create(@RequestBody AnotacaoDTO dto){
+        anotacaoProducerService.enviaAnotacao(dto);
+        return ResponseEntity.ok("Anotação criada!");
     }
 
     @PutMapping("/{id}")
