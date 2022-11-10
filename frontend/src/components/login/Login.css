@@ -1,0 +1,22 @@
+.login-container{
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 2fr 3fr;
+    justify-content: center;
+}
+
+.login-container>img{
+    height: 20rem;
+}
+
+.form-container{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+}
+
+.form-container>h1{
+    text-align: center;
+}
