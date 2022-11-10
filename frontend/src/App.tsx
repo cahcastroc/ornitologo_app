@@ -26,6 +26,7 @@ function App() {
           <Route path="/usuario" element={<Usuario />}></Route>
           <Route path="/anotacao" element={<Anotacao />}></Route>
           <Route path="/ave" element={<Ave />}></Route>
+          <Route path='*' element={<h1>Página não encontrada!</h1>} />
         </Routes>
       </BrowserRouter>
       <Footer />
