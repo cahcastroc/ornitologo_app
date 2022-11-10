@@ -11,7 +11,7 @@ interface CardProps{
 
 
 const Card = ({nome, nomeCientifico,descricao,data}: CardProps) => {
-  return (
+    return (
         <div className="row">            
                 <h2>{nome}</h2>
                 <h3>{nomeCientifico}</h3> 
@@ -20,9 +20,7 @@ const Card = ({nome, nomeCientifico,descricao,data}: CardProps) => {
                 </span>     
                 <p id='data'>{data}</p>       
         </div>          
-        
-   
-  )
+        )
 }
 
 export default Card
