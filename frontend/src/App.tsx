@@ -5,9 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Catalogo from "./pages/catalogo/Catalogo";
 import Home from "./pages/home/Home";
 import Cadastro from "./pages/cadastro/Cadastro";
-import Login from "./components/login/Login";
-import Usuario from "./components/usuario/Usuario";
-import Anotacao from "./components/anotacao/Anotacao";
+import Login from "./pages/login/Login";
+import Usuario from "./pages/usuario/Usuario";
+import Anotacao from "./pages/anotacao/Anotacao";
 import CadastroAve from "./pages/cadastroAve/CadastroAve";
 import Footer from "./components/footer/Footer";
 

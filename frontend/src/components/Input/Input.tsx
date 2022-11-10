@@ -9,8 +9,6 @@ interface InputProps {
 
 const Input = ({ placeholder, type }: InputProps): any => {
   const [input, setInput] = React.useState("");
-  const inputRef = useRef<HTMLInputElement>();
-  const [olhosFechados, setOlhosFechados] = useState(false);
   const [tipoTemp, setTipoTemp] = useState(type);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

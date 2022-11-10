@@ -6,22 +6,20 @@ import imgAspas from "../../assets/aspas.png";
 import Botao from "../../components/botao/Botao";
 
 
-const teste = () => {
-  console.log("teste");
-}
 
 const Home = () => {
 
   const navigate = useNavigate();
 
   return (
-    <div className="home">
+    <div className="home">   
       <header className="header-home">
         <div>
           <h1>
             Somos o <span>Ornitólogo App</span>
           </h1>
-          <h2>Registre seus olhares de Ornitólogo</h2>
+          <h2>Registre seus olhares de Ornitólogo</h2>   
+          <Botao  text="Criar conta" enviar={() => {navigate("/cadastro"); }} parametros={[]}/>       
         </div>
         <img src={imgHome} alt="imagem home"></img>
       </header>
