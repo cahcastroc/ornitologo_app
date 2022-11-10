@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes }  from 'react'
 import './Input.css'
+import vizualizador from '../../assets/vizualizador.png';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> { 
   placeholder: string;
@@ -22,6 +23,7 @@ const Input: React.FC<InputProps> = (props) => {
         onChange={handleChange}
         {...props}
       />
+        <img src={vizualizador} alt="Vizualizador" />
       </>
   )
 }
