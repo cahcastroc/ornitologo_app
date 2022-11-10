@@ -1,22 +1,11 @@
 package com.ornitologo.backend.entities;
 
-import java.security.Timestamp;
-import java.time.Instant;
-
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-
 import com.ornitologo.backend.dtos.AnotacaoDTO;
 import com.ornitologo.backend.models.Localizacao;
-import lombok.Builder;
+
+import javax.persistence.*;
+import java.security.Timestamp;
+import java.time.Instant;
 
 @Entity
 public class Anotacao {
