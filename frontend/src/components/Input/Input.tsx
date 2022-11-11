@@ -1,19 +1,20 @@
-import React, { useRef, useState}  from 'react'
+import React, { useState}  from 'react'
 import './Input.css'
 import visu from '../../assets/visualizar.png'
 
 interface InputProps { 
   placeholder: string;
   type: string;
+  onChange: (event: any) => void;
 }
 
-const Input = ({ placeholder, type }: InputProps): any => {
+const Input = ({ placeholder, type, onChange}: InputProps): any => {
   const [input, setInput] = React.useState("");
   const [tipoTemp, setTipoTemp] = useState(type);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("===>" + event.target.value);
     setInput(event.target.value);
+    onChange(event.target.value);
   }
 
   const MostraBotao = () => {
