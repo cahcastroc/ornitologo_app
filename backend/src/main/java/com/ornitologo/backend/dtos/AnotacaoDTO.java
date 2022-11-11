@@ -1,17 +1,16 @@
 package com.ornitologo.backend.dtos;
 
+import java.time.Instant;
+import java.util.Objects;
+
 import com.ornitologo.backend.entities.Anotacao;
 import com.ornitologo.backend.entities.Ave;
 import com.ornitologo.backend.entities.Usuario;
 import com.ornitologo.backend.models.Localizacao;
 
-import java.security.Timestamp;
-import java.time.Instant;
-import java.util.Objects;
-
 public class AnotacaoDTO {
     private Long id;
-    private Timestamp dataHorarioDoAvistamento;
+    private Instant dataHorarioDoAvistamento;
     private String comentario;
     private String tamanho;
     private String corPredominante;
@@ -35,11 +34,11 @@ public class AnotacaoDTO {
                 entity.getCriadoEm(),
                 entity.getAtualizadoEm(),
                 entity.getAve(),
-                entity.getUsuario()
-        );
+                entity.getUsuario());
     }
 
-    public AnotacaoDTO(Long id, Timestamp dataHorarioDoAvistamento, Localizacao localizacao, String comentario, String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
+    public AnotacaoDTO(Long id, Instant dataHorarioDoAvistamento, Localizacao localizacao, String comentario,
+            String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
         this.id = id;
         this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
         this.localizacao = localizacao;
@@ -60,11 +59,11 @@ public class AnotacaoDTO {
         this.id = id;
     }
 
-    public Timestamp getDataHorarioDoAvistamento() {
+    public Instant getDataHorarioDoAvistamento() {
         return dataHorarioDoAvistamento;
     }
 
-    public void setDataHorarioDoAvistamento(Timestamp dataHorarioDoAvistamento) {
+    public void setDataHorarioDoAvistamento(Instant dataHorarioDoAvistamento) {
         this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
     }
 
@@ -150,14 +149,21 @@ public class AnotacaoDTO {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         AnotacaoDTO that = (AnotacaoDTO) o;
-        return Objects.equals(id, that.id) && Objects.equals(dataHorarioDoAvistamento, that.dataHorarioDoAvistamento) && Objects.equals(comentario, that.comentario) && Objects.equals(tamanho, that.tamanho) && Objects.equals(corPredominante, that.corPredominante) && Objects.equals(criadoEm, that.criadoEm) && Objects.equals(atualizadoEm, that.atualizadoEm) && Objects.equals(ave, that.ave) && Objects.equals(localizacao, that.localizacao) && Objects.equals(usuario, that.usuario);
+        return Objects.equals(id, that.id) && Objects.equals(dataHorarioDoAvistamento, that.dataHorarioDoAvistamento)
+                && Objects.equals(comentario, that.comentario) && Objects.equals(tamanho, that.tamanho)
+                && Objects.equals(corPredominante, that.corPredominante) && Objects.equals(criadoEm, that.criadoEm)
+                && Objects.equals(atualizadoEm, that.atualizadoEm) && Objects.equals(ave, that.ave)
+                && Objects.equals(localizacao, that.localizacao) && Objects.equals(usuario, that.usuario);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, dataHorarioDoAvistamento, comentario, tamanho, corPredominante, criadoEm, atualizadoEm, ave, localizacao, usuario);
+        return Objects.hash(id, dataHorarioDoAvistamento, comentario, tamanho, corPredominante, criadoEm, atualizadoEm,
+                ave, localizacao, usuario);
     }
 }

@@ -1,15 +1,14 @@
 package com.ornitologo.backend.dtos;
 
-import com.ornitologo.backend.entities.Ave;
-
 import java.util.Objects;
+
+import com.ornitologo.backend.entities.Ave;
 
 public class AveDTO {
 
     private String nomePopular;
     private String nomeCientifico;
     private String descricao;
-
 
     public AveDTO() {
     }
@@ -19,7 +18,6 @@ public class AveDTO {
         this.nomePopular = ave.getNomePopular();
         this.descricao = ave.getDescricao();
     }
-
 
     public AveDTO(String nomePopular, String nomeCientifico, String descricao) {
         this.nomePopular = nomePopular;
@@ -53,9 +51,12 @@ public class AveDTO {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o)
+            return true;
         AveDTO aveDTO = (AveDTO) o;
-        return Objects.equals(getNomePopular(), aveDTO.getNomePopular()) && Objects.equals(getNomeCientifico(), aveDTO.getNomeCientifico()) && Objects.equals(getDescricao(), aveDTO.getDescricao());
+        return Objects.equals(getNomePopular(), aveDTO.getNomePopular())
+                && Objects.equals(getNomeCientifico(), aveDTO.getNomeCientifico())
+                && Objects.equals(getDescricao(), aveDTO.getDescricao());
     }
 
     @Override
