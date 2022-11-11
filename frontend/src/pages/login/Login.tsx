@@ -1,8 +1,8 @@
 import "./Login.css";
 import loginImage from "../../assets/login_cadastro.png"
 import { Link } from "react-router-dom";
-import Botao from "../../components/botao/Botao";
 import Input from "../../components/Input/Input";
+import Botao from "../../components/botao/Botao";
 
 const Login = () => {
   function onsubmit(){
