@@ -1,0 +1,41 @@
+.row{
+    display: flex;
+    background-color: #fafafa;    
+    word-wrap: break-word;     
+}
+
+.row{
+    display: flex;
+    flex-direction: column;    
+    border-radius: 5%;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 1.5%;
+    margin: 2%;
+    width: 15rem;
+    height: 13rem ; 
+    font-family: 'Nunito', sans-serif;          
+}
+
+.row>h2{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.row>h3{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+    font-style: italic;
+    
+}
+
+span{
+    padding-top: 8%;
+    overflow: hidden;   
+}
+
+#data{    
+    padding: 2%;
+    text-align: end;
+}
+
