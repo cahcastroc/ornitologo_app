@@ -13,6 +13,8 @@ interface Props {
   anotacao: Anotacao;
 }
 
+Modal.setAppElement('#root')
+
 const ModalApp = ({ anotacao }: Props) => {
   const { ave, comentario, dataHorarioDoAvistamento, localizacao} = anotacao;
 
@@ -25,6 +27,14 @@ const ModalApp = ({ anotacao }: Props) => {
   const fechaModal = () => {
     setModalAberto(false);
   };
+
+  const editar = () =>{
+    console.log("Edit")
+  }
+
+  const deletar = () =>{
+    console.log("Delete")
+  }
 
   return (
     <div className="main-modal">
@@ -54,10 +64,10 @@ const ModalApp = ({ anotacao }: Props) => {
           <LocationIcon />
           <h4>{localizacao.longitude}</h4>
         </div>
-        <IconButton className="edit-icon">
+        <IconButton className="edit-icon" onClick={editar}>
           <EditIcon />
         </IconButton>
-        <IconButton className="delete-icon">
+        <IconButton className="delete-icon" onClick={deletar}>
           <DeleteIcon />
         </IconButton>
       </Modal>

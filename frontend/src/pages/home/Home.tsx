@@ -12,17 +12,11 @@ import Card from "../../components/card/Card";
 
 const Home = () => {
   const navigate = useNavigate();
-  const aveTeste: Ave ={nomePopular: "Canario", nomeCientifico: "Canarius", descricao: "ave"}
-  const anotacaoTeste: Anotacao = {id: 1,dataHorarioDoAvistamento:"11/11/2022",comentario: "Comentário dentro da anotação", tamanho: "",corPredominante:"azul", criadoEm:"oie",atualizadoEm:"atualizado", ave: aveTeste, localizacao: {latitude: "52336", longitude: "556565"}}
-  
 
-  
   return (
     <div className="home">
       <header className="header-home">
         <div>
-        <ModalApp anotacao={anotacaoTeste}></ModalApp>
-        <Card ave={aveTeste}></Card>
           <h1>
             Somos o <span>Ornitólogo App</span>
           </h1>
