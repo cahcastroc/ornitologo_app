@@ -1,14 +1,9 @@
+import axios from 'axios'
 import { User } from "../models/User";
 
-const axios = require('axios');
-
 export class CadastroService{
-    constructor(){
-
-    }
-
     async postUser(user: User) {
-        const response = await axios.post(`/usuarios`, user);
+        const response = await axios.post<User>(`/usuarios`, user);
         return response.data;
     }
 }

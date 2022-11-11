@@ -1,11 +1,20 @@
 import cadastroImage from "../../assets/login_cadastro.png"
 import Botao from "../../components/botao/Botao";
 import Input from "../../components/Input/Input";
+import { User } from "../../models/User";
+import { CadastroService } from "../../services/CadastroService";
 import "./Cadastro.css";
 
 const Cadastro = () => {
-  function onsubmit(){
+  let service: CadastroService = new CadastroService();
 
+  function onsubmit(){
+    let user: User = {
+      nome: "amogus",
+      email: "sugoma",
+      senha: "sus"
+    }
+    service.postUser(user);
   }
   
   return (
