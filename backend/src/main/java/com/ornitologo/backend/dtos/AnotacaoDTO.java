@@ -20,6 +20,9 @@ public class AnotacaoDTO {
     private Localizacao localizacao;
     private Usuario usuario;
 
+    public AnotacaoDTO() {
+    }
+
     public AnotacaoDTO(Anotacao entity) {
         this(
                 entity.getId(),
