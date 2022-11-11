@@ -1,12 +1,4 @@
-.caixa-texto {
-    margin: 1% 0;
-    border: 1px solid #ccc;
-    padding: 1%;
-    font-size: 16px;
-    color: #333; 
-    outline: none;
-    width: 50vh;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 .input-text {
     display: flex;
@@ -14,9 +6,15 @@
     outline: none;
 }
 
-.input-text input {
-    border: none;
-    border-bottom: 1px solid #590fe4;
+.caixa-texto {
+    margin: 1% 0;
+    padding: 10px;
+    outline: none;
+    width: 50vh;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
 }
 
 .input-text img {
@@ -25,7 +23,12 @@
 }
 
 .botao-olho {
-    outline: none;
     border: none;
     background-color: white;
+    margin: 1% 0;
+    padding: 1%;
+    border-top: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+    border-right: 1.5px solid black;
+    border-radius: 5px;
 }
