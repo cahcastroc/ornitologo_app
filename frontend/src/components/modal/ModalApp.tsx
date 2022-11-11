@@ -26,6 +26,7 @@ const ModalApp = ({
   latitude,
   longitude,
 }: ModalProps) => {
+
   const [modalAberto, setModalAberto] = useState<boolean>(false);
 
   const abreModal = () => {
@@ -35,6 +36,8 @@ const ModalApp = ({
   const fechaModal = () => {
     setModalAberto(false);
   };
+
+
 
   return (
     <div className="main-modal">

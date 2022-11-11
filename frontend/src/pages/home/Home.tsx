@@ -19,7 +19,7 @@ const Home = () => {
       <header className="header-home">
         <div>
         <ModalApp nome="Camila" nomeCientifico="Castro" 
-        descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " 
+        descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " 
         data="10/10/10" latitude="-30.059074520323573" longitude="-51.17297504476737"></ModalApp>
 
           <h1>
