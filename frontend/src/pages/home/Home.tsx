@@ -1,39 +1,39 @@
 import "./Home.css";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
 import Botao from "../../components/botao/Botao";
 import ModalApp from "../../components/modal/ModalApp";
-import Anotacao from "../../interfaces/Anotacao";
+import Anotacao from "../../interfaces/IAnotacao";
 import React from "react";
-import Ave from "../../interfaces/Ave";
+import Ave from "../../interfaces/IAve";
 import Card from "../../components/card/Card";
 
-
-
-
 const Home = () => {
-
   const navigate = useNavigate();
-
-
   const aveTeste: Ave ={nomePopular: "Canario", nomeCientifico: "Canarius", descricao: "ave"}
-  const anotacaoTeste: Anotacao = {id: 1,dataHorarioDoAvistamento:"11/11/2022",comentario: "Comentário dentro da anotação", tamanho: "",corPredominante:"azul", criadoEm:"oie",atualizadoEm:"atualizado", ave: aveTeste }
+  const anotacaoTeste: Anotacao = {id: 1,dataHorarioDoAvistamento:"11/11/2022",comentario: "Comentário dentro da anotação", tamanho: "",corPredominante:"azul", criadoEm:"oie",atualizadoEm:"atualizado", ave: aveTeste, localizacao: {latitude: "52336", longitude: "556565"}}
   
 
+  
   return (
-    <div className="home">   
+    <div className="home">
       <header className="header-home">
         <div>
         <ModalApp anotacao={anotacaoTeste}></ModalApp>
-        {/* <Card props={aveTeste}></Card> */}
-
+        <Card ave={aveTeste}></Card>
           <h1>
             Somos o <span>Ornitólogo App</span>
           </h1>
-          <h2>Registre seus olhares de Ornitólogo</h2>   
-          <Botao  text="Criar conta" enviar={() => {navigate("/cadastro"); }} parametros={[]}/>       
+          <h2>Registre seus olhares de Ornitólogo</h2>
+          <Botao
+            text="Criar conta"
+            enviar={() => {
+              navigate("/cadastro");
+            }}
+            parametros={[]}
+          />
         </div>
         <img src={imgHome} alt="imagem home"></img>
       </header>
@@ -88,7 +88,7 @@ const Home = () => {
             Brasil: mapeando a riqueza e estimando parâmetros demográficos".
           </p>
         </div>
-      </main>     
+      </main>
     </div>
   );
 };

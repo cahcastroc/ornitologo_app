@@ -7,17 +7,14 @@ import LocationIcon from "@mui/icons-material/LocationOnRounded";
 import DataIcon from "@mui/icons-material/CalendarMonthRounded";
 import EditIcon from "@mui/icons-material/Edit";
 import "./Modal.css";
-import Anotacao from "../../interfaces/Anotacao";
-
+import Anotacao from "../../interfaces/IAnotacao";
 
 interface Props {
-      anotacao: Anotacao;
+  anotacao: Anotacao;
 }
 
-const ModalApp = ({anotacao}: Props) => {
-
-  const {ave, comentario, dataHorarioDoAvistamento} = anotacao;
-
+const ModalApp = ({ anotacao }: Props) => {
+  const { ave, comentario, dataHorarioDoAvistamento, localizacao} = anotacao;
 
   const [modalAberto, setModalAberto] = useState<boolean>(false);
 
@@ -28,8 +25,6 @@ const ModalApp = ({anotacao}: Props) => {
   const fechaModal = () => {
     setModalAberto(false);
   };
-
-
 
   return (
     <div className="main-modal">
@@ -51,14 +46,14 @@ const ModalApp = ({anotacao}: Props) => {
           <DataIcon />
           <h4>{dataHorarioDoAvistamento}</h4>
         </div>
-        {/* <div className="latitude">
+        <div className="latitude">
           <LocationIcon />
-          <h4>{latitude}</h4>
-        </div> */}
-        {/* <div className="longitude">
+          <h4>{localizacao.latitude}</h4>
+        </div>
+        <div className="longitude">
           <LocationIcon />
-          <h4>{longitude}</h4>
-        </div> */}
+          <h4>{localizacao.longitude}</h4>
+        </div>
         <IconButton className="edit-icon">
           <EditIcon />
         </IconButton>
