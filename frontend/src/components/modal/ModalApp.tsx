@@ -7,25 +7,17 @@ import LocationIcon from "@mui/icons-material/LocationOnRounded";
 import DataIcon from "@mui/icons-material/CalendarMonthRounded";
 import EditIcon from "@mui/icons-material/Edit";
 import "./Modal.css";
+import Anotacao from "../../interfaces/Anotacao";
 
 
-interface ModalProps {
-  nome: string;
-  nomeCientifico: string;
-  descricao: string;
-  data: string;
-  latitude: string;
-  longitude: string;
+interface Props {
+      anotacao: Anotacao;
 }
 
-const ModalApp = ({
-  nome,
-  nomeCientifico,
-  descricao,
-  data,
-  latitude,
-  longitude,
-}: ModalProps) => {
+const ModalApp = ({anotacao}: Props) => {
+
+  const {ave, comentario, dataHorarioDoAvistamento} = anotacao;
+
 
   const [modalAberto, setModalAberto] = useState<boolean>(false);
 
@@ -52,21 +44,21 @@ const ModalApp = ({
         <IconButton className="close-icon" onClick={fechaModal}>
           <CloseIcon />
         </IconButton>
-        <h2>{nome}</h2>
-        <h3>{nomeCientifico}</h3>
-        <p>{descricao}</p>
+        <h2>{ave.nomePopular}</h2>
+        <h3>{ave.nomeCientifico}</h3>
+        <p>{comentario}</p>
         <div className="data">
           <DataIcon />
-          <h4>{data}</h4>
+          <h4>{dataHorarioDoAvistamento}</h4>
         </div>
-        <div className="latitude">
+        {/* <div className="latitude">
           <LocationIcon />
           <h4>{latitude}</h4>
-        </div>
-        <div className="longitude">
+        </div> */}
+        {/* <div className="longitude">
           <LocationIcon />
           <h4>{longitude}</h4>
-        </div>
+        </div> */}
         <IconButton className="edit-icon">
           <EditIcon />
         </IconButton>

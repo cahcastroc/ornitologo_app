@@ -1,6 +1,13 @@
 import React from 'react'
+import Anotacao from '../../interfaces/Anotacao';
+import Ave from '../../interfaces/Ave';
 import "./Card.css"
 
+
+interface Props{
+    anotacao?: Anotacao;
+    ave?: Ave;
+}
 
 interface CardProps{
     nome: string,
@@ -9,8 +16,23 @@ interface CardProps{
     data: string
 }
 
+const retornoInterface = (props: Props): CardProps => {
+    const { anotacao, ave } = props;
+    let data: CardProps = {
+        nome: anotacao?.ave.nomePopular || ave?.nomePopular || "",
+        nomeCientifico: anotacao?.ave.nomeCientifico || ave?.nomeCientifico ||  "",
+        descricao: anotacao?.comentario || ave?.descricao || "",
+        data: anotacao?.dataHorarioDoAvistamento || "",
+    };
+    return data;
+};
 
-const Card = ({nome, nomeCientifico,descricao,data}: CardProps) => {
+
+const Card = (props: Props ) => {
+
+    const {nome, nomeCientifico, descricao,data} = retornoInterface(props)
+
+
     return (
         <div className="row">            
                 <h2>{nome}</h2>

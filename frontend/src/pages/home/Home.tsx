@@ -5,6 +5,11 @@ import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
 import Botao from "../../components/botao/Botao";
 import ModalApp from "../../components/modal/ModalApp";
+import Anotacao from "../../interfaces/Anotacao";
+import React from "react";
+import Ave from "../../interfaces/Ave";
+import Card from "../../components/card/Card";
+
 
 
 
@@ -12,15 +17,17 @@ const Home = () => {
 
   const navigate = useNavigate();
 
+
+  const aveTeste: Ave ={nomePopular: "Canario", nomeCientifico: "Canarius", descricao: "ave"}
+  const anotacaoTeste: Anotacao = {id: 1,dataHorarioDoAvistamento:"11/11/2022",comentario: "Comentário dentro da anotação", tamanho: "",corPredominante:"azul", criadoEm:"oie",atualizadoEm:"atualizado", ave: aveTeste }
   
 
   return (
     <div className="home">   
       <header className="header-home">
         <div>
-        <ModalApp nome="Camila" nomeCientifico="Castro" 
-        descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " 
-        data="10/10/10" latitude="-30.059074520323573" longitude="-51.17297504476737"></ModalApp>
+        <ModalApp anotacao={anotacaoTeste}></ModalApp>
+        {/* <Card props={aveTeste}></Card> */}
 
           <h1>
             Somos o <span>Ornitólogo App</span>
