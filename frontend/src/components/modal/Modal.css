@@ -1,0 +1,57 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f6f6f6;
+  overflow: auto;
+  border-radius: 4px;
+  padding: 20px;
+  word-wrap: break-word;
+  width: 40%;
+  font-family: "Nunito", sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.close-icon {
+  left: 95%;
+}
+
+.edit-icon {
+  left: 84%;
+}
+
+.delete-icon {
+  left: 85%;
+}
+
+.modal > h2 {
+  color: #4c6c18;
+  font-weight: bolder;
+  padding-left: 1%;
+}
+.modal > h3 {
+  font-style: italic;
+  padding-left: 1%;
+  font-weight: lighter;
+}
+
+.modal > p {
+  padding: 1%;
+}
+
+.latitude,
+.longitude,
+.data {
+  display: flex;
+  font-size: 0.9em;
+  padding-top: 2%;
+}

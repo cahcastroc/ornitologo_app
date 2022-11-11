@@ -4,6 +4,7 @@ import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
 import Botao from "../../components/botao/Botao";
+import ModalApp from "../../components/modal/ModalApp";
 
 
 
@@ -11,10 +12,16 @@ const Home = () => {
 
   const navigate = useNavigate();
 
+  
+
   return (
     <div className="home">   
       <header className="header-home">
         <div>
+        <ModalApp nome="Camila" nomeCientifico="Castro" 
+        descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " 
+        data="10/10/10" latitude="-30.059074520323573" longitude="-51.17297504476737"></ModalApp>
+
           <h1>
             Somos o <span>Ornitólogo App</span>
           </h1>
