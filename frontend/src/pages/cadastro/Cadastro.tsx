@@ -8,7 +8,8 @@ import "./Cadastro.css";
 const Cadastro = () => {
   let service: CadastroService = new CadastroService();
 
-  function onsubmit(){
+  function onsubmithandler(event: React.FormEvent){
+    event.preventDefault();
     let user: User = {
       nome: "amogus",
       email: "sugoma",
@@ -20,13 +21,14 @@ const Cadastro = () => {
   return (
     <main className="cadastro-container">
       <img src={cadastroImage}></img>
-      <form className="form-container">
+      <form className="form-container" onSubmit={(event) => onsubmithandler(event)}>
         <h2>Cadastro</h2>
         <Input placeholder="nome" type="text"></Input>
         <Input placeholder="email" type="email"></Input>
         <Input placeholder="senha" type="password"></Input>
         <Input placeholder="confirmação da senha" type="password"></Input>
-        <Botao text="cadastrar" enviar={() => onsubmit()} parametros={[]}></Botao>
+        {/* <Botao text="cadastrar" enviar={() => onsubmit()} parametros={[]}></Botao> */}
+        <button type="submit">cadastra</button>
       </form>
     </main>
   );
