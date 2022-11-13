@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.home-cadastro-ave { 
+    font-family: "Poppins", sans-serif;
+}
+
+.header-home-cadastro-ave {
+    text-align: center;
+    margin: 5%; 
+}
+
+.header-home-cadastro-ave h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 5%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 5%;
+    font-size: 20px;
+}
+
+form div {
+    display: flex;
+    justify-content: space-around;
+}
+
+form div div {
+    display: flex;
+    flex-direction: column;
+}
+
+.descricao {
+    align-self: center;
+}
+
+.texto-area {
+    width: 100vh;
+    height: 20vh;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    margin:1% 0 5% 0;
+    resize: none;
+    padding: 10px;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+
+
+
+

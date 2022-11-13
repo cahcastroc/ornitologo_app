@@ -1,0 +1,12 @@
+.botao-salvar {
+    background-color: white;
+    border: none;
+}
+
+.botao-salvar img {
+    width: 80px;
+    height: 70px;
+    align-self: right;
+    margin: 5%;
+    cursor: pointer;
+}
