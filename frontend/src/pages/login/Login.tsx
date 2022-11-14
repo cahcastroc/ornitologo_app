@@ -3,7 +3,7 @@ import loginImage from "../../assets/login_cadastro.png";
 import Input from "../../components/Input/Input";
 import Botao from "../../components/botao/Botao";
 import { useState } from "react";
-import { LoginService } from "../../services/LoginService";
+import { LoginService } from "./LoginService";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../../interfaces/User";
 

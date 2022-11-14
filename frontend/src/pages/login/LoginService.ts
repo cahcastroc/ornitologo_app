@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IUser } from "../interfaces/User";
+import { IUser } from "../../interfaces/User";
 
 export class LoginService{
     async login(user: IUser){
