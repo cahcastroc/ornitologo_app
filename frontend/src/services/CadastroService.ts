@@ -7,6 +7,7 @@ export class CadastroService {
             method: "POST",
             data: user,
         }).then((response) => {
+            console.log(response);
             return response.data;
         });
     }
