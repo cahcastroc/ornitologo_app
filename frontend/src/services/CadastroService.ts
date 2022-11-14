@@ -1,13 +1,12 @@
-import { User } from "../models/User";
 import axios from "axios";
+import { IUser } from "../interfaces/User";
 
 export class CadastroService {
-    async postUser(user: User) {
+    async postUser(user: IUser) {
         return axios("http://localhost:8080/usuarios", {
             method: "POST",
             data: user,
         }).then((response) => {
-            console.log(response);
             return response.data;
         });
     }
