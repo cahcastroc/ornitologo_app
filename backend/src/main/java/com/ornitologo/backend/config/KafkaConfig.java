@@ -16,45 +16,39 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import java.util.HashMap;
 import java.util.Map;
 
-
 @Configuration
 @EnableKafka
 public class KafkaConfig {
-    @Bean
-    NewTopic criaAnotacaoTopic() {
-        return TopicBuilder.
-                name("anotacaoTopico").
-                build();
-    }
+        @Bean
+        NewTopic criaAnotacaoTopic() {
+                return TopicBuilder.name("anotacaoTopico").build();
+        }
 
-    @Bean
-    public ConsumerFactory<String, AnotacaoDTO> consumerFactory() {
-        Map<String, Object> props = new HashMap<>();
-        props.put(
-                ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "localhost:9092");
-        props.put(
-                ConsumerConfig.GROUP_ID_CONFIG,
-                "myGrup");
-        props.put(
-                ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
-                StringDeserializer.class);
-        props.put(
-                ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
-                JsonDeserializer.class);
-        props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
-        return new DefaultKafkaConsumerFactory<>(props);
-    }
+        @Bean
+        public ConsumerFactory<String, AnotacaoDTO> consumerFactory() {
+                Map<String, Object> props = new HashMap<>();
+                props.put(
+                                ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
+                                "localhost:9092");
+                props.put(
+                                ConsumerConfig.GROUP_ID_CONFIG,
+                                "myGroup");
+                props.put(
+                                ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
+                                StringDeserializer.class);
+                props.put(
+                                ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
+                                JsonDeserializer.class);
+                props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
+                return new DefaultKafkaConsumerFactory<>(props);
+        }
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, AnotacaoDTO>
-    kafkaListenerContainerFactory() {
+        @Bean
+        public ConcurrentKafkaListenerContainerFactory<String, AnotacaoDTO> kafkaListenerContainerFactory() {
 
-        ConcurrentKafkaListenerContainerFactory<String, AnotacaoDTO> factory =
-                new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
-        return factory;
-    }
-
+                ConcurrentKafkaListenerContainerFactory<String, AnotacaoDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
+                factory.setConsumerFactory(consumerFactory());
+                return factory;
+        }
 
 }
