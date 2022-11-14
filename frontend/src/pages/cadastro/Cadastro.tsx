@@ -5,22 +5,30 @@ import { User } from "../../models/User";
 import { CadastroService } from "../../services/CadastroService";
 import "./Cadastro.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Cadastro = () => {
-    let service: CadastroService = new CadastroService();
+    const navigate = useNavigate();
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [confirmarSenha, setConfirmarSenha] = useState("");
+    
+    let service: CadastroService = new CadastroService();
 
-    function onsubmithandler(event: React.FormEvent) {
+    async function onsubmithandler(event: React.FormEvent) {
         event.preventDefault();
         let user: User = {
             nome: nome,
             email: email,
             senha: senha,
         };
-        service.postUser(user);
+        try{
+            await service.postUser(user);
+            navigate("/login");
+        }catch{
+            // throw exception
+        }
     }
 
     return (
