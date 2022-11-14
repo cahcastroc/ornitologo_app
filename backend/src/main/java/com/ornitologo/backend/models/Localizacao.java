@@ -32,4 +32,12 @@ public class Localizacao {
         this.descricao = descricao;
     }
 
+    @Override
+    public String toString() {
+        return "Localizacao{" +
+                "lat='" + lat + '\'' +
+                ", longt='" + longt + '\'' +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
 }

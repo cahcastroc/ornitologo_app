@@ -9,7 +9,7 @@ import com.ornitologo.backend.entities.Usuario;
 import com.ornitologo.backend.models.Localizacao;
 import lombok.Builder;
 
-@Builder
+
 public class AnotacaoDTO {
     private Long id;
     private Instant dataHorarioDoAvistamento;
