@@ -15,8 +15,10 @@ import javax.persistence.PreUpdate;
 
 import com.ornitologo.backend.dtos.AnotacaoDTO;
 import com.ornitologo.backend.models.Localizacao;
+import lombok.Builder;
 
 @Entity
+@Builder
 public class Anotacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

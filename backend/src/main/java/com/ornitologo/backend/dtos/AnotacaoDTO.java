@@ -7,7 +7,9 @@ import com.ornitologo.backend.entities.Anotacao;
 import com.ornitologo.backend.entities.Ave;
 import com.ornitologo.backend.entities.Usuario;
 import com.ornitologo.backend.models.Localizacao;
+import lombok.Builder;
 
+@Builder
 public class AnotacaoDTO {
     private Long id;
     private Instant dataHorarioDoAvistamento;
