@@ -6,6 +6,7 @@ interface ILocalizazao{
 }
 
 export default interface IAnotacao {
+ 
   id: number;
   dataHorarioDoAvistamento: string;
   comentario: string;

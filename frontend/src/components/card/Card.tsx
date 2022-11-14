@@ -31,9 +31,9 @@ const Card = (props: Props) => {
   const { nome, nomeCientifico, descricao, data } = retornoData(props);
 
 
+
   return (
-    <div className="row">
-       
+    <div className="row">       
       <h2>{nome}</h2>
       <h3>{nomeCientifico}</h3>
       <span>

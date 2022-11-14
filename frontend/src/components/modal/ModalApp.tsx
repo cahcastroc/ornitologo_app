@@ -14,6 +14,7 @@ import Info from "@mui/icons-material/InfoOutlined";
 import Input from "../Input/Input";
 import BotaoSalvar from "../botaoSalvar/BotaoSalvar";
 import InfoModal from "./InfoModal";
+import EditModal from "./EditModal";
 
 interface Props {
   anotacao: Anotacao;
@@ -25,6 +26,7 @@ const ModalApp = ({ anotacao }: Props) => {
   const { id, ave, comentario, dataHorarioDoAvistamento, localizacao } =
     anotacao;
 
+    
   const [modalAberto, setModalAberto] = useState<boolean>(false);
 
   const [edit, setEdit] = useState<boolean>(false);
@@ -42,9 +44,7 @@ const ModalApp = ({ anotacao }: Props) => {
 
   const editar = () => {
     setEdit(true);
-    service.editAnotacao(anotacao.id, anotacao);
-
-    console.log("Put" + anotacao.id);
+  
   };
 
   const deletar = () => {
@@ -53,31 +53,6 @@ const ModalApp = ({ anotacao }: Props) => {
   };
 
   const MudaTela = () => {
-    const [nomePopular, setNomePopular] = React.useState(ave.nomePopular);
-    const [nomeCientifico, setNomeCientifico] = React.useState(
-      ave.nomeCientifico
-    );
-    const [comentario, setComentario] = React.useState(anotacao.comentario);
-    const [dataAvistamento, setDataAvistamento] = React.useState(
-      anotacao.dataHorarioDoAvistamento
-    );
-    const [latitude, setLatitude] = React.useState(
-      anotacao.localizacao.latitude
-    );
-    const [longitude, setLongitude] = React.useState(
-      anotacao.localizacao.longitude
-    );
-
-    const salvar = () => {
-      console.log(nomePopular);
-      console.log(nomeCientifico);
-      console.log(comentario);
-      console.log(dataAvistamento);
-      console.log(latitude);
-      console.log(longitude);
-      fechaModal();
-      alert("Atualizado!");
-    };
 
     if (!edit) {
       return (
@@ -94,34 +69,7 @@ const ModalApp = ({ anotacao }: Props) => {
     } else {
       return (
         <>
-          <Input
-            placeholder={nomePopular}
-            type={"text"}
-            onChange={setNomePopular}
-          />
-          <Input
-            placeholder={nomeCientifico}
-            type={"text"}
-            onChange={setNomeCientifico}
-          />
-          <Input
-            placeholder={comentario}
-            type={"text"}
-            onChange={setComentario}
-          />
-          <Input
-            placeholder={dataAvistamento}
-            type={"text"}
-            onChange={setDataAvistamento}
-          />
-          <Input placeholder={latitude} type={"text"} onChange={setLatitude} />
-          <Input
-            placeholder={longitude}
-            type={"text"}
-            onChange={setLongitude}
-          />
-
-          <button onClick={salvar}>Salvar</button>
+          <EditModal anotacao={anotacao} />
         </>
       );
     }
