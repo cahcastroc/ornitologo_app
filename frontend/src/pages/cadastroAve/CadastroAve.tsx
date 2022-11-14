@@ -3,15 +3,23 @@ import "./CadastroAve.css";
 import Input from "../../components/Input/Input";
 import tucano from "../../assets/tucano.png";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
+import { CadastroAveService } from "../../services/CadastroAveServices";
+import { Ave } from "../../models/Ave";
 
 const CadastroAve = () => {
+  let service: CadastroAveService = new CadastroAveService();
   const [nome, setNome] = React.useState("");
   const [nomeCientifico, setNomeCientifico] = React.useState("");
   const [descricao, setDescricao] = React.useState("");
 
   const handleEnviar = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(nome, nomeCientifico, descricao);
+    let ave: Ave = {
+      nome: nome,
+      nomeCientifico: nomeCientifico,
+      descricao: descricao,
+    };
+    service.cadastrarAve(ave);
   };
 
   return (
