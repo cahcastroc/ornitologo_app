@@ -5,6 +5,7 @@ import tucano from "../../assets/tucano.png";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
 import { CadastroAveService } from "../../services/CadastroAveServices";
 import { Ave } from "../../models/Ave";
+import { resolveTypeReferenceDirective } from "typescript";
 
 const CadastroAve = () => {
   let service: CadastroAveService = new CadastroAveService();
@@ -20,6 +21,7 @@ const CadastroAve = () => {
       descricao: descricao,
     };
     service.cadastrarAve(ave);
+    alert("Ave cadastrada com sucesso!");
   };
 
   return (

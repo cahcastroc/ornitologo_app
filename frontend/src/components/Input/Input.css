@@ -3,7 +3,8 @@
 .input-text {
     display: flex;
     margin: 0 1%;
-    outline: none;
+    justify-content: flex-start;
+    margin-left: 10%;
 }
 
 .caixa-texto {
@@ -27,8 +28,5 @@
     background-color: white;
     margin: 1% 0;
     padding: 1%;
-    border-top: 1.5px solid black;
-    border-bottom: 1.5px solid black;
-    border-right: 1.5px solid black;
     border-radius: 5px;
 }
