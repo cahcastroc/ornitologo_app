@@ -21,21 +21,7 @@ interface Props {
 
 const InfoModal = ({anotacao}: Props) => {
     const { ave, comentario, dataHorarioDoAvistamento, localizacao} = anotacao;
-    // const [edit, setEdit] = useState<boolean>(false);
-    
-    // let service: AnotacaoService = new AnotacaoService();
 
-    // const editar = () =>{
-    //     setEdit(true)
-    //     service.editAnotacao(anotacao.id, anotacao)
-    
-    //     console.log("Put" + anotacao.id)
-    //   }
-    
-    //   const deletar = () =>{
-    //       service.deleteAnotacao(anotacao.id);
-    //       console.log("Delete" + anotacao.id)          
-    //   }
   return (
     <>
       <h2>{ave.nomePopular}</h2>
@@ -53,12 +39,7 @@ const InfoModal = ({anotacao}: Props) => {
         <LocationIcon />
         <h4>{localizacao.longitude}</h4>
       </div>
-      {/* <IconButton className="edit-icon" onClick={editar}>
-          <EditIcon />
-        </IconButton>
-        <IconButton className="delete-icon" onClick={deletar}>
-          <DeleteIcon />
-        </IconButton> */}
+  
       </>
   )
 }
