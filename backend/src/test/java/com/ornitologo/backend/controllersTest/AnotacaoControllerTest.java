@@ -177,10 +177,10 @@ class AnotacaoControllerTest {
 
         mockMvc.perform(put("/anotacoes/{id}","1").contentType(MediaType.APPLICATION_JSON).content(json))
                         .andExpect(MockMvcResultMatchers.status().isOk())
-                        .andExpectAll(jsonPath("$.id").value("1L"))
-                        .andExpectAll(jsonPath("$.comentario").value("Comentário teste2"))
-                        .andExpectAll(jsonPath("$.tamanho").value("grande"))
-                        .andExpectAll(jsonPath("$.corPredominante").value("roxo"));
+                        .andExpectAll(jsonPath("$.id").value(1L))
+                        .andExpectAll(jsonPath("$.comentario").value("Comentário teste"))
+                        .andExpectAll(jsonPath("$.tamanho").value("Grande"))
+                        .andExpectAll(jsonPath("$.corPredominante").value("vermelha"));
     }
 
     @Test
