@@ -22,7 +22,7 @@ function App() {
           <Route path="/cadastro" element={<Cadastro />}></Route>
           <Route path="/usuario" element={<Usuario />}></Route>
           <Route path="/anotacao" element={<Anotacao />}></Route>
-          <Route path="/cadastroAve" element={<CadastroAve />}></Route>
+          <Route path="/cadastroave" element={<CadastroAve />}></Route>
           <Route path='*' element={<h1>Página não encontrada!</h1>} />
         </Routes>
         <Footer />

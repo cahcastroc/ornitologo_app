@@ -1,11 +1,9 @@
-.row{
-    display: flex;
-    background-color: #fafafa;    
-    word-wrap: break-word;     
-}
+
 
 .row{
     display: flex;
+    background-color: #fafafa;    
+    word-wrap: break-word;   
     flex-direction: column;    
     border-radius: 5%;
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
@@ -16,6 +14,12 @@
     font-family: 'Nunito', sans-serif;    
     align-items: center;      
     overflow:hidden;
+    text-align: center;
+    
+}
+
+.row:hover{
+    transform: scale(1.05);
     
 }
 

@@ -28,7 +28,7 @@ export class AnotacaoService{
             return response.data
             
         }).catch((error)=>{
-            alert(`Erro: anotação não editada - Cód: ${error.status}`)
+            alert(`Erro: anotação não editada - Descrição do erro: ${error}`)
             console.log(error)
         })
     }
