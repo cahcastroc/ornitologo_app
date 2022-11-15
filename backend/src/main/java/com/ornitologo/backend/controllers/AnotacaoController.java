@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/anotacoes")
 public class AnotacaoController {
+
     private AnotacaoService service;
     @Autowired
     private AnotacaoProducerService anotacaoProducerService;

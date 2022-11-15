@@ -19,6 +19,7 @@ import com.ornitologo.backend.utils.UserMapConverter;
 
 @Service
 public class AnotacaoService {
+
     private AnotacaoRepository repository;
 
     @Autowired
