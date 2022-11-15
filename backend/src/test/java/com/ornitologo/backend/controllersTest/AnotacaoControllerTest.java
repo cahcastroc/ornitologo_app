@@ -162,16 +162,16 @@ class AnotacaoControllerTest {
     @Test
     @WithMockUser
     void shouldBeUpdateAndReturn200() throws Exception{
-//        AnotacaoDTO dto;
-//        Anotacao entityBody =  Anotacao.builder()
-//                .id(1L)
-//                .comentario("Comentário teste")
-//                .tamanho("Grande")
-//                .corPredominante("vermelha")
-//                .build();
-//        dto = new AnotacaoDTO(entityBody);
+        AnotacaoDTO dto;
+        Anotacao entityBody =  Anotacao.builder()
+                .id(1L)
+                .comentario("Comentário teste")
+                .tamanho("Grande")
+                .corPredominante("vermelha")
+                .build();
+        dto = new AnotacaoDTO(entityBody);
 
-        Mockito.when(anotacaoService.update(1L,dto)).thenReturn(dto2);
+        Mockito.when(anotacaoService.update(1L,dto)).thenReturn(dto);
 
         var json= new Gson().toJson(dto);
 
