@@ -26,7 +26,7 @@ const Home = () => {
         <div>
        
           <h1>
-            Somos o <span>Ornitólogo App</span>
+            Somos o<span>Ornitólogo App</span>
           </h1>
           <h2>Registre seus olhares de Ornitólogo</h2>
           <Botao

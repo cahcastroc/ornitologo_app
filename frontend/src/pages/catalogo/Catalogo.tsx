@@ -29,7 +29,7 @@ const Catalogo = () => {
         setAves(response.data);
         console.log(response.data);
       });
-  }, []);
+  }, [aves]);
 
   return (
     <div className="catalogo">
