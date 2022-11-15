@@ -6,7 +6,7 @@ import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import "./Modal.css";
 import Anotacao from "../../interfaces/IAnotacao";
-import { AnotacaoService } from "../../services/AnotacaoService";
+import { AnotacaoService } from "../../pages/anotacoesUsuario/AnotacaoService";
 import Info from "@mui/icons-material/InfoOutlined";
 import InfoModal from "./InfoModal";
 import EditModal from "./EditModal";
@@ -17,8 +17,7 @@ interface Props {
 
 Modal.setAppElement("#root");
 
-const ModalApp = ({ anotacao }: Props) => { 
-    
+const ModalApp = ({ anotacao }: Props) => {
   const [modalAberto, setModalAberto] = useState<boolean>(false);
 
   const [edit, setEdit] = useState<boolean>(false);
@@ -29,24 +28,20 @@ const ModalApp = ({ anotacao }: Props) => {
     setModalAberto(true);
   };
 
-
-
- const fechaModal = () => {
+  const fechaModal = () => {
     setModalAberto(false);
     setEdit(false);
   };
 
   const editar = () => {
-    setEdit(true);  
-  
+    setEdit(true);
   };
 
   const deletar = () => {
-    service.deleteAnotacao(anotacao.id);   
+    service.deleteAnotacao(anotacao.id);
   };
 
   const RenderModal = () => {
-
     if (!edit) {
       return (
         <>
@@ -82,10 +77,10 @@ const ModalApp = ({ anotacao }: Props) => {
         overlayClassName="overlay"
       >
         <div className="itens">
-        <IconButton className="close-icon" onClick={fechaModal}>
-          <CloseIcon />
-        </IconButton>
-        <RenderModal />
+          <IconButton className="close-icon" onClick={fechaModal}>
+            <CloseIcon />
+          </IconButton>
+          <RenderModal />
         </div>
       </Modal>
     </div>

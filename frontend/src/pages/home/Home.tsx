@@ -9,22 +9,18 @@ import Anotacao from "../../interfaces/IAnotacao";
 import React from "react";
 import Ave from "../../interfaces/IAve";
 import Card from "../../components/card/Card";
-import { AnotacaoService } from "../../services/AnotacaoService";
+import { AnotacaoService } from "../anotacoesUsuario/AnotacaoService";
 import IAnotacao from "../../interfaces/IAnotacao";
-import  { IUser } from "../../interfaces/User";
+import { IUser } from "../../interfaces/User";
 import axios from "axios";
-
 
 const Home = () => {
   const navigate = useNavigate();
-
-
 
   return (
     <div className="home">
       <header className="header-home">
         <div>
-       
           <h1>
             Somos o<span>Ornitólogo App</span>
           </h1>
