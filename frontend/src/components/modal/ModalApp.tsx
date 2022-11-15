@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/CancelPresentationRounded";
-import { Button, IconButton } from "@mui/material";
-import LocationIcon from "@mui/icons-material/LocationOnRounded";
-import DataIcon from "@mui/icons-material/CalendarMonthRounded";
+import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import "./Modal.css";
 import Anotacao from "../../interfaces/IAnotacao";
 import { AnotacaoService } from "../../services/AnotacaoService";
-import Botao from "../botao/Botao";
 import Info from "@mui/icons-material/InfoOutlined";
-import Input from "../Input/Input";
-import BotaoSalvar from "../botaoSalvar/BotaoSalvar";
 import InfoModal from "./InfoModal";
 import EditModal from "./EditModal";
 
@@ -22,10 +17,7 @@ interface Props {
 
 Modal.setAppElement("#root");
 
-const ModalApp = ({ anotacao }: Props) => {
-  // const { id, ave, comentario, dataHorarioDoAvistamento, localizacao } =
-  //   anotacao;
-
+const ModalApp = ({ anotacao }: Props) => { 
     
   const [modalAberto, setModalAberto] = useState<boolean>(false);
 
@@ -37,22 +29,23 @@ const ModalApp = ({ anotacao }: Props) => {
     setModalAberto(true);
   };
 
-  const fechaModal = () => {
+
+
+ const fechaModal = () => {
     setModalAberto(false);
     setEdit(false);
   };
 
   const editar = () => {
-    setEdit(true);
+    setEdit(true);  
   
   };
 
   const deletar = () => {
-    service.deleteAnotacao(anotacao.id);
-    console.log("Delete" + anotacao.id);
+    service.deleteAnotacao(anotacao.id);   
   };
 
-  const MudaTela = () => {
+  const RenderModal = () => {
 
     if (!edit) {
       return (
@@ -88,10 +81,12 @@ const ModalApp = ({ anotacao }: Props) => {
         className="modal"
         overlayClassName="overlay"
       >
+        <div className="itens">
         <IconButton className="close-icon" onClick={fechaModal}>
           <CloseIcon />
         </IconButton>
-        <MudaTela />
+        <RenderModal />
+        </div>
       </Modal>
     </div>
   );

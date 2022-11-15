@@ -12,8 +12,11 @@
     padding: 1.5%;
     margin: 2%;
     width: 15rem;
-    height: 13rem ; 
-    font-family: 'Nunito', sans-serif;          
+    height: 10rem ; 
+    font-family: 'Nunito', sans-serif;    
+    align-items: center;      
+    overflow:hidden;
+    
 }
 
 .row>h2{
@@ -31,7 +34,7 @@
 
 span{
     padding-top: 8%;
-    overflow: hidden;   
+    word-wrap: break-word; 
 }
 
 #data{    

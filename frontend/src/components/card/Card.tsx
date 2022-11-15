@@ -1,4 +1,3 @@
-import React from "react";
 import IAnotacao from "../../interfaces/IAnotacao";
 import IAve from "../../interfaces/IAve";
 import ModalApp from "../modal/ModalApp";
@@ -30,19 +29,15 @@ const retornoData = (props: Props): CardProps => {
 const Card = (props: Props) => {
   const { nome, nomeCientifico, descricao, data } = retornoData(props);
 
-
-
   return (
-    <div className="row">       
+    <div className="row">
       <h2>{nome}</h2>
       <h3>{nomeCientifico}</h3>
       <span>
         <p>{descricao}</p>
       </span>
       <p id="data">{data}</p>
-      {props.anotacao &&
-        <ModalApp anotacao={props.anotacao}></ModalApp>}
-      
+      {props.anotacao && <ModalApp anotacao={props.anotacao}></ModalApp>}
     </div>
   );
 };

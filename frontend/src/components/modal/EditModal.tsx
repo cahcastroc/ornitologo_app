@@ -3,8 +3,8 @@ import IAnotacao from "../../interfaces/IAnotacao";
 import { AnotacaoService } from "../../services/AnotacaoService";
 import Input from "../Input/Input";
 import Save from "@mui/icons-material/SaveOutlined";
-import { Button, IconButton } from "@mui/material";
-import Anotacao from "../../pages/anotacao/Anotacao";
+import { IconButton } from "@mui/material";
+
 
 interface Props {
   anotacao: IAnotacao;
@@ -16,14 +16,15 @@ const EditModal = ({ anotacao }: Props) => {
   const [corPredominante, setCorPredominante] = React.useState(
     anotacao.corPredominante
   );
-
-  // const [latitude, setLatitude] = React.useState(anotacao.localizacao.latitude);
-  // const [longitude, setLongitude] = React.useState(
-  //   anotacao.localizacao.longitude
-  // );
+  const [latitude, setLatitude] = React.useState(anotacao.localizacao.lat);
+  const [longitude, setLongitude] = React.useState(anotacao.localizacao.longt);
+  const [descricaoLocal, setDescricaoLocal] = React.useState(
+    anotacao.localizacao.descricao
+  );
 
   let service: AnotacaoService = new AnotacaoService();
 
+  //Objeto intermediário
   const [anotacaoEditada, setAnotacaoEditada]: [
     IAnotacao,
     (anotacaoEditada: IAnotacao) => void
@@ -32,14 +33,12 @@ const EditModal = ({ anotacao }: Props) => {
   anotacaoEditada.comentario = comentario;
   anotacaoEditada.corPredominante = corPredominante;
   anotacaoEditada.tamanho = tamanho;
-
-  // anotacaoEditada.localizacao.latitude = latitude;
-  // anotacaoEditada.localizacao.longitude = longitude;
+  anotacaoEditada.localizacao.lat = latitude;
+  anotacaoEditada.localizacao.longt = longitude;
+  anotacaoEditada.localizacao.descricao = descricaoLocal;
 
   const salvar = () => {
     service.editAnotacao(anotacao.id, anotacaoEditada);
-
-    console.log("Put" + anotacaoEditada.ave.nomePopular);
   };
 
   return (
@@ -61,9 +60,16 @@ const EditModal = ({ anotacao }: Props) => {
           type={"text"}
           onChange={setCorPredominante}
         />
-        {/* <Input placeholder={latitude} type={"text"} onChange={setLatitude} />
-      <Input placeholder={longitude} type={"text"} onChange={setLongitude} /> */}
-
+        <label className="label">Latitude:</label>
+        <Input placeholder={latitude} type={"text"} onChange={setLatitude} />
+        <label className="label">Longitude:</label>
+        <Input placeholder={longitude} type={"text"} onChange={setLongitude} />
+        <label className="label">Descrição do local:</label>
+        <Input
+          placeholder={descricaoLocal}
+          type={"text"}
+          onChange={setDescricaoLocal}
+        />
         <IconButton onClick={salvar} className="edit-save">
           <Save />
         </IconButton>

@@ -23,11 +23,12 @@ export class AnotacaoService{
             method:"PUT",
             data: anotacao,
             
-        }).then ((response)=>{         
-            console.log(response.status) 
+        }).then ((response)=>{       
+            alert(`Sucesso: anotação salva!`)
             return response.data
             
         }).catch((error)=>{
+            alert(`Erro: anotação não editada - Cód: ${error.status}`)
             console.log(error)
         })
     }

@@ -2,8 +2,9 @@ import Ave from "./IAve";
 import { IUser } from "./User";
 
 interface ILocalizazao{
-    latitude: string,
-    longitude: string
+    lat: string,
+    longt: string,
+    descricao: string
 }
 
 export default interface IAnotacao {
