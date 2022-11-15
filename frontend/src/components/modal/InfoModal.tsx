@@ -29,16 +29,16 @@ const InfoModal = ({anotacao}: Props) => {
       <p>{comentario}</p>
       <div className="data">
         <DataIcon />
-        <h4>{dataHorarioDoAvistamento}</h4>
+        <h4>{dataHorarioDoAvistamento || ""}</h4>
       </div>
-      <div className="latitude">
+      {/* <div className="latitude">
         <LocationIcon />
-        <h4>{localizacao.latitude}</h4>
+        <h4>{localizacao.latitude || ""}</h4>
       </div>
       <div className="longitude">
         <LocationIcon />
-        <h4>{localizacao.longitude}</h4>
-      </div>
+        <h4>{localizacao.longitude || ""}</h4>
+      </div> */}
   
       </>
   )

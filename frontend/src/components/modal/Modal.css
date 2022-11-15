@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #f6f6f6;
+  background: #ffffff;
   overflow: auto;
   border-radius: 4px;
   padding: 20px;
@@ -54,4 +54,22 @@
   display: flex;
   font-size: 0.9em;
   padding-top: 2%;
+}
+
+
+.modal-edit>h4{
+  padding-bottom: 5%;  
+  font-style: italic;
+}
+
+.modal-edit>label{
+  padding: 10%;
+}
+.edit-save{
+  left: 30%;
+  
+}
+
+.edit-form{
+  left: 80%;
 }

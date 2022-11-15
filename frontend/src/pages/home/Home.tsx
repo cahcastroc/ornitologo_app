@@ -9,20 +9,73 @@ import Anotacao from "../../interfaces/IAnotacao";
 import React from "react";
 import Ave from "../../interfaces/IAve";
 import Card from "../../components/card/Card";
+import { AnotacaoService } from "../../services/AnotacaoService";
+import IAnotacao from "../../interfaces/IAnotacao";
+import  { IUser } from "../../interfaces/User";
+import axios from "axios";
+
+// interface IAnotacao{
+//   anotacao: IAnotacao
+// }
 
 const Home = () => {
   const navigate = useNavigate();
 
+  //---------------- teste GET
+  const user: IUser = {email: "", senha: "", nome: ""}
+
   const aveTeste: Ave ={nomePopular: "Canario", nomeCientifico: "Canarius", descricao: "ave"}
-  const anotacaoTeste: Anotacao = {id: 1,dataHorarioDoAvistamento:"11/11/2022",comentario: "Comentário dentro da anotação", tamanho: "",corPredominante:"azul", criadoEm:"oie",atualizadoEm:"atualizado", ave: aveTeste, localizacao: {latitude: "52336", longitude: "556565"}}
+  const anotacaoTeste: Anotacao = {id: 1,dataHorarioDoAvistamento:"11/11/2022",comentario: "Comentárius dentro da anotação", tamanho: "",corPredominante:"azul", criadoEm:"oie",atualizadoEm:"atualizado", ave: aveTeste, localizacao: {latitude: "52336", longitude: "556565"}, user: user}
+
+  const[anotacao, setAnotacao]  : [IAnotacao, (anotacao:IAnotacao)=>void]= React.useState(anotacaoTeste)
+
+
+  React.useEffect (()=>{
+    axios.get<IAnotacao>(`http://localhost:8080/anotacoes/1`,{
+      headers:{'Content-Type': 'application/json',"Authorization": `Bearer ${localStorage.getItem("token")}`}
+    }).then((response)=>{
+       setAnotacao(response.data)
+        console.log(response.data)
+    })
+  },[]);
+    
+
+  //------------------
+
+
+  
+
+  // let service: AnotacaoService = new AnotacaoService();
+
+  
+// interface anotacao{
+//   anotacao:IAnotacao
+// }
+
+
+// const xx : Array<IAnotacao> = [];
+// const [anotacao1,setAnotacao1] : [Array<IAnotacao> , (anotacao: Array<IAnotacao>) => void] = React.useState(xx);
+// const x = service.getAnotacao();
+// console.log(x)
+
+// x.then((values)=>{
+//     console.log(values)
+//     xx.push(values)    
+   
+// })
+
+
+
+
 
   return (
     <div className="home">
       <header className="header-home">
         <div>
         {/* <ModalApp anotacao={anotacaoTeste}></ModalApp> */}
-        <Card anotacao={anotacaoTeste}></Card>
+        <Card anotacao={anotacao}></Card>
         <Card ave={aveTeste}></Card>
+        {/* <Card anotacao={service.getAnotacao}></Card> */}
           <h1>
             Somos o <span>Ornitólogo App</span>
           </h1>

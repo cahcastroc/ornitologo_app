@@ -4,77 +4,71 @@ import { AnotacaoService } from "../../services/AnotacaoService";
 import Input from "../Input/Input";
 import Save from "@mui/icons-material/SaveOutlined";
 import { Button, IconButton } from "@mui/material";
+import Anotacao from "../../pages/anotacao/Anotacao";
 
 interface Props {
   anotacao: IAnotacao;
 }
 
 const EditModal = ({ anotacao }: Props) => {
-
-
-  const [nomePopular, setNomePopular] = React.useState(
-    anotacao.ave.nomePopular
-  );
-
-  const [nomeCientifico, setNomeCientifico] = React.useState(
-    anotacao.ave.nomeCientifico
-  );
-
   const [comentario, setComentario] = React.useState(anotacao.comentario);
-  const [dataAvistamento, setDataAvistamento] = React.useState(
-    anotacao.dataHorarioDoAvistamento
+  const [tamanho, setTamanho] = React.useState(anotacao.tamanho);
+  const [corPredominante, setCorPredominante] = React.useState(
+    anotacao.corPredominante
   );
-  const [latitude, setLatitude] = React.useState(anotacao.localizacao.latitude);
-  const [longitude, setLongitude] = React.useState(
-    anotacao.localizacao.longitude
-  );
+
+  // const [latitude, setLatitude] = React.useState(anotacao.localizacao.latitude);
+  // const [longitude, setLongitude] = React.useState(
+  //   anotacao.localizacao.longitude
+  // );
 
   let service: AnotacaoService = new AnotacaoService();
 
-  const [anotacaoEditada, setAnotacaoEditada]: [IAnotacao, (anotacaoEditada: IAnotacao) => void] = React.useState(anotacao)
-  
-  anotacaoEditada.ave.nomePopular = nomePopular;
-  anotacaoEditada.ave.nomeCientifico = nomeCientifico;
+  const [anotacaoEditada, setAnotacaoEditada]: [
+    IAnotacao,
+    (anotacaoEditada: IAnotacao) => void
+  ] = React.useState(anotacao);
+
   anotacaoEditada.comentario = comentario;
-  anotacaoEditada.dataHorarioDoAvistamento = dataAvistamento;
-  anotacaoEditada.localizacao.latitude = latitude;
-  anotacaoEditada.localizacao.longitude = longitude;
-    
- 
+  anotacaoEditada.corPredominante = corPredominante;
+  anotacaoEditada.tamanho = tamanho;
+
+  // anotacaoEditada.localizacao.latitude = latitude;
+  // anotacaoEditada.localizacao.longitude = longitude;
+
   const salvar = () => {
-    console.log(nomePopular);
     service.editAnotacao(anotacao.id, anotacaoEditada);
 
-    console.log("Put" + anotacaoEditada.ave.nomePopular + anotacaoEditada.id);
-   
+    console.log("Put" + anotacaoEditada.ave.nomePopular);
   };
 
-
-
   return (
-    <>
-      <Input
-        placeholder={nomePopular}
-        type={"text"}
-        onChange={setNomePopular}
-      />
-      <Input
-        placeholder={nomeCientifico}
-        type={"text"}
-        onChange={setNomeCientifico}
-      />
-      <Input placeholder={comentario} type={"text"} onChange={setComentario} />
-      <Input
-        placeholder={dataAvistamento}
-        type={"text"}
-        onChange={setDataAvistamento}
-      />
-      <Input placeholder={latitude} type={"text"} onChange={setLatitude} />
-      <Input placeholder={longitude} type={"text"} onChange={setLongitude} />
-      <IconButton onClick={salvar}>
-        <Save />
-      </IconButton>
-    </>
+    <div className="modal-edit">
+      <h3>{anotacao.ave.nomePopular}</h3>
+      <h4>{anotacao.ave.nomeCientifico}</h4>
+      <div className="edit-form">
+        <label>Observações:</label>
+        <Input
+          placeholder={comentario}
+          type={"text"}
+          onChange={setComentario}
+        />
+        <label className="label">Tamanho:</label>
+        <Input placeholder={tamanho} type={"text"} onChange={setTamanho} />
+        <label className="label">Cor Predominante:</label>
+        <Input
+          placeholder={corPredominante}
+          type={"text"}
+          onChange={setCorPredominante}
+        />
+        {/* <Input placeholder={latitude} type={"text"} onChange={setLatitude} />
+      <Input placeholder={longitude} type={"text"} onChange={setLongitude} /> */}
+
+        <IconButton onClick={salvar} className="edit-save">
+          <Save />
+        </IconButton>
+      </div>
+    </div>
   );
 };
 

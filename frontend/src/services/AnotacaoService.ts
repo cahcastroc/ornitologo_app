@@ -1,13 +1,19 @@
 import axios from "axios";
+import React from "react";
 import IAnotacao from "../interfaces/IAnotacao";
 
 
 export class AnotacaoService{
+    
 
     async deleteAnotacao(id:number){        
-        axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+       return axios(`http://localhost:8080/anotacoes/${id}`,{ 
+        headers:{"Authorization": `Bearer ${localStorage.getItem("token")}`},
+        method:"DELETE",        
+    })
         .then((response)=>{
             console.log(response.status) 
+            alert(`aNOTAÇÃO ID: ${id} deletada`)
         })
     }
 
@@ -16,8 +22,25 @@ export class AnotacaoService{
             headers:{"Authorization": `Bearer ${localStorage.getItem("token")}`},
             method:"PUT",
             data: anotacao,
+            
         }).then ((response)=>{         
-             return response.data
+            console.log(response.status) 
+            return response.data
+            
+        }).catch((error)=>{
+            console.log(error)
+        })
+    }
+
+    async getAnotacao() {
+        
+        return axios(`http://localhost:8080/anotacoes/`, { 
+            headers:{"Authorization": `Bearer ${localStorage.getItem("token")}`},
+            method:"GET",
+            
+        }).then ((response)=>{    
+            console.log(response.status)      
+            return response.data
             
         })
     }

@@ -23,8 +23,8 @@ interface Props {
 Modal.setAppElement("#root");
 
 const ModalApp = ({ anotacao }: Props) => {
-  const { id, ave, comentario, dataHorarioDoAvistamento, localizacao } =
-    anotacao;
+  // const { id, ave, comentario, dataHorarioDoAvistamento, localizacao } =
+  //   anotacao;
 
     
   const [modalAberto, setModalAberto] = useState<boolean>(false);
