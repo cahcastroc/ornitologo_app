@@ -8,7 +8,7 @@ import Login from "./pages/login/Login";
 import Anotacao from "./pages/anotacao/Anotacao";
 import CadastroAve from "./pages/cadastroAve/CadastroAve";
 import Footer from "./components/footer/Footer";
-import AnotacoesUsuario from "./pages/anotacoesUsuario/AnotacoesUsuario";
+import NovaAnotacao from "./pages/anotacoesUsuario/AnotacoesUsuario";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="/catalogo" element={<Catalogo />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/cadastro" element={<Cadastro />}></Route>
-          <Route path="/minhasanotacoes" element={<AnotacoesUsuario />}></Route>
+          <Route path="/novaanotacao" element={<NovaAnotacao />}></Route>
           <Route path="/anotacao" element={<Anotacao />}></Route>
           <Route path="/cadastroave" element={<CadastroAve />}></Route>
           <Route path='*' element={<h1>Página não encontrada!</h1>} />

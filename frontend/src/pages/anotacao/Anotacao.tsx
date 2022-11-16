@@ -10,7 +10,7 @@ import IAnotacao from "../../interfaces/IAnotacao";
 
 
 const Anotacao = () => {
-  let userName = "Rhaisa"
+  let userName = ""
   const navigate = useNavigate();
   let data: IAnotacao[] = [];
   let service: AnotacaoService = new AnotacaoService();
@@ -27,7 +27,7 @@ const Anotacao = () => {
       <div className="anotacoes-grid-container">
         {data.map((item) => <Card anotacao={item}></Card>)}
       </div>
-      <IconButton aria-label="add-ave" size="large" onClick={() => navigate("/cadastroave")}>
+      <IconButton aria-label="add-ave" size="large" onClick={() => navigate("/novaanotacao")}>
         <img className="btn" src={btAdd} alt="botao-add" />
       </IconButton>
     </div>
