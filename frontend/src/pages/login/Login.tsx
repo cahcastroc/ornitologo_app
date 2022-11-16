@@ -13,16 +13,15 @@ const Login = () => {
 
     async function onsubmithandler(event: React.FormEvent) {
         event.preventDefault();
-        let user: IUser ={
+        let user: IUser = {
             email: email,
-            senha: senha
-        }
+            senha: senha,
+        };
 
-        try{
+        try {
             await service.login(user);
-            console.log(localStorage.getItem("token"));
-            navigate("/anotacao");
-        }catch{
+            navigate("/catalogo");
+        } catch {
             // throw exception;
         }
     }
@@ -33,12 +32,15 @@ const Login = () => {
     return (
         <main className="login-container">
             <img src={loginImage} alt="imagem do login"></img>
-            <form className="form-container" >
+            <form className="form-container">
                 <h2>Login</h2>
-                <Input placeholder="email" type="text" onChange={setEmail}/>
-                <Input placeholder="senha" type="password" onChange={setSenha}/>
-                <Botao text="login" enviar={onsubmithandler} parametros={[]}/>
-
+                <Input placeholder="email" type="text" onChange={setEmail} />
+                <Input
+                    placeholder="senha"
+                    type="password"
+                    onChange={setSenha}
+                />
+                <Botao text="login" enviar={onsubmithandler} parametros={[]} />
             </form>
         </main>
     );
