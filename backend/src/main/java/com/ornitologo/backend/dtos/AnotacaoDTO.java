@@ -3,9 +3,6 @@ package com.ornitologo.backend.dtos;
 import java.time.Instant;
 import java.util.Objects;
 
-import com.ornitologo.backend.entities.Anotacao;
-import com.ornitologo.backend.entities.Ave;
-import com.ornitologo.backend.entities.Usuario;
 import com.ornitologo.backend.models.Localizacao;
 
 public class AnotacaoDTO {
@@ -16,40 +13,9 @@ public class AnotacaoDTO {
     private String corPredominante;
     private Instant criadoEm;
     private Instant atualizadoEm;
-    private Ave ave;
+    private AveDTO ave;
     private Localizacao localizacao;
-    private Usuario usuario;
-
-    public AnotacaoDTO() {
-    }
-
-    public AnotacaoDTO(Anotacao entity) {
-        this(
-                entity.getId(),
-                entity.getDataHorarioDoAvistamento(),
-                entity.getLocalizacao(),
-                entity.getComentario(),
-                entity.getTamanho(),
-                entity.getCorPredominante(),
-                entity.getCriadoEm(),
-                entity.getAtualizadoEm(),
-                entity.getAve(),
-                entity.getUsuario());
-    }
-
-    public AnotacaoDTO(Long id, Instant dataHorarioDoAvistamento, Localizacao localizacao, String comentario,
-            String tamanho, String corPredominante, Instant criadoEm, Instant atualizadoEm, Ave ave, Usuario usuario) {
-        this.id = id;
-        this.dataHorarioDoAvistamento = dataHorarioDoAvistamento;
-        this.localizacao = localizacao;
-        this.comentario = comentario;
-        this.tamanho = tamanho;
-        this.corPredominante = corPredominante;
-        this.criadoEm = criadoEm;
-        this.atualizadoEm = atualizadoEm;
-        this.ave = ave;
-        this.usuario = usuario;
-    }
+    private UsuarioDTO usuario;
 
     public Long getId() {
         return id;
@@ -107,14 +73,6 @@ public class AnotacaoDTO {
         this.atualizadoEm = atualizadoEm;
     }
 
-    public Ave getAve() {
-        return ave;
-    }
-
-    public void setAve(Ave ave) {
-        this.ave = ave;
-    }
-
     public Localizacao getLocalizacao() {
         return localizacao;
     }
@@ -123,11 +81,19 @@ public class AnotacaoDTO {
         this.localizacao = localizacao;
     }
 
-    public Usuario getUsuario() {
+    public AveDTO getAve() {
+        return ave;
+    }
+
+    public void setAve(AveDTO ave) {
+        this.ave = ave;
+    }
+
+    public UsuarioDTO getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioDTO usuario) {
         this.usuario = usuario;
     }
 
@@ -166,4 +132,5 @@ public class AnotacaoDTO {
         return Objects.hash(id, dataHorarioDoAvistamento, comentario, tamanho, corPredominante, criadoEm, atualizadoEm,
                 ave, localizacao, usuario);
     }
+
 }
