@@ -5,6 +5,7 @@ import tucano from "../../assets/tucano.png";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
 import { CadastroAveService } from "../../services/CadastroAveServices";
 import { IAve } from "../../interfaces/Ave";
+import { useNavigate } from "react-router-dom";
 
 const CadastroAve = () => {
   const [nomePopular, setNomePopular] = React.useState("");
@@ -12,7 +13,7 @@ const CadastroAve = () => {
   const [descricao, setDescricao] = React.useState("");
   
   let service: CadastroAveService = new CadastroAveService();
-
+  let navigate = useNavigate();
   const handleEnviar = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     let ave: IAve = {
@@ -22,7 +23,8 @@ const CadastroAve = () => {
     };
     try {
       service.cadastrarAve(ave);
-      //alert("Ave cadastrada com sucesso!");
+      alert("Ave cadastrada com sucesso!");
+      navigate("/catalogo");
     } catch (error) {
       // throw error;  
     }
