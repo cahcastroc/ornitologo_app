@@ -23,7 +23,7 @@ const Login = () => {
             console.log(localStorage.getItem("token"));
             navigate("/catalogo");
         }catch{
-
+            // throw exception;
         }
     }
 
@@ -32,13 +32,13 @@ const Login = () => {
 
     return (
         <main className="login-container">
-            <img src={loginImage}></img>
-            <form className="form-container" onSubmit={(event) =>{onsubmithandler(event)}}>
+            <img src={loginImage} alt="imagem do login"></img>
+            <form className="form-container" >
                 <h2>Login</h2>
                 <Input placeholder="email" type="text" onChange={setEmail}/>
                 <Input placeholder="senha" type="password" onChange={setSenha}/>
-                {/* <Botao text="login" enviar={(event) => onsubmithandler(event)} parametros={[]}/> */}
-                <button type="submit">login</button>
+                <Botao text="login" enviar={onsubmithandler} parametros={[]}/>
+
             </form>
         </main>
     );
