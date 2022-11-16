@@ -4,8 +4,13 @@
     align-items: center;
 }
 
+.anotacao-container>h3{
+    margin: 1% 0;
+}
+
 .anotacoes-grid-container{
-    display: grid;
-    gap: 32px;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
 }
