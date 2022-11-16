@@ -1,6 +1,8 @@
 package com.ornitologo.backend.controllers;
 
+import com.ornitologo.backend.dtos.LoginDTO;
 import com.ornitologo.backend.dtos.UsuarioDTO;
+import com.ornitologo.backend.entities.Usuario;
 import com.ornitologo.backend.services.TokenService;
 import com.ornitologo.backend.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @RequestMapping("/usuarios")
@@ -33,9 +34,11 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody UsuarioDTO dto) {
+    public ResponseEntity<LoginDTO> login(@RequestBody UsuarioDTO dto) {
         Authentication authentication = service.login(dto);
-        return ResponseEntity.ok().body(tokenService.gerarToken(authentication));
+        Usuario usuario = (Usuario) authentication.getPrincipal();
+        return ResponseEntity.ok()
+                .body(new LoginDTO(tokenService.gerarToken(authentication), usuario.getNome()));
     }
 
 }

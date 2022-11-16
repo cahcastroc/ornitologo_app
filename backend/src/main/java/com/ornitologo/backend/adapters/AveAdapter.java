@@ -5,7 +5,6 @@ import com.ornitologo.backend.entities.Ave;
 
 public class AveAdapter {
 
-    // toEntity
     public static Ave toEntity(AveDTO aveDTO) {
         Ave ave = new Ave();
         ave.setId(aveDTO.getId());
@@ -15,7 +14,6 @@ public class AveAdapter {
         return ave;
     }
 
-    // toDTO
     public static AveDTO toDTO(Ave ave) {
         AveDTO aveDTO = new AveDTO();
         aveDTO.setNomeCientifico(ave.getNomeCientifico());

@@ -15,7 +15,7 @@ public class AnotacaoDTO {
     private Instant atualizadoEm;
     private AveDTO ave;
     private Localizacao localizacao;
-    private UsuarioDTO usuario;
+    private Long usuarioId;
 
     public Long getId() {
         return id;
@@ -23,6 +23,14 @@ public class AnotacaoDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public Instant getDataHorarioDoAvistamento() {
@@ -89,14 +97,6 @@ public class AnotacaoDTO {
         this.ave = ave;
     }
 
-    public UsuarioDTO getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioDTO usuario) {
-        this.usuario = usuario;
-    }
-
     @Override
     public String toString() {
         return "AnotacaoDTO{" +
@@ -109,7 +109,6 @@ public class AnotacaoDTO {
                 ", atualizadoEm=" + atualizadoEm +
                 ", ave=" + ave +
                 ", localizacao=" + localizacao +
-                ", usuario=" + usuario +
                 '}';
     }
 
@@ -124,13 +123,13 @@ public class AnotacaoDTO {
                 && Objects.equals(comentario, that.comentario) && Objects.equals(tamanho, that.tamanho)
                 && Objects.equals(corPredominante, that.corPredominante) && Objects.equals(criadoEm, that.criadoEm)
                 && Objects.equals(atualizadoEm, that.atualizadoEm) && Objects.equals(ave, that.ave)
-                && Objects.equals(localizacao, that.localizacao) && Objects.equals(usuario, that.usuario);
+                && Objects.equals(localizacao, that.localizacao) && Objects.equals(usuarioId, that.usuarioId);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, dataHorarioDoAvistamento, comentario, tamanho, corPredominante, criadoEm, atualizadoEm,
-                ave, localizacao, usuario);
+                ave, localizacao, usuarioId);
     }
 
 }
