@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Ave } from "../models/Ave";
+import { IAve } from "../interfaces/Ave";
 
 export class CadastroAveService {
-  async cadastrarAve(ave: Ave) {
-    return axios("http://localhost:3000/aves", {
+  async cadastrarAve(ave: IAve) {
+    return axios("http://localhost:8080/aves", {
       headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`},
       method: "POST",
       data: ave,

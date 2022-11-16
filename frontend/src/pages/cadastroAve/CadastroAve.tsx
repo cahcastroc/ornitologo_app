@@ -4,24 +4,28 @@ import Input from "../../components/Input/Input";
 import tucano from "../../assets/tucano.png";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
 import { CadastroAveService } from "../../services/CadastroAveServices";
-import { Ave } from "../../models/Ave";
-import { resolveTypeReferenceDirective } from "typescript";
+import { IAve } from "../../interfaces/Ave";
 
 const CadastroAve = () => {
-  let service: CadastroAveService = new CadastroAveService();
-  const [nome, setNome] = React.useState("");
+  const [nomePopular, setNomePopular] = React.useState("");
   const [nomeCientifico, setNomeCientifico] = React.useState("");
   const [descricao, setDescricao] = React.useState("");
+  
+  let service: CadastroAveService = new CadastroAveService();
 
   const handleEnviar = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    let ave: Ave = {
-      nome: nome,
+    let ave: IAve = {
+      nomePopular: nomePopular,
       nomeCientifico: nomeCientifico,
       descricao: descricao,
     };
-    service.cadastrarAve(ave);
-    alert("Ave cadastrada com sucesso!");
+    try {
+      service.cadastrarAve(ave);
+      //alert("Ave cadastrada com sucesso!");
+    } catch (error) {
+      // throw error;  
+    }
   };
 
   return (
@@ -35,7 +39,7 @@ const CadastroAve = () => {
           <div>
             <div>
               <label>Nome:</label>
-              <Input type="text" placeholder="" onChange={setNome}/>
+              <Input type="text" placeholder="" onChange={setNomePopular}/>
             </div>
             <div>
               <label>Nome Científico: </label>
