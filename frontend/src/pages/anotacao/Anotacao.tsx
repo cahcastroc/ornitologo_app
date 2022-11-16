@@ -16,7 +16,12 @@ const Anotacao = () => {
   let service: AnotacaoService = new AnotacaoService();
 
   useEffect(() =>{
-    service.getAll().then((x) => data = x);
+    service.getAll().then((x) => data = x).catch((err) => {
+      if(err.response.status === 401){
+        alert("Sessão expirada, realize um novo login")
+        navigate("/login")
+      }
+    });
   })
 
   return (
