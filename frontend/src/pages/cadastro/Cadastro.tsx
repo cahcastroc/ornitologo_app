@@ -34,14 +34,14 @@ const Cadastro = () => {
     return (
         <main className="cadastro-container">
             <img src={cadastroImage}></img>
-            <form className="form-container">
+            <form className="form-container" onSubmit={(event) =>{onsubmithandler(event)}}>
                 <h2>Cadastro</h2>
                 <Input placeholder="nome" type="text" onChange={setNome} />
                 <Input placeholder="email" type="email" onChange={setEmail} />
                 <Input placeholder="senha" type="password" onChange={setSenha}/>
                 <Input placeholder="confirmação da senha" type="password" onChange={setConfirmarSenha}/>
-                <Botao text="cadastrar" enviar={(event) => onsubmithandler(event)} parametros={[]}></Botao>
-                {/* <button type="submit">cadastra</button> */}
+                {/* <Botao text="cadastrar" enviar={(event) => onsubmithandler(event)} parametros={[]}></Botao> */}
+                <button type="submit" >cadastra</button>
             </form>
         </main>
     );

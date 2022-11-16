@@ -33,12 +33,12 @@ const Login = () => {
     return (
         <main className="login-container">
             <img src={loginImage}></img>
-            <form className="form-container">
+            <form className="form-container" onSubmit={(event) =>{onsubmithandler(event)}}>
                 <h2>Login</h2>
                 <Input placeholder="email" type="text" onChange={setEmail}/>
                 <Input placeholder="senha" type="password" onChange={setSenha}/>
-                <Botao text="login" enviar={(event) => onsubmithandler(event)} parametros={[]}/>
-                {/* <button type="submit">login</button> */}
+                {/* <Botao text="login" enviar={(event) => onsubmithandler(event)} parametros={[]}/> */}
+                <button type="submit">login</button>
             </form>
         </main>
     );
