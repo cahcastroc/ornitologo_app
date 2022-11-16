@@ -1,11 +1,9 @@
-import axios from "axios";
 import React from "react";
 import Card from "../../components/card/Card";
 import IAve from "../../interfaces/IAve";
 import "./Catalogo.css";
 import imgCatalogo from "../../assets/catalogo.png";
 import { IconButton } from "@mui/material";
-import BtnAdd from "@mui/icons-material/AddCircle";
 import btAdd from "../../assets/btadd.png";
 import { useNavigate } from "react-router-dom";
 import { CatalogoService } from "./CatalogoService";
@@ -23,7 +21,7 @@ const Catalogo = () => {
   React.useEffect(() => {    
 
     service.getAves().then(function(result){
-      setAves(result)
+      setAves(result)      
     });
   }, []);
 
@@ -36,7 +34,7 @@ const Catalogo = () => {
       <div className="lista-cards">
         <ul>
           {aves.map((ave) => (
-            <li key={ave.nomePopular}>
+            <li key={ave.id}>
               <Card ave={ave}></Card>
             </li>
           ))}
