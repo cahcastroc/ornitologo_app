@@ -7,10 +7,10 @@ import { IconButton } from "@mui/material";
 
 interface Props {
   anotacao: IAnotacao;
-  concluirEdicao: ()=> void;
+  concluirAcao: ()=> void;
 }
 
-const EditModal = ({ anotacao, concluirEdicao }: Props) => {
+const EditModal = ({ anotacao, concluirAcao }: Props) => {
 
   const [comentario, setComentario] = React.useState(anotacao.comentario);
   const [tamanho, setTamanho] = React.useState(anotacao.tamanho);
@@ -40,7 +40,7 @@ const EditModal = ({ anotacao, concluirEdicao }: Props) => {
 
   const salvar = () => {
     service.editAnotacao(anotacao.id, anotacaoEditada);
-    concluirEdicao();
+    concluirAcao();
   };
 
   return (

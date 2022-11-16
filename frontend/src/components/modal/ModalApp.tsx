@@ -34,13 +34,13 @@ const ModalApp = ({ anotacao }: Props) => {
     setEdit(false);
   };
 
-  const editar = () => {
-    console.log("amogus")
+  const editar = () => {    
     setEdit(true);
   };
 
   const deletar = () => {
     service.deleteAnotacao(anotacao.id);
+    fecharModal();
   };
 
   const RenderModal = () => {
@@ -48,7 +48,7 @@ const ModalApp = ({ anotacao }: Props) => {
       return (
         <>
           <InfoModal anotacao={anotacao} />
-          <IconButton className="edit-icon" onClick={() => { editar()}}>
+          <IconButton className="edit-icon" onClick={editar}>
             <EditIcon />
           </IconButton>
           <IconButton className="delete-icon" onClick={deletar}>
@@ -59,7 +59,7 @@ const ModalApp = ({ anotacao }: Props) => {
     } else {
       return (
         <>
-          <EditModal anotacao={anotacao} concluirEdicao={fecharModal} />
+          <EditModal anotacao={anotacao} concluirAcao={fecharModal} />
         </>
       );
     }

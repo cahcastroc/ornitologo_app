@@ -1,18 +1,19 @@
 import axios from "axios";
 import IAve from "../../interfaces/IAve";
-import { IUser } from "../../interfaces/User";
+
 
 export class CatalogoService {
+  loginToken = JSON.parse(localStorage.getItem("token") || "{}");
+
   getAves() {
     return axios
       .get<Array<IAve>>(`http://localhost:8080/aves`, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: this.loginToken.token,
         },
       })
-      .then((response) => {   
-        console.log(response.data)   
+      .then((response) => {          
         return response.data;
       });
   } 
