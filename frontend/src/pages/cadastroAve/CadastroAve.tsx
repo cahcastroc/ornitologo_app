@@ -3,15 +3,31 @@ import "./CadastroAve.css";
 import Input from "../../components/Input/Input";
 import tucano from "../../assets/tucano.png";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
+import { CadastroAveService } from "../../services/CadastroAveServices";
+import { IAve } from "../../interfaces/Ave";
+import { useNavigate } from "react-router-dom";
 
 const CadastroAve = () => {
-  const [nome, setNome] = React.useState("");
+  const [nomePopular, setNomePopular] = React.useState("");
   const [nomeCientifico, setNomeCientifico] = React.useState("");
   const [descricao, setDescricao] = React.useState("");
-
+  
+  let service: CadastroAveService = new CadastroAveService();
+  let navigate = useNavigate();
   const handleEnviar = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(nome, nomeCientifico, descricao);
+    let ave: IAve = {
+      nomePopular: nomePopular,
+      nomeCientifico: nomeCientifico,
+      descricao: descricao,
+    };
+    try {
+      service.cadastrarAve(ave);
+      alert("Ave cadastrada com sucesso!");
+      navigate("/catalogo");
+    } catch (error) {
+      // throw error;  
+    }
   };
 
   return (
@@ -25,7 +41,7 @@ const CadastroAve = () => {
           <div>
             <div>
               <label>Nome:</label>
-              <Input type="text" placeholder="" onChange={setNome}/>
+              <Input type="text" placeholder="" onChange={setNomePopular}/>
             </div>
             <div>
               <label>Nome Científico: </label>

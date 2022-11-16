@@ -1,0 +1,23 @@
+.cadastro-container{
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 2fr 3fr;
+    justify-content: center;
+}
+
+.cadastro-container>img{
+    height: 20rem;
+    justify-self: center;
+}
+
+.form-container{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+}
+
+.form-container>h2{
+    text-align: center;
+}
