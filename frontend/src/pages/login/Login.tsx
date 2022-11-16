@@ -21,7 +21,7 @@ const Login = () => {
         try{
             await service.login(user);
             console.log(localStorage.getItem("token"));
-            navigate("/catalogo");
+            navigate("/anotacao");
         }catch{
 
         }
