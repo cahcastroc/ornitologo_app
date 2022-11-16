@@ -8,6 +8,7 @@ import { IconButton } from "@mui/material";
 import BtnAdd from "@mui/icons-material/AddCircle";
 import btAdd from "../../assets/btadd.png";
 import { useNavigate } from "react-router-dom";
+import { CatalogoService } from "./CatalogoService";
 
 const listaDefault: Array<IAve> = [];
 
@@ -17,19 +18,16 @@ const Catalogo = () => {
 
   const navigate = useNavigate();
 
-  React.useEffect(() => {
-    axios
-      .get<Array<IAve>>(`http://localhost:8080/aves`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
-      .then((response) => {
-        setAves(response.data);
-        console.log(response.data);
-      });
-  }, [aves]);
+  let service: CatalogoService = new CatalogoService();
+
+  React.useEffect(() => {    
+
+    service.getAves().then(function(result){
+      setAves(result)
+    });
+  }, []);
+
+
 
   return (
     <div className="catalogo">
