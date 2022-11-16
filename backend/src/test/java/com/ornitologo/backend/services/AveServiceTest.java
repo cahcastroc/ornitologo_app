@@ -1,6 +1,6 @@
 package com.ornitologo.backend.services;
 
-
+import com.ornitologo.backend.adapters.AveAdapter;
 import com.ornitologo.backend.dtos.AveDTO;
 import com.ornitologo.backend.entities.Ave;
 import com.ornitologo.backend.factory.AveFactory;
@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 @ExtendWith(SpringExtension.class)
 public class AveServiceTest {
 
-
     @InjectMocks
     private AveService aveService;
 
@@ -32,18 +31,16 @@ public class AveServiceTest {
     private AveDTO aveDTO;
     Ave novaAve = AveFactory.novaAve();
 
-
     @BeforeEach
     public void setUp() throws Exception {
-
 
         List<Ave> listaAves = AveFactory.listaAves();
         List<Ave> listaAvesNomeIniciaComCa = AveFactory.listaAvesNomeIniciaComCa();
 
-        listaAvesDTO = listaAves.stream().map(aux -> new AveDTO(aux)).collect(Collectors.toList());
-        listaAvesDTONomeIniciaComCa = listaAvesNomeIniciaComCa.stream().map(aux -> new AveDTO(aux)).collect(Collectors.toList());
-        aveDTO = new AveDTO(novaAve);
-
+        listaAvesDTO = listaAves.stream().map(aux -> AveAdapter.toDTO(aux)).collect(Collectors.toList());
+        listaAvesDTONomeIniciaComCa = listaAvesNomeIniciaComCa.stream().map(aux -> AveAdapter.toDTO(aux))
+                .collect(Collectors.toList());
+        aveDTO = AveAdapter.toDTO(novaAve);
 
         Mockito.when(aveRepository.buscaPorNome("")).thenReturn(listaAves);
         Mockito.when(aveRepository.buscaPorNome("ca")).thenReturn(listaAvesNomeIniciaComCa);
@@ -65,7 +62,7 @@ public class AveServiceTest {
 
     @Test
     public void insereAveDeveRetornarAveCriada() {
-        AveDTO novaAveDTO = aveService.insereAve(new AveDTO(novaAve));
+        AveDTO novaAveDTO = aveService.insereAve(AveAdapter.toDTO(novaAve));
         Assertions.assertEquals(aveDTO, novaAveDTO);
     }
 }

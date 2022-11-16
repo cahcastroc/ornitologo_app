@@ -1,29 +1,11 @@
 package com.ornitologo.backend.dtos;
 
-import java.util.Objects;
-
-import com.ornitologo.backend.entities.Ave;
-
 public class AveDTO {
 
+    private Long id;
     private String nomePopular;
     private String nomeCientifico;
     private String descricao;
-
-    public AveDTO() {
-    }
-
-    public AveDTO(Ave ave) {
-        this.nomeCientifico = ave.getNomeCientifico();
-        this.nomePopular = ave.getNomePopular();
-        this.descricao = ave.getDescricao();
-    }
-
-    public AveDTO(String nomePopular, String nomeCientifico, String descricao) {
-        this.nomePopular = nomePopular;
-        this.nomeCientifico = nomeCientifico;
-        this.descricao = descricao;
-    }
 
     public String getNomePopular() {
         return nomePopular;
@@ -49,18 +31,49 @@ public class AveDTO {
         this.descricao = descricao;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        AveDTO aveDTO = (AveDTO) o;
-        return Objects.equals(getNomePopular(), aveDTO.getNomePopular())
-                && Objects.equals(getNomeCientifico(), aveDTO.getNomeCientifico())
-                && Objects.equals(getDescricao(), aveDTO.getDescricao());
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNomePopular(), getNomeCientifico(), getDescricao());
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((nomePopular == null) ? 0 : nomePopular.hashCode());
+        result = prime * result + ((nomeCientifico == null) ? 0 : nomeCientifico.hashCode());
+        result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
+        return result;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        AveDTO other = (AveDTO) obj;
+        if (nomePopular == null) {
+            if (other.nomePopular != null)
+                return false;
+        } else if (!nomePopular.equals(other.nomePopular))
+            return false;
+        if (nomeCientifico == null) {
+            if (other.nomeCientifico != null)
+                return false;
+        } else if (!nomeCientifico.equals(other.nomeCientifico))
+            return false;
+        if (descricao == null) {
+            if (other.descricao != null)
+                return false;
+        } else if (!descricao.equals(other.descricao))
+            return false;
+        return true;
+    }
+
 }
