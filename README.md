@@ -1,16 +1,15 @@
-<div style="text-align: center;">Projeto ORNITOLOGO_APP</div>
+#                                                             Projeto ORNITOLOGO_APP :bird:
 
 ![](https://images-ext-1.discordapp.net/external/9OK2F2MUsBZwA_Wg7wujv3kVmlvJEgkQ3YNdsZecTt4/%3Fraw%3Dtrue/https/github.com/cahcastroc/imgornitologo/blob/main/home.png?width=693&height=442)
 
-<div style="text-align: center;">
-> :construction: Projeto em construção :construction:
->
-</div>
+
+ ## :construction: Projeto em construção :construction:
+
 
 ### :hammer: Funcionalidades do projeto
 
-- `Funcionalidade 1`: descrição da funcionalidade 1
-- `Funcionalidade 2`: descrição da funcionalidade 2
+- `Funcionalidade 1`: O ORNITOLOGO_APP permite salvar suas anotações de observação com todos os dados necessários.
+- `Funcionalidade 2`: É possivel acrescentar aves que o catalogo pré existente não contempla.
 - `Funcionalidade 2a`: descrição da funcionalidade 2a relacionada à funcionalidade 2
 - `Funcionalidade 3`: descrição da funcionalidade 3
 
