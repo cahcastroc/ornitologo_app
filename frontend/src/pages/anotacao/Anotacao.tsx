@@ -18,8 +18,8 @@ const Anotacao = () => {
   useEffect(() =>{
     service.getAll().then((x) => data = x).catch((err) => {
       if(err.response.status === 401){
-        alert("Sessão expirada, realize um novo login")
-        navigate("/login")
+        alert("Sessão expirada, realize um novo login");
+        navigate("/login");
       }
     });
   })

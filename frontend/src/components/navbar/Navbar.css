@@ -4,7 +4,7 @@
     font-size: 1.3rem;
     justify-content: flex-end;
     padding-top: 40px;
-    
+    grid-row: 1/2;
 }
 
 .nav ul {
