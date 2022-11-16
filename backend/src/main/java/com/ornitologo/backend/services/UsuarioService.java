@@ -1,5 +1,6 @@
 package com.ornitologo.backend.services;
 
+import com.ornitologo.backend.adapters.UsuarioAdapter;
 import com.ornitologo.backend.dtos.UsuarioDTO;
 import com.ornitologo.backend.entities.Usuario;
 import com.ornitologo.backend.repositories.UsuarioRepository;
@@ -30,25 +31,17 @@ public class UsuarioService implements UserDetailsService {
     public UsuarioDTO findById(Long id) {
         Optional<Usuario> obj = repository.findById(id);
         Usuario entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found"));
-        return new UsuarioDTO(entity);
+        return UsuarioAdapter.toDTO(entity);
     }
 
     @Transactional
     public UsuarioDTO inserir(UsuarioDTO dto) {
-        Usuario entity = new Usuario();
-
         // encriptar a senha
         dto.setSenha(passwordEncoder.encode(dto.getSenha()));
-        copiaDtoEntidade(dto, entity);
+        Usuario entity = UsuarioAdapter.toEntity(dto);
 
         entity = repository.save(entity);
-        return new UsuarioDTO(entity);
-    }
-
-    private void copiaDtoEntidade(UsuarioDTO dto, Usuario entity) {
-        entity.setEmail(dto.getEmail());
-        entity.setNome(dto.getNome());
-        entity.setSenha(dto.getSenha());
+        return UsuarioAdapter.toDTO(entity);
     }
 
     // utilizado para encontrar ususario no banco e realizar a autenticação

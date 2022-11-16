@@ -11,10 +11,10 @@ import { CatalogoService } from "./CatalogoService";
 const listaDefault: Array<IAve> = [];
 
 const Catalogo = () => {
-  const [aves, setAves]: [Array<IAve>, (aves: Array<IAve>) => void] =
-    React.useState(listaDefault);
+    const [aves, setAves]: [Array<IAve>, (aves: Array<IAve>) => void] =
+        React.useState(listaDefault);
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   let service: CatalogoService = new CatalogoService();
 

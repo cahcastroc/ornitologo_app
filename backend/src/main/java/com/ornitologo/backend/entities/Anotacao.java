@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
-import com.ornitologo.backend.dtos.AnotacaoDTO;
 import com.ornitologo.backend.models.Localizacao;
 
 @Entity
@@ -43,20 +42,6 @@ public class Anotacao {
     private Usuario usuario;
 
     public Anotacao() {
-    }
-
-    public Anotacao(AnotacaoDTO dto) {
-        this(
-                dto.getId(),
-                dto.getDataHorarioDoAvistamento(),
-                dto.getLocalizacao(),
-                dto.getComentario(),
-                dto.getTamanho(),
-                dto.getCorPredominante(),
-                dto.getCriadoEm(),
-                dto.getAtualizadoEm(),
-                dto.getAve(),
-                dto.getUsuario());
     }
 
     public Anotacao(Anotacao entity) {

@@ -35,6 +35,7 @@ const ModalApp = ({ anotacao }: Props) => {
   };
 
   const editar = () => {
+    console.log("amogus")
     setEdit(true);
   };
 
@@ -47,7 +48,7 @@ const ModalApp = ({ anotacao }: Props) => {
       return (
         <>
           <InfoModal anotacao={anotacao} />
-          <IconButton className="edit-icon" onClick={editar}>
+          <IconButton className="edit-icon" onClick={() => { editar()}}>
             <EditIcon />
           </IconButton>
           <IconButton className="delete-icon" onClick={deletar}>
