@@ -3,6 +3,7 @@ package com.ornitologo.backend.entities;
 import lombok.Builder;
 import java.time.Instant;
 import java.util.Collection;
+import java.util.Collections;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -107,9 +108,13 @@ public class Usuario implements UserDetails {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override

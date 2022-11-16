@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.stereotype.Service;
 
+import com.ornitologo.backend.adapters.AnotacaoAdapter;
 import com.ornitologo.backend.dtos.AnotacaoDTO;
 import com.ornitologo.backend.entities.Anotacao;
 import com.ornitologo.backend.repositories.AnotacaoRepository;
@@ -21,6 +22,7 @@ import com.ornitologo.backend.utils.UserMapConverter;
 public class AnotacaoService {
 
     private AnotacaoRepository repository;
+    private static final String ERROR_MSG_ENTITY_NOT_FOUND = "Entity not found";
 
     @Autowired
     private JwtDecoder decoder;
@@ -35,32 +37,32 @@ public class AnotacaoService {
         Map<String, String> user = UserMapConverter.convertUserToMap(decodedToken);
         Long id = Long.valueOf(user.get("id"));
         List<Anotacao> response = this.repository.findAllByUser(id);
-        return response.stream().map(item -> new AnotacaoDTO(item)).collect(Collectors.toList());
+        return response.stream().map(item -> AnotacaoAdapter.toDto(item)).collect(Collectors.toList());
     }
 
     public AnotacaoDTO getById(Long id) {
         Optional<Anotacao> response = this.repository.findById(id);
-        AnotacaoDTO dto = new AnotacaoDTO(response.orElseThrow(() -> new EntityNotFoundException("Entity not found")));
-        return dto;
+        return AnotacaoAdapter.toDto(
+                response.orElseThrow(() -> new EntityNotFoundException(ERROR_MSG_ENTITY_NOT_FOUND)));
     }
 
     public AnotacaoDTO create(AnotacaoDTO dto) {
-        Anotacao entity = new Anotacao(dto);
+        Anotacao entity = AnotacaoAdapter.toEntity(dto);
         Anotacao response = this.repository.save(entity);
-        return new AnotacaoDTO(response);
+        return AnotacaoAdapter.toDto(response);
     }
 
     public AnotacaoDTO update(Long id, AnotacaoDTO dto) {
         Anotacao entity = this.repository.findById(id)
-                .orElseThrow((() -> new EntityNotFoundException("Entity not found")));
+                .orElseThrow((() -> new EntityNotFoundException(ERROR_MSG_ENTITY_NOT_FOUND)));
         BeanUtils.copyProperties(dto, entity);
         Anotacao response = this.repository.save(entity);
-        return new AnotacaoDTO(response);
+        return AnotacaoAdapter.toDto(response);
     }
 
     public void delete(Long id) {
         Anotacao entity = this.repository.findById(id)
-                .orElseThrow((() -> new EntityNotFoundException("Entity not found")));
+                .orElseThrow((() -> new EntityNotFoundException(ERROR_MSG_ENTITY_NOT_FOUND)));
         this.repository.deleteById(id);
     }
 

@@ -18,5 +18,4 @@ public class AnotacaoConsumer {
     public void consomeAnotacao(AnotacaoDTO msg) {
         anotacaoService.create(msg);
     }
-
 }
