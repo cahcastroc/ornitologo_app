@@ -21,7 +21,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/cadastro" element={<Cadastro />}></Route>
           <Route path="/novaanotacao" element={<NovaAnotacao />}></Route>
-          <Route path="/anotacao" element={<Anotacao />}></Route>
+          <Route path="/minhasanotacoes" element={<Anotacao />}></Route>
           <Route path="/cadastroave" element={<CadastroAve />}></Route>
           <Route path='*' element={<h1>Página não encontrada!</h1>} />
         </Routes>

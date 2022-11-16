@@ -13,7 +13,7 @@ export class Anotacao implements IAnotacao{
     atualizadoEm?: string;
     ave: IAve;
     localizacao: ILocalizacao;
-    user: IUser
+    usuarioId: number
     
     constructor(body: IAnotacao){
         this.id = body.id;
@@ -25,6 +25,6 @@ export class Anotacao implements IAnotacao{
         this.atualizadoEm = body?.atualizadoEm;
         this.ave = body.ave;
         this.localizacao = body.localizacao;
-        this.user = body.user
+        this.usuarioId = body.usuarioId
     }
 }
