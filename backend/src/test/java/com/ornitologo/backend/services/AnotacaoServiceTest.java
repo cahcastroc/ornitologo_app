@@ -1,5 +1,6 @@
 package com.ornitologo.backend.services;
 
+import com.ornitologo.backend.adapters.AnotacaoAdapter;
 import com.ornitologo.backend.dtos.AnotacaoDTO;
 import com.ornitologo.backend.entities.Anotacao;
 import com.ornitologo.backend.entities.Ave;
@@ -32,8 +33,9 @@ public class AnotacaoServiceTest {
 
     private Anotacao entityBody;
     private AnotacaoDTO dto;
+
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         entityBody = new Anotacao(
                 1L,
                 null,
@@ -44,14 +46,14 @@ public class AnotacaoServiceTest {
                 Instant.now(),
                 null,
                 new Ave(),
-                new Usuario()
-        );
+                new Usuario());
 
-        dto = new AnotacaoDTO(entityBody);
+        dto = AnotacaoAdapter.toDto(entityBody);
+        // new AnotacaoDTO(entityBody);
     }
 
     @Test
-    public void createShouldSuccessfullyCreate(){
+    public void createShouldSuccessfullyCreate() {
         Mockito.when(this.repository.save(ArgumentMatchers.any())).thenReturn(entityBody);
 
         var response = this.service.create(dto);
@@ -59,12 +61,14 @@ public class AnotacaoServiceTest {
     }
 
     @Test
-    public void updateShouldSuccess(){
-        AnotacaoDTO bodyDTO = new AnotacaoDTO(entityBody);
-        AnotacaoDTO unchangedDTO =  new AnotacaoDTO(entityBody);
+    public void updateShouldSuccess() {
+        AnotacaoDTO bodyDTO = AnotacaoAdapter.toDto(entityBody);
+        // new AnotacaoDTO(entityBody);
+        AnotacaoDTO unchangedDTO = AnotacaoAdapter.toDto(entityBody);
+        // new AnotacaoDTO(entityBody);
         bodyDTO.setComentario("Comentário alterado");
         bodyDTO.setAtualizadoEm(Instant.now());
-        Anotacao updatedEntity = new Anotacao(bodyDTO);
+        Anotacao updatedEntity = AnotacaoAdapter.toEntity(bodyDTO);
 
         Mockito.when(this.repository.save(ArgumentMatchers.same(entityBody))).thenReturn(updatedEntity);
         Mockito.when(this.repository.findById(1L)).thenReturn(Optional.of(entityBody));
@@ -74,8 +78,8 @@ public class AnotacaoServiceTest {
     }
 
     @Test
-    public void updateShouldThrowWhenInvalidId(){
-        AnotacaoDTO bodyDTO = new AnotacaoDTO(entityBody);
+    public void updateShouldThrowWhenInvalidId() {
+        AnotacaoDTO bodyDTO = AnotacaoAdapter.toDto(entityBody);
         bodyDTO.setComentario("Comentário alterado");
         bodyDTO.setAtualizadoEm(Instant.now());
 
@@ -85,19 +89,19 @@ public class AnotacaoServiceTest {
     }
 
     @Test
-    public void deleteShouldThrowWhenInvalidId(){
+    public void deleteShouldThrowWhenInvalidId() {
         Mockito.when(this.repository.findById(2L)).thenThrow(new EntityNotFoundException("Entity not found"));
         Assertions.assertThrows(EntityNotFoundException.class, () -> this.service.delete(2L));
     }
 
     @Test
-    public void deleteShouldSuccess(){
+    public void deleteShouldSuccess() {
         Mockito.when(this.repository.findById(1L)).thenReturn(Optional.of(entityBody));
         Assertions.assertDoesNotThrow(() -> this.service.delete(1L));
     }
 
     @Test
-    public void testSerializeUser(){
+    public void testSerializeUser() {
         String sample = "{ id='1', email='sus@gmail.com', nome='amogus', criadoEm='2022-11-09T15:25:56.541054Z', atualizadoEm='null'}";
         Map<String, String> response = UserMapConverter.convertUserToMap(sample);
         Assertions.assertNotNull(response);

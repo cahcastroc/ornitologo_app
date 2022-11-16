@@ -12,49 +12,49 @@ import { useNavigate } from "react-router-dom";
 const listaDefault: Array<IAve> = [];
 
 const Catalogo = () => {
-  const [aves, setAves]: [Array<IAve>, (aves: Array<IAve>) => void] =
-    React.useState(listaDefault);
+    const [aves, setAves]: [Array<IAve>, (aves: Array<IAve>) => void] =
+        React.useState(listaDefault);
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  React.useEffect(() => {
-    axios
-      .get<Array<IAve>>(`http://localhost:8080/aves`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
-      .then((response) => {
-        setAves(response.data);
-        console.log(response.data);
-      });
-  }, [aves]);
+    React.useEffect(() => {
+        axios
+            .get<Array<IAve>>(`http://localhost:8080/aves`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            })
+            .then((response) => {
+                setAves(response.data);
+                console.log(response.data);
+            });
+    }, [aves]);
 
-  return (
-    <div className="catalogo">
-      <img src={imgCatalogo} alt="logo catalogo" />
-      <h1>Catálogo de aves</h1>
-      <div className="lista-cards">
-        <ul>
-          {aves.map((ave) => (
-            <li key={ave.nomePopular}>
-              <Card ave={ave}></Card>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <IconButton
-        aria-label="add-ave"
-        size="large"
-        onClick={() => {
-          navigate("/cadastroave");
-        }}
-      >
-        <img className="btn" src={btAdd} alt="botao-add" />
-      </IconButton>
-    </div>
-  );
+    return (
+        <div className="catalogo">
+            <img src={imgCatalogo} alt="logo catalogo" />
+            <h1>Catálogo de aves</h1>
+            <div className="lista-cards">
+                <ul>
+                    {aves.map((ave) => (
+                        <li key={ave.nomePopular}>
+                            <Card ave={ave}></Card>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <IconButton
+                aria-label="add-ave"
+                size="large"
+                onClick={() => {
+                    navigate("/cadastroave");
+                }}
+            >
+                <img className="btn" src={btAdd} alt="botao-add" />
+            </IconButton>
+        </div>
+    );
 };
 
 export default Catalogo;
