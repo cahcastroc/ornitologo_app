@@ -1,5 +1,11 @@
-.container{
+.anotacao-container{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.anotacoes-grid-container{
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr 1fr 1fr;
 }
