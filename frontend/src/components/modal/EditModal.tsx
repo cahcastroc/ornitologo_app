@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import IAnotacao from "../../interfaces/IAnotacao";
 import { AnotacaoService } from "../../pages/novaAnotacao/AnotacaoService";
 import Input from "../input/Input";
@@ -11,17 +12,12 @@ interface Props {
 }
 
 const EditModal = ({ anotacao, concluirAcao }: Props) => {
-
-  const [comentario, setComentario] = React.useState(anotacao.comentario);
-  const [tamanho, setTamanho] = React.useState(anotacao.tamanho);
-  const [corPredominante, setCorPredominante] = React.useState(
-    anotacao.corPredominante
-  );
-  const [latitude, setLatitude] = React.useState(anotacao.localizacao.lat);
-  const [longitude, setLongitude] = React.useState(anotacao.localizacao.longt);
-  const [descricaoLocal, setDescricaoLocal] = React.useState(
-    anotacao.localizacao.descricao
-  );
+  const [comentario, setComentario] = useState(anotacao.comentario);
+  const [tamanho, setTamanho] = useState(anotacao.tamanho);
+  const [corPredominante, setCorPredominante] = useState(anotacao.corPredominante);
+  const [latitude, setLatitude] = useState(anotacao.localizacao.lat);
+  const [longitude, setLongitude] = useState(anotacao.localizacao.longt);
+  const [descricaoLocal, setDescricaoLocal] = useState(anotacao.localizacao.descricao);
 
   let service: AnotacaoService = new AnotacaoService();
 
@@ -29,7 +25,7 @@ const EditModal = ({ anotacao, concluirAcao }: Props) => {
   const [anotacaoEditada]: [
     IAnotacao,
     (anotacaoEditada: IAnotacao) => void
-  ] = React.useState(anotacao);
+  ] = useState(anotacao);
 
   anotacaoEditada.comentario = comentario;
   anotacaoEditada.corPredominante = corPredominante;
