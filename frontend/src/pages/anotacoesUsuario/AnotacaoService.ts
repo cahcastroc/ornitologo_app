@@ -44,7 +44,6 @@ export class AnotacaoService {
             },
             method: "GET",
         }).then((response) => {
-            console.log(response.status);
             return response.data;
         });
     }
