@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Card from "../../components/card/Card";
 import "./Catalogo.css";
 import imgCatalogo from "../../assets/catalogo.png";
@@ -11,21 +11,16 @@ import { IAve } from "../../interfaces/IAve";
 const listaDefault: Array<IAve> = [];
 
 const Catalogo = () => {
-    const [aves, setAves]: [Array<IAve>, (aves: Array<IAve>) => void] =
-        React.useState(listaDefault);
-
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [aves, setAves]: [Array<IAve>, (aves: Array<IAve>) => void] = useState(listaDefault);
 
   let service: CatalogoService = new CatalogoService();
 
-  React.useEffect(() => {    
-
+  useEffect(() => {    
     service.getAves().then(function(result){
-      setAves(result)      
+      setAves(result);      
     });
   }, []);
-
-
 
   return (
     <div className="catalogo">
