@@ -1,8 +1,8 @@
+import "./Cadastro.css";
 import cadastroImage from "../../assets/login_cadastro.png";
 import Botao from "../../components/botao/Botao";
 import Input from "../../components/input/Input";
 import { CadastroService } from "./CadastroService";
-import "./Cadastro.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../../interfaces/IUser";
