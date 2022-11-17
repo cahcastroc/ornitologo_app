@@ -20,7 +20,7 @@ const Login = () => {
 
         try {
             await service.login(user);
-            navigate("/catalogo");
+            navigate("/minhasanotacoes");
         } catch {
             // throw exception;
         }

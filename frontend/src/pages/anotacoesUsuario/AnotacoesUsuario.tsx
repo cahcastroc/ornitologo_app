@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AnotacoesUsuario = () => {
+const NovaAnotacao = () => {
   return (
     <div>AnotacoesUsuario</div>
   )
 }
 
-export default AnotacoesUsuario
+export default NovaAnotacao

@@ -21,6 +21,7 @@ public class UsuarioAdapter {
 
     public static UsuarioDTO toDTO(Usuario usuario) {
         UsuarioDTO usuarioDTO = new UsuarioDTO();
+        usuarioDTO.setId(usuario.getId());
         usuarioDTO.setNome(usuario.getNome());
         usuarioDTO.setEmail(usuario.getEmail());
         usuarioDTO.setSenha(usuario.getSenha());

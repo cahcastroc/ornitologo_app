@@ -4,15 +4,6 @@ import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
 import Botao from "../../components/botao/Botao";
-import ModalApp from "../../components/modal/ModalApp";
-import Anotacao from "../../interfaces/IAnotacao";
-import React from "react";
-import Ave from "../../interfaces/IAve";
-import Card from "../../components/card/Card";
-import { AnotacaoService } from "../anotacoesUsuario/AnotacaoService";
-import IAnotacao from "../../interfaces/IAnotacao";
-import { IUser } from "../../interfaces/User";
-import axios from "axios";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -69,7 +60,6 @@ const Home = () => {
             </p>
           </div>
           <img src={imgAspas} className="aspas-cima" alt="imagem aspas"></img>
-
           <a
             className="catalogo-a"
             target="_blank"
@@ -78,7 +68,6 @@ const Home = () => {
           >
             Ornitológo, conheça o nosso catálogo de referência
           </a>
-
           <p className="catalogo-p">
             Nosso guia de referência é uma publicação eletrônica pertecente à
             Rede de Pesquisa em Biodiversidade dos Campos Sulinos e realizada

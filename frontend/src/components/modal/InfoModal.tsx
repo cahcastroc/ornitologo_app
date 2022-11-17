@@ -5,10 +5,10 @@ import IAnotacao from "../../interfaces/IAnotacao";
 import DescricraoIcon from "@mui/icons-material/AssignmentOutlined";
 
 interface Props {
-  anotacao: IAnotacao;
+  anotacao: IAnotacao; 
 }
 
-const InfoModal = ({ anotacao }: Props) => {
+const InfoModal = ({ anotacao}: Props) => {
   const { ave, comentario, dataHorarioDoAvistamento, localizacao } = anotacao;
 
   return (
@@ -31,7 +31,7 @@ const InfoModal = ({ anotacao }: Props) => {
       <div className="descricao-local">
         <DescricraoIcon />
         <h5>Descrição do local: </h5>
-        <p> {localizacao.descricao || "Sem descrição"}</p>
+        <p> {localizacao.descricao || " Sem descrição"}</p>
       </div>
     </>
   );
