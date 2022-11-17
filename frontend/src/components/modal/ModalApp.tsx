@@ -34,7 +34,6 @@ const ModalApp = ({ anotacao }: Props) => {
   };
 
   const editar = () => {
-    console.log("amogus")
     setEdit(true);
   };
 

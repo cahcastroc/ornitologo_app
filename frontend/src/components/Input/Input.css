@@ -2,9 +2,7 @@
 
 .input-text {
     display: flex;
-    margin: 0 1%;
     justify-content: flex-start;
-    margin-left: 10%;
 }
 
 .caixa-texto {
