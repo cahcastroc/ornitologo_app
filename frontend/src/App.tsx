@@ -8,7 +8,7 @@ import Login from "./pages/login/Login";
 import Anotacao from "./pages/anotacao/Anotacao";
 import CadastroAve from "./pages/cadastroAve/CadastroAve";
 import Footer from "./components/footer/Footer";
-import NovaAnotacao from "./pages/anotacoesUsuario/AnotacoesUsuario";
+import NovaAnotacao from "./pages/novaAnotacao/AnotacoesUsuario";
 
 function App() {
   return (

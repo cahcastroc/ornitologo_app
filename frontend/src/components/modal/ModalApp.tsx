@@ -6,7 +6,7 @@ import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import "./Modal.css";
 import Anotacao from "../../interfaces/IAnotacao";
-import { AnotacaoService } from "../../pages/anotacoesUsuario/AnotacaoService";
+import { AnotacaoService } from "../../pages/novaAnotacao/AnotacaoService";
 import Info from "@mui/icons-material/InfoOutlined";
 import InfoModal from "./InfoModal";
 import EditModal from "./EditModal";

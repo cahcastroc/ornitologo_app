@@ -1,7 +1,7 @@
 import React from "react";
 import IAnotacao from "../../interfaces/IAnotacao";
-import { AnotacaoService } from "../../pages/anotacoesUsuario/AnotacaoService";
-import Input from "../Input/Input";
+import { AnotacaoService } from "../../pages/novaAnotacao/AnotacaoService";
+import Input from "../input/Input";
 import Save from "@mui/icons-material/SaveOutlined";
 import { IconButton } from "@mui/material";
 

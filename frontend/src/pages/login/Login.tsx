@@ -1,6 +1,6 @@
 import "./Login.css";
 import loginImage from "../../assets/login_cadastro.png";
-import Input from "../../components/Input/Input";
+import Input from "../../components/input/Input";
 import Botao from "../../components/botao/Botao";
 import { useState } from "react";
 import { LoginService } from "./LoginService";

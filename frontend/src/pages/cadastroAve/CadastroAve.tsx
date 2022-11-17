@@ -1,6 +1,6 @@
 import React from "react";
 import "./CadastroAve.css";
-import Input from "../../components/Input/Input";
+import Input from "../../components/input/Input";
 import tucano from "../../assets/tucano.png";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
 import { CadastroAveService } from "../../services/CadastroAveServices";

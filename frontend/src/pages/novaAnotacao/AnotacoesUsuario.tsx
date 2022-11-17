@@ -1,7 +1,7 @@
 import "./AnotacoesUsuario.css";
 import React from "react";
 import binoculo from "../../assets/binoculo.png";
-import Input from "../../components/Input/Input";
+import Input from "../../components/input/Input";
 import IAve from "../../interfaces/IAve";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
 import { useState, useEffect } from "react";
