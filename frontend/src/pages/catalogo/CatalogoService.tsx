@@ -1,5 +1,5 @@
 import axios from "axios";
-import IAve from "../../interfaces/IAve";
+import { IAve } from "../../interfaces/IAve";
 
 
 export class CatalogoService {

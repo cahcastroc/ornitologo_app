@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IAve } from "../interfaces/Ave";
+import { IAve } from "../interfaces/IAve";
 
 export class CadastroAveService {
     loginToken = JSON.parse(localStorage.getItem("token") || "{}");

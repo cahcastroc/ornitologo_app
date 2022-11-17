@@ -2,7 +2,6 @@ import "./AnotacoesUsuario.css";
 import React from "react";
 import binoculo from "../../assets/binoculo.png";
 import Input from "../../components/input/Input";
-import IAve from "../../interfaces/IAve";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
 import { useState, useEffect } from "react";
 import { AnotacaoService } from "./AnotacaoService";
@@ -11,6 +10,7 @@ import { ILocalizacao } from "../../interfaces/ILocalizacao";
 import { Localizacao } from "../../models/Localizacao";
 import { useNavigate } from "react-router-dom";
 import { CatalogoService } from "../catalogo/CatalogoService";
+import { IAve } from "../../interfaces/IAve";
 
 const NovaAnotacao = () => {
     let user = JSON.parse(localStorage.getItem("token") || "{}");
@@ -29,7 +29,7 @@ const NovaAnotacao = () => {
 
     useEffect(() => {
         optionsService.getAves().then((arr) => {
-            arr.push({ id: 0, nomePopular: "selecione uma ave"});
+            arr.push({ id: 0, nomePopular: "selecione uma ave", descricao: "", nomeCientifico: ""});
             setOptions(arr);
         });
     }, []);
@@ -44,7 +44,10 @@ const NovaAnotacao = () => {
 
     let body: Anotacao = new Anotacao({
       ave: {
-        id: aveId
+        id: aveId,
+        descricao:"",
+        nomeCientifico:"",
+        nomePopular:""
       },
       comentario: comentario,
       corPredominante: cor,

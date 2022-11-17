@@ -5,7 +5,7 @@ import { CadastroService } from "./CadastroService";
 import "./Cadastro.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IUser } from "../../interfaces/User";
+import { IUser } from "../../interfaces/IUser";
 
 const Cadastro = () => {
     const navigate = useNavigate();

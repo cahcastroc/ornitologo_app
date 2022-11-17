@@ -1,4 +1,4 @@
-import { IUser } from "../interfaces/User";
+import { IUser } from "../interfaces/IUser";
 
 export class User{
     email: string;

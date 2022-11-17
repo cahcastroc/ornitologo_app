@@ -1,12 +1,12 @@
 import React from "react";
 import Card from "../../components/card/Card";
-import IAve from "../../interfaces/IAve";
 import "./Catalogo.css";
 import imgCatalogo from "../../assets/catalogo.png";
 import { IconButton } from "@mui/material";
 import btAdd from "../../assets/btadd.png";
 import { useNavigate } from "react-router-dom";
 import { CatalogoService } from "./CatalogoService";
+import { IAve } from "../../interfaces/IAve";
 
 const listaDefault: Array<IAve> = [];
 

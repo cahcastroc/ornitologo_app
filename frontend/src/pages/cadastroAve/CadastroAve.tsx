@@ -4,7 +4,7 @@ import Input from "../../components/input/Input";
 import tucano from "../../assets/tucano.png";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
 import { CadastroAveService } from "../../services/CadastroAveServices";
-import { IAve } from "../../interfaces/Ave";
+import { IAve } from "../../interfaces/IAve";
 import { useNavigate } from "react-router-dom";
 
 const CadastroAve = () => {

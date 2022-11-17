@@ -1,4 +1,4 @@
-import IAve from "./IAve";
+import { IAve } from "./IAve";
 import { ILocalizacao } from "./ILocalizacao";
 
 export default interface IAnotacao {

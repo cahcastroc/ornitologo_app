@@ -1,5 +1,5 @@
 import IAnotacao from "../../interfaces/IAnotacao";
-import IAve from "../../interfaces/IAve";
+import { IAve } from "../../interfaces/IAve";
 import ModalApp from "../modal/ModalApp";
 import "./Card.css";
 

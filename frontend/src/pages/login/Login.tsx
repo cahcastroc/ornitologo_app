@@ -5,7 +5,7 @@ import Botao from "../../components/botao/Botao";
 import { useState } from "react";
 import { LoginService } from "./LoginService";
 import { Link, useNavigate } from "react-router-dom";
-import { IUser } from "../../interfaces/User";
+import { IUser } from "../../interfaces/IUser";
 
 const Login = () => {
     let service: LoginService = new LoginService();

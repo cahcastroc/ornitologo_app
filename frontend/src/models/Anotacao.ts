@@ -1,7 +1,7 @@
 import IAnotacao from "../interfaces/IAnotacao";
-import IAve from "../interfaces/IAve";
+import { IAve } from "../interfaces/IAve";
 import { ILocalizacao } from "../interfaces/ILocalizacao";
-import { IUser } from "../interfaces/User";
+import { IUser } from "../interfaces/IUser";
 
 export class Anotacao implements IAnotacao{
     id: number;
