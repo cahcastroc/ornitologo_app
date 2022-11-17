@@ -40,9 +40,7 @@ const Input = ({ placeholder, type, onChange}: InputProps): any => {
             placeholder={placeholder}
             type={tipoTemp}
           />
-          
-          <MostraBotao />
-          
+          <MostraBotao />       
         </div>
       </>
     )
