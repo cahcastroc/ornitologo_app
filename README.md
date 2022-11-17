@@ -10,7 +10,7 @@
 
 -  O ORNITOLOGO_APP permite salvar suas anotações de observação com todos os dados necessários.
 
--  Autenticação e autorização: 
+- Autenticação e autorização: 
   - Cadastra usuário com um id único e sua senha;
   - O usuário só pode acessar os dados cadastrados por ele mesmo;
 
