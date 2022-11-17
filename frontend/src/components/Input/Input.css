@@ -5,6 +5,10 @@
     justify-content: flex-start;
 }
 
+::-ms-reveal {
+    display: none;
+  }
+
 .caixa-texto {
     margin: 1% 0;
     padding: 10px;
