@@ -18,7 +18,7 @@ const NovaAnotacao = () => {
   let [latitude, setLatitude] = useState("");
   let [longitude, setLongitude] = useState("");
   let [comentario, setComentario] = useState("");
-  let [ave, setAve] = useState<IAve>({descricao: "Um passaro", nomeCientifico: "Barro de Joao", nomePopular: "João de Barro"});
+  let [ave, setAve] = useState<IAve>({id:1, descricao: "Um passaro", nomeCientifico: "Barro de Joao", nomePopular: "João de Barro"});
   let options: IAve[] = [];
   const service: AnotacaoService = new AnotacaoService();
 
