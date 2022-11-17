@@ -1,7 +1,7 @@
 .catalogo{
     text-align: center;
-    
 }
+
 .catalogo>img{
     padding:2%;
 }
@@ -13,7 +13,6 @@ ul{
     flex-wrap: wrap;
     list-style: none;
     justify-content: center;
-        
 }
 
 li{
