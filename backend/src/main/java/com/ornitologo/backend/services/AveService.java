@@ -3,7 +3,9 @@ package com.ornitologo.backend.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.ornitologo.backend.exceptions.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,12 +31,14 @@ public class AveService {
 
     @Transactional
     public AveDTO insereAve(AveDTO aveDTO) {
-        if(aveRepository)
-
+    try {
         Ave ave = AveAdapter.toEntity(aveDTO);
         ave = aveRepository.save(ave);
-
         return AveAdapter.toDTO(ave);
+     } catch (DataIntegrityViolationException e){
+            throw new DatabaseException("Não é possível inserir ave " +
+                    "com nome científico já existente!");
+    }
     }
 
 }

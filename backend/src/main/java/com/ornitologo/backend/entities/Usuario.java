@@ -1,5 +1,6 @@
 package com.ornitologo.backend.entities;
 
+import com.sun.istack.NotNull;
 import lombok.Builder;
 import java.time.Instant;
 import java.util.Collection;
@@ -14,7 +15,10 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotBlank;
 
+import lombok.Data;
+import org.hibernate.annotations.NotFound;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -27,6 +31,7 @@ public class Usuario implements UserDetails {
     private Long id;
     private String email;
     private String senha;
+    @NotBlank
     private String nome;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")

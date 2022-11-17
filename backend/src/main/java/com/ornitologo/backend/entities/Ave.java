@@ -2,14 +2,10 @@ package com.ornitologo.backend.entities;
 
 import java.time.Instant;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
+import javax.persistence.*;
 
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "nomeCientifico"))
 public class Ave {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
