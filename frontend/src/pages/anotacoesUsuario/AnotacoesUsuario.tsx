@@ -54,6 +54,7 @@ const NovaAnotacao = () => {
     });
     service.create(body).then(()=>{
       navigate("/minhasanotacoes");
+      window.location.reload();
     });
   }
 
