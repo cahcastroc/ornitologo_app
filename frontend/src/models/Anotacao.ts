@@ -16,12 +16,12 @@ export class Anotacao implements IAnotacao{
     usuarioId: number
     
     constructor(body: IAnotacao){
-        this.id = body.id;
-        this.dataHorarioDoAvistamento = body.dataHorarioDoAvistamento;
+        this.id = body.id? body.id : 0;
+        this.dataHorarioDoAvistamento = body.dataHorarioDoAvistamento? body.dataHorarioDoAvistamento: "";
+        this.criadoEm = body.criadoEm? body.criadoEm : "";
         this.comentario = body.comentario;
         this.tamanho = body.tamanho;
         this.corPredominante = body.corPredominante;
-        this.criadoEm = body.criadoEm;
         this.atualizadoEm = body?.atualizadoEm;
         this.ave = body.ave;
         this.localizacao = body.localizacao;

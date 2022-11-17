@@ -1,12 +1,5 @@
 import IAve from "./IAve";
 import { ILocalizacao } from "./ILocalizacao";
-import { IUser } from "./User";
-
-interface ILocalizazao {
-    lat: string;
-    longt: string;
-    descricao: string;
-}
 
 export default interface IAnotacao {
     id: number;
@@ -17,6 +10,6 @@ export default interface IAnotacao {
     criadoEm: string;
     atualizadoEm?: string;
     ave: IAve;
-    localizacao: ILocalizazao;
+    localizacao: ILocalizacao;
     usuarioId: number;
 }

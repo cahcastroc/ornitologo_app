@@ -12,8 +12,7 @@ import IAnotacao from "../../interfaces/IAnotacao";
 const Anotacao = () => {
   let userName = JSON.parse(localStorage.getItem("token") || "{}").nome;
   const navigate = useNavigate();
-  let arr: IAnotacao[] = [] 
-  let [data, setData] = useState(arr)
+  let [data, setData] = useState<IAnotacao[]>([])
   let service: AnotacaoService = new AnotacaoService();
 
   useEffect(() =>{
@@ -31,7 +30,7 @@ const Anotacao = () => {
       <h2>Seja bem vindo(a), {userName}!</h2>
       <h3>Minhas Anotações</h3>
       <div className="anotacoes-grid-container">
-        {data.map((item) => <Card anotacao={item}></Card>)}
+        {data.map((item) => <Card key={item.id} anotacao={item}></Card>)}
       </div>
       <IconButton aria-label="add-ave" size="large" onClick={() => navigate("/novaanotacao")}>
         <img className="btn" src={btAdd} alt="botao-add" />
