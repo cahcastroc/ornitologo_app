@@ -2,7 +2,15 @@ import axios from "axios";
 import IAnotacao from "../../interfaces/IAnotacao";
 
 export class AnotacaoService {
-    loginToken = JSON.parse(localStorage.getItem("token") || "{}");
+    private loginToken = JSON.parse(localStorage.getItem("token") || "{}");
+
+    async create(anotacao: IAnotacao){
+        return axios.post("http://localhost:8080/anotacoes", anotacao, {
+            headers:{
+                Authorization: this.loginToken.token
+            }
+        });
+    }
 
     async deleteAnotacao(id: number) {
         return axios(`http://localhost:8080/anotacoes/${id}`, {
@@ -42,7 +50,6 @@ export class AnotacaoService {
             },
             method: "GET",
         }).then((response) => {
-            console.log(response.status);
             return response.data;
         });
     }
