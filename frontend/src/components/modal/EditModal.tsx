@@ -92,7 +92,7 @@ const EditModal = ({ anotacao, concluirAcao }: Props) => {
                     onChange={setDescricaoLocal}
                 />
                 <IconButton onClick={salvar} className="edit-save">
-                    <Save />
+                    <Save fontSize="large"/>
                 </IconButton>
             </div>
         </div>
