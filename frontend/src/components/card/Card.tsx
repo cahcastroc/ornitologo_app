@@ -5,7 +5,7 @@ import "./Card.css";
 
 interface Props {
   anotacao?: IAnotacao;
-  ave?: IAve;
+  ave?: IAve;  
 }
 
 interface CardProps {
