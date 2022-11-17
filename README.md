@@ -8,28 +8,50 @@
 
 ### :hammer: Funcionalidades do projeto
 
-- `Funcionalidade 1`: O ORNITOLOGO_APP permite salvar suas anotações de observação com todos os dados necessários.
-- `Funcionalidade 2`: É possivel acrescentar aves que o catalogo pré existente não contempla.
-- `Funcionalidade 2a`: descrição da funcionalidade 2a relacionada à funcionalidade 2
-- `Funcionalidade 3`: descrição da funcionalidade 3
+-  O ORNITOLOGO_APP permite salvar suas anotações de observação com todos os dados necessários.
 
-# 🛠️ Abrir e rodar o projeto
+-  Autenticação e autorização: 
+  - Cadastra usuário com um id único e sua senha;
+  - O usuário só pode acessar os dados cadastrados por ele mesmo;
 
-**Apresente as instruções necessárias para abrir e executar o projeto**
+- Login no Sistema:
+  - O usuário só pode utilizar o sistema se estiver logado;
+  - O usuário só pode consultar suas anotações no sistema (e não dos
+    demais usuários);
+  
+- Anotações de Avistamento;
+  - O usuário pode inserir uma nova anotação de avistamento com nome popular, nome científico, tamanho, cor
+    predominante e comentário.    
+
+- Consulta de Avistamentos;
+  - Lista os avistamentos feitos pelo usuário;
+  
+- Cadastra uma ave no catálogo de aves;
+  
+- Consulta ao catálogo de aves avistadas;
+  - A consulta pode ser feita a partir do nome ou parte do nome, cor ou
+    habitat já cadastradas em avistamentos anteriores
+  
+
+
+# 🛠️ Tecnologias utilizadas no projeto
+
+    FrontEnd: React, TypeScript. IDE VsCode.
+    
+    BackEnd: Java 11, Maven, Kafka, Spring Boot, Data e Security. IDE Intellij.
+
+    Banco de Dados: SQL(POSTGRES) e H2 para testes.   
+
+    Diagrama de classe: Figma.
+
+    Wireframe: Figma.
+
+
 Repositório : Github, será utilizado um repositório geral separado em back e front.
 Backlog: Integrado ao Github.
 
-BackEnd: Java, Spring Boot.
 
-    FrontEnd: React, TypeScript.
 
-    Banco de Dados: SQL(POSTGRES).
-
-    Kafka: Mesmo repositório do back.
-
-    Diagrama de classe: Astah.
-
-\*Wireframe: figma.
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/cahcastroc/ornitologo_app?logoColor=green&style=plastic)
 ![GitHub contributors](https://img.shields.io/github/contributors/cahcastroc/ornitologo_app?style=plastic)
