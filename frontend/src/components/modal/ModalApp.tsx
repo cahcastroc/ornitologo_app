@@ -18,27 +18,29 @@ interface Props {
 Modal.setAppElement("#root");
 
 const ModalApp = ({ anotacao }: Props) => {
+  
   const [modalAberto, setModalAberto] = useState<boolean>(false);
 
   const [edit, setEdit] = useState<boolean>(false);
 
   let service: AnotacaoService = new AnotacaoService();
 
-  const abreModal = () => {
+  const abrirModal = () => {
     setModalAberto(true);
   };
 
-  const fechaModal = () => {
+  const fecharModal = () => {
     setModalAberto(false);
     setEdit(false);
   };
 
-  const editar = () => {
+  const editar = () => {    
     setEdit(true);
   };
 
   const deletar = () => {
     service.deleteAnotacao(anotacao.id);
+    fecharModal();
   };
 
   const RenderModal = () => {
@@ -46,7 +48,7 @@ const ModalApp = ({ anotacao }: Props) => {
       return (
         <>
           <InfoModal anotacao={anotacao} />
-          <IconButton className="edit-icon" onClick={() => { editar()}}>
+          <IconButton className="edit-icon" onClick={editar}>
             <EditIcon />
           </IconButton>
           <IconButton className="delete-icon" onClick={deletar}>
@@ -57,7 +59,7 @@ const ModalApp = ({ anotacao }: Props) => {
     } else {
       return (
         <>
-          <EditModal anotacao={anotacao} />
+          <EditModal anotacao={anotacao} concluirAcao={fecharModal} />
         </>
       );
     }
@@ -65,19 +67,19 @@ const ModalApp = ({ anotacao }: Props) => {
 
   return (
     <div className="main-modal">
-      <IconButton onClick={abreModal}>
+      <IconButton onClick={abrirModal}>
         <Info />
       </IconButton>
 
       <Modal
         isOpen={modalAberto}
-        onRequestClose={fechaModal}
+        onRequestClose={fecharModal}
         contentLabel="Example Modal"
         className="modal"
         overlayClassName="overlay"
       >
         <div className="itens">
-          <IconButton className="close-icon" onClick={fechaModal}>
+          <IconButton className="close-icon" onClick={fecharModal}>
             <CloseIcon />
           </IconButton>
           <RenderModal />

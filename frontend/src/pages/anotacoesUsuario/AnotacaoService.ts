@@ -1,5 +1,4 @@
 import axios from "axios";
-import React from "react";
 import IAnotacao from "../../interfaces/IAnotacao";
 
 export class AnotacaoService {
@@ -19,8 +18,8 @@ export class AnotacaoService {
                 Authorization: this.loginToken.token,
             },
             method: "DELETE",
-        }).then((response) => {
-            alert(`aNOTAÇÃO ID: ${id} deletada`);
+        }).then((response) => {           
+            alert(`Anotação deletada com sucesso!`);
         });
     }
 
