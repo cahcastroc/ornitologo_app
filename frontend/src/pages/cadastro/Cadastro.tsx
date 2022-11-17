@@ -33,7 +33,6 @@ const Cadastro = () => {
 
     return (
         <main className="cadastro-container">
-
             <img src={cadastroImage} alt="imagem de cadastro"></img>
             <form className="form-container" >
                 <h2>Cadastro</h2>
@@ -42,7 +41,6 @@ const Cadastro = () => {
                 <Input placeholder="senha" type="password" onChange={setSenha}/>
                 <Input placeholder="confirmação da senha" type="password" onChange={setConfirmarSenha}/>
                 <Botao text="cadastrar" enviar={onsubmithandler} parametros={[]}></Botao>
-
             </form>
         </main>
     );
