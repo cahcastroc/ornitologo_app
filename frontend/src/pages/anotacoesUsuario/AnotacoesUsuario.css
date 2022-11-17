@@ -1,36 +1,54 @@
-.nova-anotacao-container{
+.nova-anotacao-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.nova-anotacao-container>h2{
+.nova-anotacao-container > h2 {
     margin: 1% 0;
 }
 
-.text-area-container{
+.text-area-container {
     display: flex;
     flex-direction: column;
 }
 
-.nova-anotacao-form{
+.texto-area:focus {
+    outline: none !important;
+    border: 1.5px solid #00b4d8;
+}
+
+.text-area-container .required {
+    border: 1.5px solid rgb(255, 0, 0);
+}
+
+.nova-anotacao-form {
     display: flex;
     align-items: center;
     justify-items: center;
 }
 
-.inputs-container{
+.inputs-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
 }
 
-.inputs-container>select{
+.inputs-container > select {
     width: 50vh;
     max-height: 48px;
     margin: 5px 0;
     padding: 10px;
     border: 1.5px solid black;
     border-radius: 5px;
+}
+
+.inputs-container > select:focus {
+    outline: none !important;
+    border: 1.5px solid #00b4d8;
+}
+
+.inputs-container .required {
+    border: 1.5px solid rgb(255, 0, 0);
 }

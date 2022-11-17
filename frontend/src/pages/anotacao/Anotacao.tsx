@@ -19,6 +19,7 @@ const Anotacao = () => {
     service.getAll().then((x) => setData(x)).catch((err) => {
       if(err.response.status === 401){
         alert("Sessão expirada, realize um novo login");
+        localStorage.removeItem("token");
         navigate("/login");
       }
     });
