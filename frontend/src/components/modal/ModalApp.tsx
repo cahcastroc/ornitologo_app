@@ -41,6 +41,7 @@ const ModalApp = ({ anotacao }: Props) => {
   const deletar = () => {
     service.deleteAnotacao(anotacao.id);
     fecharModal();
+    window.location.reload();
   };
 
   const RenderModal = () => {

@@ -12,7 +12,7 @@ const InfoModal = ({ anotacao}: Props) => {
   const { ave, comentario, dataHorarioDoAvistamento, localizacao } = anotacao;
 
   return (
-    <>
+    <div className="info-modal">
       <h2>{ave.nomePopular}</h2>
       <h3>{ave.nomeCientifico}</h3>
       <p>{comentario}</p>
@@ -33,7 +33,7 @@ const InfoModal = ({ anotacao}: Props) => {
         <h5>Descrição do local: </h5>
         <p> {localizacao.descricao || " Sem descrição"}</p>
       </div>
-    </>
+    </div>
   );
 };
 
