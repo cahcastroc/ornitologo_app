@@ -15,10 +15,10 @@ export class AnotacaoService {
     async deleteAnotacao(id: number) {
         return axios(`http://localhost:8080/anotacoes/${id}`, {
             headers: {
-                Authorization: this.loginToken.token,
+                Authorization: this.loginToken.token
             },
             method: "DELETE",
-        }).then((response) => {           
+        }).then(() => {           
             alert(`Anotação deletada com sucesso!`);
         });
     }
@@ -30,17 +30,14 @@ export class AnotacaoService {
             },
             method: "PUT",
             data: anotacao,
-        })
-            .then((response) => {
-                alert(`Sucesso: anotação salva!`);
-                return response.data;
-            })
-            .catch((error) => {
-                alert(
-                    `Erro: anotação não editada - Descrição do erro: ${error}`
-                );
-                console.log(error);
-            });
+        }).then((response) => {
+            alert(`Sucesso: anotação salva!`);
+            return response.data;
+        }).catch((error) => {
+            alert(
+                `Erro: anotação não editada - Descrição do erro: ${error}`
+            );
+        });
     }
 
     async getAnotacao() {
