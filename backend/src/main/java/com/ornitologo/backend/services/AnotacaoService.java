@@ -56,16 +56,11 @@ public class AnotacaoService {
     }
     @Transactional
     public AnotacaoDTO update(Long id, AnotacaoDTO dto) {
-        try {
             Anotacao entity = this.repository.findById(id)
                     .orElseThrow((() -> new EntityNotFoundException(ERROR_MSG_ENTITY_NOT_FOUND)));
             BeanUtils.copyProperties(dto, entity);
             Anotacao response = this.repository.save(entity);
             return AnotacaoAdapter.toDto(response);
-        }
-        catch (EntityNotFoundException e){
-            throw new ExceptionService("Id não encontrado" + id);
-        }
     }
 
     public void delete(Long id) {

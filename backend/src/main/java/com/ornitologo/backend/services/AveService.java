@@ -29,6 +29,7 @@ public class AveService {
 
     @Transactional
     public AveDTO insereAve(AveDTO aveDTO) {
+        if(aveRepository)
 
         Ave ave = AveAdapter.toEntity(aveDTO);
         ave = aveRepository.save(ave);
