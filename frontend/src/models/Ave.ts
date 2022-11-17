@@ -8,5 +8,4 @@ export class Ave {
         this.nomeCientifico = nomeCientifico;
         this.descricao = descricao;
     }
-
 }
