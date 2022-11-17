@@ -18,9 +18,7 @@ interface Props {
 Modal.setAppElement("#root");
 
 const ModalApp = ({ anotacao }: Props) => {
-  
   const [modalAberto, setModalAberto] = useState<boolean>(false);
-
   const [edit, setEdit] = useState<boolean>(false);
 
   let service: AnotacaoService = new AnotacaoService();
@@ -70,7 +68,6 @@ const ModalApp = ({ anotacao }: Props) => {
       <IconButton onClick={abrirModal}>
         <Info />
       </IconButton>
-
       <Modal
         isOpen={modalAberto}
         onRequestClose={fecharModal}
