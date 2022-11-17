@@ -4,7 +4,7 @@ import Input from "../../components/Input/Input";
 import Botao from "../../components/botao/Botao";
 import { useState } from "react";
 import { LoginService } from "./LoginService";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IUser } from "../../interfaces/User";
 
 const Login = () => {
@@ -40,6 +40,9 @@ const Login = () => {
                     type="password"
                     onChange={setSenha}
                 />
+                <Link to="/cadastro">
+                    <a href="">primeira vez? faça seu cadastro!</a>
+                </Link>
                 <Botao text="login" enviar={onsubmithandler} parametros={[]} />
             </form>
         </main>
