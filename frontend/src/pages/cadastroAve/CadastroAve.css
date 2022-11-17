@@ -19,9 +19,10 @@ form {
     flex-direction: column;
 }
 
-form label {
+.label-input {
     font-weight: bold;
     margin-top: 5%;
+    margin-left: 10%;
     font-size: 20px;
 }
 
@@ -37,6 +38,9 @@ form div div {
 
 .descricao {
     align-self: center;
+    font-weight: bold;
+    margin-top: 5%;
+    font-size: 20px;
 }
 
 .texto-area {

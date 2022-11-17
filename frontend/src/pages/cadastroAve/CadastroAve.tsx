@@ -40,11 +40,11 @@ const CadastroAve = () => {
         <form onSubmit={handleEnviar}>
           <div>
             <div>
-              <label>Nome:</label>
+              <label className="label-input">Nome:</label>
               <Input type="text" placeholder="" onChange={setNomePopular}/>
             </div>
             <div>
-              <label>Nome Científico: </label>
+              <label className="label-input">Nome Científico: </label>
               <Input type="text" placeholder="" onChange={setNomeCientifico}/>
             </div>
           </div>
@@ -61,7 +61,6 @@ const CadastroAve = () => {
           <BotaoSalvar />
         </form>
       </div>
-      <div></div>
     </>
   );
 };
