@@ -42,23 +42,24 @@ const NovaAnotacao = () => {
             descricao: "",
         });
 
-        let body: Anotacao = new Anotacao({
-            ave: {
-                id: aveId,
-            },
-            comentario: comentario,
-            corPredominante: cor,
-            localizacao: localizacao,
-            tamanho: tamanho,
-            usuarioId: user.id,
-            id: 0,
-            dataHorarioDoAvistamento: "",
-            criadoEm: "",
-        });
-        service.create(body).then(() => {
-            navigate("/minhasanotacoes");
-        });
-    }
+    let body: Anotacao = new Anotacao({
+      ave: {
+        id: aveId
+      },
+      comentario: comentario,
+      corPredominante: cor,
+      localizacao: localizacao,
+      tamanho: tamanho,
+      usuarioId: user.id,
+      id: 0,
+      dataHorarioDoAvistamento: "",
+      criadoEm: ""
+    });
+    service.create(body).then(()=>{
+      navigate("/minhasanotacoes");
+      window.location.reload();
+    });
+  }
 
     function handleSelectChange(e: any) {
         setAveId(e.target.value);
