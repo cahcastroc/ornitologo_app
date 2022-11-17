@@ -19,9 +19,14 @@ const Catalogo = () => {
   let service: CatalogoService = new CatalogoService();
 
   React.useEffect(() => {    
-
-    service.getAves().then(function(result){
+    service.getAves().then((result) => {
       setAves(result)      
+    }).catch((err) => {
+      if(err.response.status === 401){
+        alert("Sessão expirada, realize um novo login");
+        localStorage.removeItem("token");
+        navigate("/login");
+      }
     });
   }, []);
 

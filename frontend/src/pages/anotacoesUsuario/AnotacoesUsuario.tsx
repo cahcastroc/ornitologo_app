@@ -1,10 +1,9 @@
 import "./AnotacoesUsuario.css";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import binoculo from "../../assets/binoculo.png";
 import Input from "../../components/Input/Input";
 import IAve from "../../interfaces/IAve";
 import BotaoSalvar from "../../components/botaoSalvar/BotaoSalvar";
-import { useState, useEffect } from "react";
 import { AnotacaoService } from "./AnotacaoService";
 import { Anotacao } from "../../models/Anotacao";
 import { ILocalizacao } from "../../interfaces/ILocalizacao";
