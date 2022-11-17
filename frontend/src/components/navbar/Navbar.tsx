@@ -2,10 +2,9 @@ import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
   let userName = JSON.parse(localStorage.getItem("token") || "{}").nome;
-
+  const navigate = useNavigate();
+  
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/");
@@ -14,30 +13,29 @@ const Navbar = () => {
   return (
     <nav className="nav">
       <ul>
-      
         <li>
-
-            <Link className="link-nav" to="/">
-            Home
-            </Link>
-            </li>
-          
-        
-        {userName ? (
-          <li>
+          <Link className="link-nav" to="/">
+          Home
+          </Link>
+        </li>
+        {
+          userName ? (
+            <li>
             <Link className="link-nav" to="/catalogo">
               Catálogo
             </Link>
             </li>
-          ) : null}
-        
-        {userName ? (
-          <li>
+          ) : null
+        }   
+        {
+          userName ? (
+            <li>
             <Link className="link-nav" to="/minhasanotacoes">
               Anotações
             </Link>
             </li>
-          ) : null}
+          ) : null
+        }
         <li>
           {!userName ? (
             <Link className="link-nav" to="/login">
