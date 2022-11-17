@@ -41,6 +41,7 @@ const EditModal = ({ anotacao, concluirAcao }: Props) => {
   const salvar = () => {
     service.editAnotacao(anotacao.id, anotacaoEditada);
     concluirAcao();
+    window.location.reload();
   };
 
   return (
