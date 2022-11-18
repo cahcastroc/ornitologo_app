@@ -7,6 +7,7 @@ import { LoginService } from "./LoginService";
 import { Link, useNavigate } from "react-router-dom";
 import { IUser } from "../../interfaces/User";
 import IInput from "../../interfaces/IInput";
+import { toast } from "react-toastify";
 
 const Login = () => {
     let service: LoginService = new LoginService();
@@ -16,17 +17,15 @@ const Login = () => {
 
     const validarLogin = (): boolean => {
         let valido = true;
-        let mensagem = "dados inválidos";
         if (email.value === "") {
             setEmail({ value: email.value, invalid: true });
+            toast.error("Email não pode ser vazio");
             valido = false;
         }
         if (senha.value === "") {
             setSenha({ value: senha.value, invalid: true });
+            toast.error("Senha não pode ser vazia");
             valido = false;
-        }
-        if (!valido) {
-            alert(mensagem);
         }
         return valido;
     };
@@ -41,10 +40,11 @@ const Login = () => {
         try {
             if (validarLogin()) {
                 await service.login(user);
+                toast.success("Login realizado com sucesso!");
                 navigate("/minhasanotacoes");
             }
         } catch {
-            // throw exception;
+            toast.error("Email ou senha inválidos");
         }
     }
 
