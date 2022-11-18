@@ -12,6 +12,7 @@ import com.ornitologo.backend.exceptions.ExceptionService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,7 @@ public class AnotacaoService {
     public AnotacaoService(AnotacaoRepository repository) {
         this.repository = repository;
     }
-    @Transactional(readOnly = true)
+
     public List<AnotacaoDTO> getAllByUser(String token) {
         String decodedToken = this.decodeUserToken(token);
         Map<String, String> user = UserMapConverter.convertUserToMap(decodedToken);
@@ -42,13 +43,13 @@ public class AnotacaoService {
         List<Anotacao> response = this.repository.findAllByUser(id);
         return response.stream().map(item -> AnotacaoAdapter.toDto(item)).collect(Collectors.toList());
     }
-    @Transactional(readOnly = true)
+
     public AnotacaoDTO getById(Long id) {
         Optional<Anotacao> response = this.repository.findById(id);
         return AnotacaoAdapter.toDto(
                 response.orElseThrow(() -> new EntityNotFoundException(ERROR_MSG_ENTITY_NOT_FOUND)));
     }
-    @Transactional
+
     public AnotacaoDTO create(AnotacaoDTO dto) {
         Anotacao entity = AnotacaoAdapter.toEntity(dto);
         Anotacao response = this.repository.save(entity);
@@ -66,8 +67,8 @@ public class AnotacaoService {
     public void delete(Long id) {
         try {
              this.repository.deleteById(id);
-        } catch (DataIntegrityViolationException e){
-            throw new DatabaseException("Violação de integridade");
+        } catch (EmptyResultDataAccessException e){
+            throw new DatabaseException("Id não existente");
         }
     }
 

@@ -1,6 +1,5 @@
 package com.ornitologo.backend.entities;
 
-import com.sun.istack.NotNull;
 import lombok.Builder;
 import java.time.Instant;
 import java.util.Collection;
@@ -15,10 +14,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotBlank;
 
-import lombok.Data;
-import org.hibernate.annotations.NotFound;
+
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
