@@ -7,6 +7,7 @@ import { CadastroAveService } from "../../services/CadastroAveServices";
 import { IAve } from "../../interfaces/Ave";
 import { useNavigate } from "react-router-dom";
 import IInput from "../../interfaces/IInput";
+import { toast } from "react-toastify";
 
 const CadastroAve = () => {
     const [nomePopular, setNomePopular] = React.useState<IInput>({
@@ -27,22 +28,20 @@ const CadastroAve = () => {
 
     const validarCadastro = () => {
         let valido = true;
-        let mensagem = "dados inválidos";
-
         if (nomePopular.value === "") {
             setNomePopular({ value: "", invalid: true });
+            toast.error("Nome popular não pode ser vazio");
             valido = false;
         }
         if (nomeCientifico.value === "") {
             setNomeCientifico({ value: "", invalid: true });
+            toast.error("Nome científico não pode ser vazio");
             valido = false;
         }
         if (descricao.value === "") {
             setDescricao({ value: "", invalid: true });
+            toast.error("Descrição não pode ser vazia");
             valido = false;
-        }
-        if (!valido) {
-            alert(mensagem);
         }
         return valido;
     };
@@ -57,11 +56,11 @@ const CadastroAve = () => {
         try {
             if (validarCadastro()) {
                 service.cadastrarAve(ave);
-                alert("Ave cadastrada com sucesso!");
+                toast.success("Ave cadastrada com sucesso!");
                 navigate("/catalogo");
             }
-        } catch (error) {
-            // throw error;
+        } catch (error: any) {
+            toast.error(error.message);
         }
     };
 

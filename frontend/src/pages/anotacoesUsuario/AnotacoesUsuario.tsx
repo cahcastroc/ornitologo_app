@@ -11,6 +11,7 @@ import { Localizacao } from "../../models/Localizacao";
 import { useNavigate } from "react-router-dom";
 import { CatalogoService } from "../catalogo/CatalogoService";
 import IInput from "../../interfaces/IInput";
+import { toast } from "react-toastify";
 
 const NovaAnotacao = () => {
     let user = JSON.parse(localStorage.getItem("token") || "{}");
@@ -46,18 +47,22 @@ const NovaAnotacao = () => {
         if (aveId.value === 0) {
             valid = false;
             setAveId({ value: aveId.value, invalid: true });
+            toast.error("Selecione uma ave valida");
         }
         if (comentario.value === "") {
             valid = false;
             setComentario({ value: comentario.value, invalid: true });
+            toast.error("Comentário não pode ser vazio");
         }
         if (cor.value === "") {
             valid = false;
             setCor({ value: cor.value, invalid: true });
+            toast.error("Cor não pode ser vazia");
         }
         if (tamanho.value === "") {
             valid = false;
             setTamanho({ value: tamanho.value, invalid: true });
+            toast.error("Tamanho não pode ser vazio");
         }
         return valid;
     };
@@ -87,11 +92,12 @@ const NovaAnotacao = () => {
             service
                 .create(body)
                 .then(() => {
+                    toast.success("Anotação criada com sucesso");
                     navigate("/minhasanotacoes");
                     window.location.reload();
                 })
-                .catch((err) => {
-                    console.log(err);
+                .catch((err: any) => {
+                    toast.error(err.message);
                 });
         }
     }

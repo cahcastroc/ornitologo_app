@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../../interfaces/User";
 import IInput from "../../interfaces/IInput";
+import { toast } from "react-toastify";
 
 const Cadastro = () => {
     const navigate = useNavigate();
@@ -31,18 +32,20 @@ const Cadastro = () => {
 
     const validarCadastro = (): boolean => {
         let valido = true;
-        let mensagem = "dados inválidos";
 
         if (nome.value === "") {
             setNome({ value: nome.value, invalid: true });
+            toast.error("nome não pode ser vazio");
             valido = false;
         }
         if (email.value === "") {
             setEmail({ value: email.value, invalid: true });
+            toast.error("email não pode ser vazio");
             valido = false;
         }
         if (senha.value === "") {
             setSenha({ value: senha.value, invalid: true });
+            toast.error("senha não pode ser vazia");
             valido = false;
         }
         if (confirmarSenha.value === "") {
@@ -50,6 +53,7 @@ const Cadastro = () => {
                 value: confirmarSenha.value,
                 invalid: true,
             });
+            toast.error("confirmação de senha não pode ser vazia");
             valido = false;
         }
         if (senha.value !== confirmarSenha.value) {
@@ -58,11 +62,8 @@ const Cadastro = () => {
                 value: confirmarSenha.value,
                 invalid: true,
             });
+            toast.error("senhas não conferem");
             valido = false;
-            mensagem = "As senhas não conferem";
-        }
-        if (!valido) {
-            alert(mensagem);
         }
         return valido;
     };
@@ -78,11 +79,11 @@ const Cadastro = () => {
         try {
             if (validarCadastro()) {
                 await service.postUser(user);
-                alert("Cadastro realizado com sucesso");
+                toast.success("Cadastro realizado com sucesso");
                 navigate("/login");
             }
-        } catch {
-            // throw exception;
+        } catch (err: any) {
+            toast.error(err.message);
         }
     }
 
