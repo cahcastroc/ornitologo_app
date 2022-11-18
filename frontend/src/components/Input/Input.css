@@ -20,6 +20,14 @@
     font-family: "Poppins", sans-serif;
 }
 
+.caixa-texto:focus {
+    border: 1.5px solid #00b4d8;
+}
+
+.required {
+    border: 1.5px solid rgb(255, 0, 0);
+}
+
 .input-text img {
     width: 18px;
     cursor: pointer;
