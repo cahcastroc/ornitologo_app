@@ -12,4 +12,3 @@ INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Em
 INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Calopsita', 'Nymphicus hollandicus', 'Família Cacatuidae',NOW());
 INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Cacatua', 'Cacatuidae', 'Família Cacatuidae',NOW());
 INSERT INTO ave (nome_Popular, nome_Cientifico, descricao,criado_em) VALUES ('Cacique', 'Icterus galbula', 'Família Icteridae',NOW());
-

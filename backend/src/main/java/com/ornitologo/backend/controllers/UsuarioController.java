@@ -38,7 +38,7 @@ public class UsuarioController {
         Authentication authentication = service.login(dto);
         Usuario usuario = (Usuario) authentication.getPrincipal();
         return ResponseEntity.ok()
-                .body(new LoginDTO(tokenService.gerarToken(authentication), usuario.getNome()));
+                .body(new LoginDTO(tokenService.gerarToken(authentication), usuario.getNome(), usuario.getId()));
     }
 
 }

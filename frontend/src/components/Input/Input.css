@@ -2,10 +2,12 @@
 
 .input-text {
     display: flex;
-    margin: 0 1%;
     justify-content: flex-start;
-    margin-left: 10%;
 }
+
+::-ms-reveal {
+    display: none;
+  }
 
 .caixa-texto {
     margin: 1% 0;
@@ -16,6 +18,14 @@
     border-radius: 5px;
     font-size: 1rem;
     font-family: "Poppins", sans-serif;
+}
+
+.caixa-texto:focus {
+    border: 1.5px solid #00b4d8;
+}
+
+.required {
+    border: 1.5px solid rgb(255, 0, 0);
 }
 
 .input-text img {

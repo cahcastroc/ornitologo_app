@@ -5,7 +5,7 @@ import "./Card.css";
 
 interface Props {
   anotacao?: IAnotacao;
-  ave?: IAve;
+  ave?: IAve;  
 }
 
 interface CardProps {
@@ -25,8 +25,7 @@ const retornoData = (props: Props): CardProps => {
   };
   return data;
 };
-
-const Card = (props: Props) => {
+export const Card = (props: Props) => {
   const { nome, nomeCientifico, descricao, data } = retornoData(props);
 
   return (

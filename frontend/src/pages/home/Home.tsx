@@ -4,15 +4,6 @@ import imgHome from "../../assets/home.png";
 import imgAspasBaixo from "../../assets/aspasbaixo.png";
 import imgAspas from "../../assets/aspas.png";
 import Botao from "../../components/botao/Botao";
-import ModalApp from "../../components/modal/ModalApp";
-import Anotacao from "../../interfaces/IAnotacao";
-import React from "react";
-import Ave from "../../interfaces/IAve";
-import Card from "../../components/card/Card";
-import { AnotacaoService } from "../anotacoesUsuario/AnotacaoService";
-import IAnotacao from "../../interfaces/IAnotacao";
-import { IUser } from "../../interfaces/User";
-import axios from "axios";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -20,9 +11,9 @@ const Home = () => {
   return (
     <div className="home">
       <header className="header-home">
-        <div>
+        <div className="header-titulo">
           <h1>
-            Somos o<span>Ornitólogo App</span>
+            Somos o<span> Ornitólogo App</span>
           </h1>
           <h2>Registre seus olhares de Ornitólogo</h2>
           <Botao
@@ -62,23 +53,23 @@ const Home = () => {
           </a>
           <div className="depoimento">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Assim como os ornitólogos, ampliamos os nossos olhares, coletamos
+              informações, realizamos um estudo abrangente e disseminamos
+              conhecimentos uns aos outros nesse projeto. O Ornitólogo App foi
+              desenvolvido como exercício prático no programa Desenvolve Tech II
+              para aplicação das técnicas adquiridas através da imersão
+              FullStack ministrada pelo Prof. Dr. Michael Móra (PUC/RS).
             </p>
           </div>
           <img src={imgAspas} className="aspas-cima" alt="imagem aspas"></img>
-
           <a
             className="catalogo-a"
             target="_blank"
             href="https://www.pucrs.br/mct/wp-content/uploads/sites/223/2020/04/GuiaAves.pdf"
             rel="noreferrer"
           >
-            Ornitológo, conheça o nosso catálogo de referência
+            Conheça o nosso catálogo de referência
           </a>
-
           <p className="catalogo-p">
             Nosso guia de referência é uma publicação eletrônica pertecente à
             Rede de Pesquisa em Biodiversidade dos Campos Sulinos e realizada

@@ -1,9 +1,17 @@
 import axios from "axios";
-import React from "react";
 import IAnotacao from "../../interfaces/IAnotacao";
+import { toast } from "react-toastify";
 
 export class AnotacaoService {
-    loginToken = JSON.parse(localStorage.getItem("token") || "{}");
+    private loginToken = JSON.parse(localStorage.getItem("token") || "{}");
+
+    async create(anotacao: IAnotacao) {
+        return axios.post("http://localhost:8080/anotacoes", anotacao, {
+            headers: {
+                Authorization: this.loginToken.token,
+            },
+        });
+    }
 
     async deleteAnotacao(id: number) {
         return axios(`http://localhost:8080/anotacoes/${id}`, {
@@ -12,8 +20,7 @@ export class AnotacaoService {
             },
             method: "DELETE",
         }).then((response) => {
-            console.log(response.status);
-            alert(`aNOTAÇÃO ID: ${id} deletada`);
+            toast.success("Anotação deletada com sucesso!");
         });
     }
 
@@ -26,14 +33,11 @@ export class AnotacaoService {
             data: anotacao,
         })
             .then((response) => {
-                alert(`Sucesso: anotação salva!`);
+                toast.success("Anotação salva com sucesso!");
                 return response.data;
             })
-            .catch((error) => {
-                alert(
-                    `Erro: anotação não editada - Descrição do erro: ${error}`
-                );
-                console.log(error);
+            .catch((error: any) => {
+                toast.error(error.message);
             });
     }
 
@@ -44,7 +48,6 @@ export class AnotacaoService {
             },
             method: "GET",
         }).then((response) => {
-            console.log(response.status);
             return response.data;
         });
     }
