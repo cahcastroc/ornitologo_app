@@ -28,7 +28,7 @@ const Catalogo = () => {
         navigate("/login");
       }
     });
-  }, []);
+  }, [aves.length]);
 
 
 
