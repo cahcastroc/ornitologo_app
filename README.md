@@ -50,6 +50,17 @@
 Repositório : Github, será utilizado um repositório geral separado em back e front.
 Backlog: Integrado ao Github.
 
+# 🛠️ Projeto da aplicação
+
+### Para o projeto foi utilizada a ferramenta figma, lá foram esboçadas as classes com suas relações 
+### e as telas que seriam construidas no frontend.
+O Figma pode ser acessado clicando [aqui](https://www.figma.com/file/YNPndiWkwoffHkgrN7AEZK/Ornitologo-app?node-id=0%3A1&t=wm2NKfJsz6NHpXsG-0)
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
 
 
 
